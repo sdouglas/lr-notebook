@@ -2,9 +2,12 @@ language: python
 python: 2.7
 cache:
   directories:
-    - $HOME/.cache/pip
-    - $HOME/.cache/lektor/builds
+  - "$HOME/.cache/pip"
+  - "$HOME/.cache/lektor/builds"
 install:
-  - "pip install -U pip"
-  - "pip install git+https://github.com/lektor/lektor#egg=Lektor"
-script: "lektor build && lektor deploy ghpages"
+- pip install -U pip
+- pip install git+https://github.com/lektor/lektor#egg=Lektor
+script: lektor build && lektor deploy ghpages
+notifications:
+  slack:
+    secure: olkc1QqPh0FUmI4YQAMbaCB784fvePC19DXTKBs5Yau94DG0Rf2w1IxbSLfgDv7YJ78Uzc4SAgHIyhyWMu3geRmpx9q6UeciYmOLPkr1HAK6T+Cvndmis1ORuYiYbadn5lGu/KZXKFGnbbFlsyO6UOtewlSfQsEbjD0tmQqYf+S8Iy5qzlNAqmzkRY07hFjrK/UWLnTc76DwvCg22qHRRTvsxBNOmN8yrbebltf+aMo6VlNqSCg76VihhFpqy+DKNduNtQ33rEXGLwHHScFlyFsT7V2Y6X52eHx/5FtQpIgLz/G7auL3jeRU9EyMDZ8Ki5oxUxIofTiYB2TgXmnjsArRzTam5B1lrL5YZSapF1K8jMhZI41zXHFS2xMjmb6AzInJRTEbkLHQ/9ArfMkwHvcNuTGj5Mi4XktohVyDXdQTWokecHkVryAKyEQzeiuGnnRqoRuEr2feNtIopUN6XWin8SYPD5uZOavinqqm7tn5ZJaTtcfIw5genh8qW6ylCIsaEU2uCR5dJNTEdMxadbAcmIVcf0sPpW+NcKkx5w9wbiU3y2w/s/1v4BuilIIJCSlE1dp6O75ijklkI2zFZIzZvZ9ijlP9Tk0CpKBceZEE0N9E0ei8w8ljgsxPYdzih6Z7+EPPlJgrzYV8MfpZbw8JgU3EHOMVxvSDBDJ9m6U=
