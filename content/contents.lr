@@ -1,15 +1,38 @@
-title: Welcome to lr-notebook!
+title: Welcome to Shawn's lr-notebook!
 ---
 current_year: 2016
 ---
-current_month: 02
+current_month: 03
 ---
 body:
 
-# To-do <i class="fa fa-square-o"></i>
+<div class="row">
+  <div class="three columns">
+    <h5 class="blue pull-right">What is this?</h5>
+  </div>
+  <div class="one columns"></div>
+  <div class="seven columns gray">
+This is my personal lab notebook. I'll be documenting the development of lr-notebook here, and hopefully many other projects in the future.
+  </div>
+</div>
 
-- item 2
-- item 3
+<hr style="margin-top:1rem;">
 
-# Done <i class="lightblue fa fa-check-square-o"></i>
-- <i class="lightblue fa fa-check-square"></i> item 1
+<div class="row">
+  <div class="three columns">
+    <h5 class="blue pull-right">How was this set up?</h5>
+  </div>
+  <div class="one columns"></div>
+  <div class="seven columns gray">
+    <ol>
+      <li>Fork <a href="https://github.com/douglaslab/lr-notebook">lr-notebook</a>.</li>
+      <li>Personalize settings &amp; content on my <a href="https://github.com/sdouglas/lr-notebook">sdouglas/lr-notebook</a> fork:
+        <ul>
+          <li>Edit <code>nb.lektorproject</code> file to set name=sdouglas</li>
+          <li>Edit this page and <a href="/about">about</a> page</li>
+          <li>Delete or replace example log entries and folders</li>
+        </ul>
+      <li>Set up Travis-CI (<a target="_blank" href="https://www.getlektor.com/docs/deployment/travisci/">instructions</a>)</li>
+    </ol>
+  </div>
+</div>

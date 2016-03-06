@@ -2,7 +2,7 @@ title: About this notebook
 ---
 pub_date: 2016-03-03
 ---
-author: MyName
+author: sdouglas
 ---
 body:
 
@@ -12,9 +12,9 @@ body:
   </div>
   <div class="one columns"></div>
   <div class="seven columns gray">
-    Name <br>
-    Affiliation<br>
-    Etc.<br>
+    Shawn M. Douglas (<a href="bionano.ucsf.edu">lab</a>)<br>
+    <a target="_blank" href="http://cmp.ucsf.edu/">Cellular &amp; Molecular Pharmacology</a><br>
+    University of California, San Francisco<br>
   </div>
 </div>
 
