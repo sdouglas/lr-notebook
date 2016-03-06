@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sdouglas/lr-notebook.svg?branch=master)](https://travis-ci.org/sdouglas/lr-notebook)
+
 # lr-notebook
 
 `lr-notebook` is a project notebook meant to facilitate organization & collaboration in research.
