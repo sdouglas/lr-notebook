@@ -1,8 +1,4 @@
-title: Welcome to Shawn's lr-notebook!
----
-current_year: 2016
----
-current_month: 03
+description: Welcome page instructions
 ---
 body:
 
@@ -42,7 +38,8 @@ body:
   </div>
   <div class="two columns">
     <a href="./log/2016/03/06/lr-notebook/lektor.png">
-      <img class="autosize" src="./log/2016/03/06/lr-notebook/lektor.png">
+      <!-- <img class="autosize" src="./log/2016/03/06/lr-notebook/lektor.png"> -->
+      <img class="autosize" src="lektor.png">
     </a>
   </div>
 </div>
@@ -64,7 +61,8 @@ body:
   </div>
   <div class="two columns">
     <a href="./log/2016/03/06/lr-notebook/create-folder.png">
-      <img class="autosize" src="./log/2016/03/06/lr-notebook/create-folder.png">
+      <!-- <img class="autosize" src="./log/2016/03/06/lr-notebook/create-folder.png"> -->
+      <img class="autosize" src="create-folder.png">
     </a>
   </div>
 </div>
@@ -84,8 +82,10 @@ body:
     </li>
   </div>
   <div class="two columns"><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day1edit.png"><br><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day2.png"><br>
+  <!-- <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day1edit.png"><br><br> -->
+  <img style="height:2rem;" src="day1edit.png"><br><br>
+  <!-- <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day2.png"><br> -->
+  <img style="height:2rem;" src="day2.png"><br>
   </div>
 </div>
 

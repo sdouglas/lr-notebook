@@ -6,24 +6,31 @@ body:
 
 I've used the following as research notebooks:
 
-- traditional pen & paper
-  - pros: nice to sketch things on real paper
-  - cons: writing sufficient detail is slow & tedious, resulting in daisy-chained entries "did same as yesterday (see pg 23), except changed x"
-- per-group mediawiki instance, per-user accounts
-  - pros: everyone's work in one place
-  - cons: hard to enforce organization, lacks portability, scales poorly over time
-- per-user mediawiki instance
-  - pros: more similar to individual paper notebooks, more portable
-  - cons: poor group-wide indexing, search. collaboration is hard. need to create [wikifarm](http://www.shawndouglas.com/wikifarm.html).
-- per-project git repo, with per-user branches
-  - pros: benefits of git version control: diffs, lots of git(hub) integrations available
-  - cons: any group-wide indexing requires burdensome merging
+1. traditional pen & paper notebook (July 2005–Aug 2005)
+  - **pros**: nice to sketch things on real paper.
+  - **cons**: writing sufficient detail is slow & tedious, resulting in daisy-chained entries "did same as yesterday (see pg 23), except changed x". single irreplaceable copy is hard to share.
+2. group-wide mediawiki instance: 1 user account per lab member (Aug 2005)
+  - **pros**: everyone's work in one place
+  - **cons**: hard to enforce organization, lacks portability, scales poorly over time
+3. institute-wide [wikifarm](http://www.shawndouglas.com/wikifarm.html): unlimited mediawiki instances per lab member (Mar 2006–Jul 2012)
+  - **pros**: more similar to individual paper notebooks, more portable.
+  - **cons**: poor group-wide indexing, search. collaboration is still hard.
+4. per-project git repo of flat files + markdown templates, with per-user branches (Sept 2012–Jan 2015)
+  - **pros**: benefits of git version control: diffs, lots of git(hub) integrations available.
+  - **cons**: basically a step backwards in terms of default readability. similar cons to 2 & 3. any group-wide indexing requires constant burdensome merging.
 
-## Next stage in notebook evolution
+None of these options was ideal, but they have all been serviceable as long as I only worked on 1 or 2 projects at a time. The fundamental issue with all of them is that while we work chronologically.
 
-- per-user cloud folder, auto-built with [lektor](https://www.getlektor.com/) (static+cms+framework), plus group-wide indexing & search
-  - pros: combined benefits of per-user notebooks with automatic per-project indexing, and cloud-based storage & version control
-  - cons: requires some work to set up
+
+> *Any individual creation has its ideosyncracies, and occasionally its creator has to justify these. Perhaps Python's most controversial feature is its use of indentation for statement grouping, which derives directly from ABC. It is one of the language's features that is dearest to my heart. It makes Python code more readable in two ways. First, the use of indentation reduces visual clutter and makes programs shorter, thus reducing the attention span needed to take in a basic unit of code. Second, it allows the programmer less freedom in formatting, thereby enabling a more uniform style, which makes it easier to read someone else's code.*
+
+## Next iteration: lr-notebook
+
+<ol start="5">
+<li> per-user cloud folder, auto-built with Lektor (static+cms+framework), plus group-wide indexing & search</li>
+  - **pros**: combined benefits of per-user notebooks with automatic per-project indexing, and cloud-based storage & version control
+  - **cons**: doesn't exist... yet :)
+</ol>
 
 ## So far the following is working:
 
