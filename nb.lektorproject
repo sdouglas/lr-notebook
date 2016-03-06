@@ -1,2 +1,5 @@
 [project]
 name = sdouglas
+
+[servers.ghpages]
+target = ghpages+https://sdouglas/lr-notebook
