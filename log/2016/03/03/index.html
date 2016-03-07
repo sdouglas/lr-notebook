@@ -408,7 +408,7 @@ function createFolder(fname) {
 <ol>
 <li>traditional pen &amp; paper notebook (July 2005–Aug 2005)<ul>
 <li><strong>pros</strong>: nice to sketch things on real paper.</li>
-<li><strong>cons</strong>: writing sufficient detail is slow &amp; tedious, resulting in daisy-chained entries "did same as yesterday (see pg 23), except changed x". single irreplaceable copy is hard to share.</li>
+<li><strong>cons</strong>: writing sufficient detail is slow &amp; tedious, resulting in daisy-chained entries "did same as yesterday (see pg 23), except changed x". single irreplaceable copy is hard to share, impossible to search.</li>
 </ul>
 </li>
 <li>group-wide mediawiki instance: 1 user account per lab member (Aug 2005)<ul>
@@ -427,14 +427,13 @@ function createFolder(fname) {
 </ul>
 </li>
 </ol>
-<p>None of these options was ideal, but they have all been serviceable as long as I only worked on 1 or 2 projects at a time. The fundamental issue with all of them is that while we work chronologically.</p>
-<blockquote><p><em>Any individual creation has its ideosyncracies, and occasionally its creator has to justify these. Perhaps Python's most controversial feature is its use of indentation for statement grouping, which derives directly from ABC. It is one of the language's features that is dearest to my heart. It makes Python code more readable in two ways. First, the use of indentation reduces visual clutter and makes programs shorter, thus reducing the attention span needed to take in a basic unit of code. Second, it allows the programmer less freedom in formatting, thereby enabling a more uniform style, which makes it easier to read someone else's code.</em></p>
-</blockquote>
 <h2>Next iteration: lr-notebook</h2>
 <ol start="5">
-<li> per-user cloud folder, auto-built with Lektor (static+cms+framework), plus group-wide indexing & search</li>
-  - **pros**: combined benefits of per-user notebooks with automatic per-project indexing, and cloud-based storage & version control
-  - **cons**: doesn't exist... yet :)
+<li>per-user Lektor project, synced to cloud storage.</li>
+  <ul>
+  <li><strong>pros</strong>: Combined benefits of per-user notebooks with automatic per-project indexing, and cloud-based storage & version control. Editing can be done via native apps, or via browser using Lektor's cms-like admin interface. Lektor server provides API access to filesystem (!) so we can now build html views of all our content, and have in-page buttons that create/edit/delete files, etc.</li>
+  <li><strong>cons</strong>: TBD</li>
+  </ul>
 </ol><h2>So far the following is working:</h2>
 <table>
 <thead><tr>
@@ -453,13 +452,11 @@ function createFolder(fname) {
 </table>
 <h2>Not working yet:</h2>
 <ul>
-<li>stable clean design of html/css<ul>
-<li>there's still a lot of random development stuff lying around, like thumbnails of every image at the bottom of every page</li>
-</ul>
-</li>
+<li>stable clean design of html/css</li>
+<li>documentation- lots of random development artifacts lying around, like thumbnails of every image at the bottom of every page</li>
 <li>tags</li>
 <li>compact and expanded views of various indexes</li>
-<li>documentation</li>
+<li>relative img links in project subfolders are broken when rendered by a parent day.</li>
 </ul>
 
     </div>
@@ -602,7 +599,7 @@ function createFolder(fname) {
   </div>
 
   <footer>
-    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gears"></i></a> in SF.
 
   </footer>
 </body>
