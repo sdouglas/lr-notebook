@@ -80,12 +80,15 @@ body:
         <li>Click on the day you want to add.</li>
         <li>Edit contents.lr file to set <code>_hidden: no</code></li>
         <li>Refresh the month page, click the newly active link</li>
+        <li>Add a folder via footer link or admin interface.</li>
+        <li>Populate the <code>description</code> and <code>body</code> fields.</li>
       </ol>
     </li>
   </div>
   <div class="two columns"><br>
   <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day1edit.png"><br><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day2.png"><br>
+  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day2.png"><br><br>
+  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/add-folder.png">
   </div>
 </div>
 
