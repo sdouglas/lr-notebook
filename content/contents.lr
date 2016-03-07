@@ -78,7 +78,7 @@ body:
       <ol>
         <li>Browse to desired log month.</li>
         <li>Click on the day you want to add.</li>
-        <li>Edit contents.lr file to set <code>_hidden: no</code></li>
+        <li>Edit contents.lr file to set <code>_hidden: no</code> and save.</li>
         <li>Refresh the month page, click the newly active link</li>
         <li>Add a folder via footer link or admin interface.</li>
         <li>Populate the <code>description</code> and <code>body</code> fields.</li>
