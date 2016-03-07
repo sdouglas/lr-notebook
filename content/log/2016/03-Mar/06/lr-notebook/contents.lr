@@ -4,7 +4,7 @@ body:
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">What is this?</h5>
+    <h5 class="blue u-pull-right">What is this?</h5>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">This is my personal lab notebook.</div>
@@ -17,7 +17,7 @@ body:
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Set up your own notebook</h5>
+    <h5 class="blue u-pull-right">Set up your own notebook</h5>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
@@ -48,7 +48,7 @@ body:
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Create a folder</h5>
+    <h5 class="blue u-pull-right">Create a folder</h5>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
@@ -69,7 +69,7 @@ body:
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Create a log entry</h5>
+    <h5 class="blue aside">Create a log entry</h5>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
@@ -97,7 +97,7 @@ body:
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Share</h5>
+    <h5 class="blue u-pull-right">Share</h5>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
