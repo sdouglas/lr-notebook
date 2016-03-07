@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="./static/favicon.ico?h=e38ef9dd">
 <link rel="stylesheet" href="./static/normalize.css?h=ece571f3">
-<link rel="stylesheet" href="./static/skeleton.css?h=36626ec6">
+<link rel="stylesheet" href="./static/skeleton.css?h=e1126a5f">
 <link rel="stylesheet" href="./static/style.css?h=889665ec">
 <link rel="stylesheet" href="./static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
 <link rel="stylesheet" href="./static/fonts/fa/css/font-awesome.min.css?h=12d68610">
@@ -40,13 +40,13 @@
   <input type="image" src=./static/images/link.png>
 </form>
 
-<h3>Welcome to Shawn&#39;s lr-notebook!</h3>
+<h2>Welcome to Shawn&#39;s lr-notebook!</h2>
 
 <br>
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">What is this?</h5>
+    <aside><h4 class="blue">What is this?</h4></aside>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">This is my personal lab notebook.</div>
@@ -57,24 +57,21 @@
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Set up your own notebook</h5>
+    <aside><h4 class="blue">Set up your own notebook</h4>
+    <br><small class="red">Note this won't work until Lektor app v2.0 is released.<br>Until then, use dev version per the lr-notebook <a href="https://github.com/douglaslab/lr-notebook">readme</a>.</small></aside>
   </div>
   <div class="one columns"></div>
-  <div class="five columns gray">
-    Note this <span class="red">won't work</span> until Lektor app v2.0 is released.<br>Until then, use dev version per the lr-notebook <a href="https://github.com/douglaslab/lr-notebook">readme</a>.
-    <hr>
-</div><div class="row">
-  <div class="four columns">&nbsp;</div>
   <div class="five columns gray">
     <div class="lightgray">
     <ol>
       <li>Download the lr-notebook <a href="https://github.com/douglaslab/lr-notebook/archive/master.zip">zip </a> or fork the <a href="https://github.com/douglaslab/lr-notebook">repo</a>.</li>
       <li>Get the <a href="https://www.getlektor.com/downloads/">Lektor app</a>.</li>
-      <li>Run Lektor.app, use the <i class="fa fa-folder-open-o"></i> button to open the file nb.lektorproject in your lr-notebook folder, then <i class="fa fa-eye"></i> to view. That's it!</li>
+      <li>Run Lektor.app, use the <i class="fa fa-folder-open-o"></i> button to open the file nb.lektorproject in your lr-notebook folder, then <i class="fa fa-eye"></i> button to view, and the &#x270e; button to edit. That's it!</li>
     </ol>
     </div>
   </div>
   <div class="two columns">
+    <br>
     <a href="./log/2016/03/06/lr-notebook/lektor.png">
       <img class="autosize" src="./log/2016/03/06/lr-notebook/lektor.png">
     </a>
@@ -83,13 +80,13 @@
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Create a folder</h5>
+    <aside><h4 class="blue">Create a project <span class="orange">folder</span></h4></aside>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
       <ol>
         <li>Browse to the Folders page.</li>
-        <li>Click top-right &#x270e; button to open admin interface.</li>
+        <li>Click top-right corner <span style="color:#c3666a;">&#x270e;</span> button to open admin interface.</li>
         <li>Click "Add Page" button under "Page Actions", choose a Name, and save via "Add Child Page" button.</li>
       </ol>
     </li>
@@ -101,7 +98,7 @@
   </div>
 </div><div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Create a log entry</h5>
+    <aside><h4 class="blue">Create a project entry</h4></aside>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
@@ -110,7 +107,7 @@
         <li>Click on the day you want to add.</li>
         <li>Edit contents.lr file to set <code>_hidden: no</code> and save.</li>
         <li>Refresh the month page, click the newly active link</li>
-        <li>Add a folder via footer link or admin interface.</li>
+        <li>Create a <span class="orange">folder</span> via footer link or admin interface.</li>
         <li>Populate the <code>description</code> and <code>body</code> fields.</li>
       </ol>
     </li>
@@ -124,7 +121,7 @@
 
 <div class="row">
   <div class="four columns">
-    <h5 class="blue pull-right">Share</h5>
+    <aside><h4 class="blue">Share</h4></aside>
   </div>
   <div class="one columns"></div>
   <div class="five columns gray">
@@ -144,7 +141,7 @@
   </div>
 
   <footer>
-    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-sliders"></i></a> in SF.
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-cubes"></i></a> in SF.
 
   </footer>
 </body>
