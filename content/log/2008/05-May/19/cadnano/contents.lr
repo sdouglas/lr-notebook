@@ -1,0 +1,16 @@
+description: auto-staple
+---
+body:
+
+I started working on staple generation last night, since it's a primary bottleneck to getting an order out.
+(I just committed my recent revisions and merged with the trunk.). You can also double click adjacent crossovers to join them.
+
+A lot of little updates were necessary just to get staple drawing to work since pretty much everything is scaffold-specific (with some placeholders for staples where it was convenient).  It may still be a little buggy, especially with y-positioning of certain lines/labels.
+
+Since I will be working on staples straight through until they are usable, and it's hard to work on the same feature simultaneously, it probably makes sense for Adam to address additional features that we will need downstream of staple generation/editing.
+
+I'm thinking that high-priority, non-overlapping tasks right now are sequence mapping to scaffold & staples, and save/load functionality (either by porting to AIR or getting Au's code to work with the server).
+
+We need a good way to automatically color these dudes as in SVG.py. Too much red.
+
+Also I'm thinking that I should restore the visibility buttons for scaffold and staples for the path panel.

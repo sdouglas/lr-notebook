@@ -1,0 +1,20 @@
+description: flash, pv3d, blender, etc.
+---
+body:
+
+I spent a lot of time this weekend trying to figure out dynamic lighting & shadowing but have now decided that it is too much trouble and we won't ever get the performance we need.  You can see how clicking many cylinders slows the 3D rendering to a crawl already with the code I have so far.  Moreover, Papervision3D doesn't yet support lighting.  Away3D is a fork of PV3D which does support lighting, but it is poorly documented and doesn't really look that great anyway.
+Look through here to get an idea of what's possible: http://away.kiev.ua/away3d/techdemos/engine/
+
+Supposedly in the coming months, PV3D will merge Away3D's advanced features... maybe eventually we will make use of some of them.
+
+My current thinking is that we need to learn how to use blender to export a Collada (DAE) file containing a cylinder with a baked UV bitmap.  Baking is a trick you can do to map a high-res rendering onto a low-res texture to give the illusion of a greater 3D appearance than
+you actually have. http://wiki.blender.org/index.php/Manual/Render_Bake
+
+This is how the cones are able to look so good in the bezier tweening demo.
+
+Get the Python 2.5 version of the OSX Blender from the Germany Link http://www.blender.org/download/get-blender/
+
+Blender is very difficult to use, apparently. So if you want to work on this, you'll have to dig into the online documentation.  We want to do something pretty simple, so hopefully it won't be too hard.  We just want to export some cylinders (radius: 2, length: 7.14) that have some lighting and shadowing, maybe in 4 or 5 different colors, in Collada 1.4 format, such that we can also include the baked uv image bitmap and then get it to show up in a PV3D scene, similar to the
+demos here: http://www.rockonflash.com/blog/
+
+I'm still not sure how we will handle different length cylinders using this strategy.

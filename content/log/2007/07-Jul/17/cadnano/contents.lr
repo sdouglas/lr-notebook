@@ -1,0 +1,7 @@
+body:
+
+- copied and modified source files only
+- performed svn import on new directory
+- svn checkout to get a working copy
+---
+description: renamed nanocad to cadnano

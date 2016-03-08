@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/sdouglas/lr-notebook.svg?branch=master)](https://travis-ci.org/sdouglas/lr-notebook)
-
 # lr-notebook
 
-[![Join the chat at https://gitter.im/douglaslab/lr-notebook](https://badges.gitter.im/douglaslab/lr-notebook.svg)](https://gitter.im/douglaslab/lr-notebook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/sdouglas/lr-notebook.svg?branch=master)](https://travis-ci.org/sdouglas/lr-notebook) [![Join the chat at https://gitter.im/douglaslab/lr-notebook](https://badges.gitter.im/douglaslab/lr-notebook.svg)](https://gitter.im/douglaslab/lr-notebook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-`lr-notebook` is a project notebook meant to facilitate organization & collaboration in research. It is meant to be adopted with only minimal changes to existing workflows, assuming that work is done in files and directories that are synced to cloud-based storage.
+`lr-notebook` is a project notebook meant to facilitate organization & collaboration in research. Assuming you already work in folders that are synced to cloud-based storage, it can be adopted with minimal changes.
+
+# What lr-notebook does
 
 ![What lr-notebook does](/assets/static/images/overview.png)
 
