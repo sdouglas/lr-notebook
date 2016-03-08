@@ -1,0 +1,26 @@
+description: drafting cadnano manuscript
+---
+body:
+
+
+## Title:
+
+Rapid prototyping of 3D DNA origami shapes with caDNAno.
+
+## Abstract:
+
+DNA origami is a powerful method for building nano-scale devices, but the design of novel shapes can be difficult and time-consuming. A streamlined process for creating and editing DNA origami shapes allows for greater allocation of resources toward exploring design space. Here we present caDNAno, open-source software for rapid prototyping of three-dimensional DNA origami shapes. We have used the software to discover a well-behaved design motif that should be useful in constructing increasingly complex and hierarchically-assembled structures. We have found that caDNAno significantly reduces the amount of time and effort required to design a new DNA origami structures, and hope that the community will adopt and expand upon our efforts.
+
+## Introduction:
+
+In 1982, Nadrian Seeman laid the theoretical framework for the use of DNA as a nanoscale building material (Seeman:1982). Subsequently, DNA has been used in the construction of increasingly complex shapes and lattices (Chen1991, Winfree1998, Shih2004, He2008). In 2006, Rothemund introduced DNA origami, a versatile method for constructing arbitrary 2D shapes and patterns with dimensions of 100 nm in diameter and 6 nm spatial resolution (Rothemund2006).
+
+DNA origami has since been used to make seeds for algorithmic assembly (Fujibayashi2008), label-free RNA hybridization probes (Ke2008), and liquid-crystalline alignment media for NMR structure determination of membrane proteins (Douglas2007). Toward increasing the size of DNA origami design space, we recently reported on our efforts to extend Rothemund's method to construction of 3D shapes and assemblies (Douglas et al, in press).
+
+As we implemented numerous permutations of increasingly complex DNA origami shapes, we found it useful to develop computer-aided design (CAD) software to minimize tedious or error-prone tasks. Expanding on previous work which has focused primarily on pure oligo-based DNA nanostructures (Birac2006, Nanorex), or variations on 2D origami similar to Rothemund's original designs (Anderson2008), we have developed caDNAno, an open-source software package for design of 3D DNA origami shapes in the honeycomb framework.
+
+... application to discovery of well-behaved motif ...
+
+## Results and Discussion
+
+## Conclusions

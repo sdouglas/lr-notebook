@@ -1,0 +1,6 @@
+description: staple coloring
+---
+body:
+
+- Implemented staple coloring
+- worked on porting atari.v1 structure into cadnano interface
