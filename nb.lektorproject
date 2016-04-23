@@ -1,5 +1,12 @@
 [project]
+<<<<<<< HEAD
 name = sdouglas
 
 [servers.ghpages]
 target = ghpages+https://sdouglas/lr-notebook
+=======
+name = my_name
+
+[packages]
+lektor-markdown-highlighter = 0.1
+>>>>>>> douglaslab/master
