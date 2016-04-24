@@ -1,108 +1,73 @@
+_model: page
+---
 title: Welcome to Shawn's lr-notebook!
----
-current_year: 2016
----
-current_month: 03
 ---
 body:
 
-<div class="row">
-  <div class="four columns">
-    <aside><h4 class="blue">What is this?</h4></aside>
-  </div>
-  <div class="one columns"></div>
-  <div class="five columns gray">This is my personal lab notebook.</div>
-  <div class="two columns">
-    <a target="_blank" href="https://github.com/douglaslab/lr-notebook"><i class="fa fa-sticky-note-o"></i> lr-notebook</a>
-  </div>
+## What is this?
+
+This is my personal lab notebook.
+
+<div class="right">
+  <a target="_blank" href="https://github.com/douglaslab/lr-notebook">
+  <i class="fa fa-sticky-note-o"></i> lr-notebook</a><br>
 </div>
 
-<hr style="margin-top:1rem;">
+It is built with Lektor, hence the name lr-notebook.
 
-<div class="row">
-  <div class="four columns">
-    <aside><h4 class="blue">Set up your own notebook</h4>
-    <br><small class="red">Note this won't work until Lektor app v2.0 is released.<br>Until then, use dev version per the lr-notebook <a href="https://github.com/douglaslab/lr-notebook">readme</a>.</small></aside>
-  </div>
-  <div class="one columns"></div>
-  <div class="five columns gray">
-    <div class="lightgray">
-    <ol>
-      <li>Download the lr-notebook <a href="https://github.com/douglaslab/lr-notebook/archive/master.zip">zip </a> or fork the <a href="https://github.com/douglaslab/lr-notebook">repo</a>.</li>
-      <li>Get the <a href="https://www.getlektor.com/downloads/">Lektor app</a>.</li>
-      <li>Run Lektor.app, use the <i class="fa fa-folder-open-o"></i> button to open the file nb.lektorproject in your lr-notebook folder, then <i class="fa fa-eye"></i> button to view, and the &#x270e; button to edit. That's it!</li>
-    </ol>
-    </div>
-  </div>
-  <div class="two columns">
-    <br>
-    <a href="./log/2016/03/06/lr-notebook/lektor.png">
-      <img class="autosize" src="./log/2016/03/06/lr-notebook/lektor.png">
-    </a>
-  </div>
+<div class="right">
+  [What is Lektor?](https://www.getlektor.com/docs/what/)
 </div>
 
-<hr style="margin-top:1rem;">
+## Set up your own notebook
 
-<div class="row">
-  <div class="four columns">
-    <aside><h4 class="blue">Create a project <span class="orange">folder</span></h4></aside>
-  </div>
-  <div class="one columns"></div>
-  <div class="five columns gray">
-      <ol>
-        <li>Browse to the Folders page.</li>
-        <li>Click top-right corner <span style="color:#c3666a;">&#x270e;</span> button to open admin interface.</li>
-        <li>Click "Add Page" button under "Page Actions", choose a Name, and save via "Add Child Page" button.</li>
-      </ol>
-    </li>
-  </div>
-  <div class="two columns">
-    <a href="./log/2016/03/06/lr-notebook/create-folder.png">
-      <img class="autosize" src="./log/2016/03/06/lr-notebook/create-folder.png">
-    </a>
-  </div>
+Get the lr-notebook zip. Put it in cloud storage if you wish.
+
+<div class="right">
+  <i class="fa fa-file-archive-o"></i>
+  <a href="https://github.com/douglaslab/lr-notebook/archive/master.zip">zip</a>
+  (developers: <i class="fa fa-github-alt"></i> <a href="https://github.com/douglaslab/lr-notebook">repo</a>)
 </div>
 
-<div class="row">
-  <div class="four columns">
-    <aside><h4 class="blue">Create a project entry</h4></aside>
-  </div>
-  <div class="one columns"></div>
-  <div class="five columns gray">
-      <ol>
-        <li>Browse to desired log month.</li>
-        <li>Click on the day you want to add.</li>
-        <li>Edit contents.lr file to set <code>_hidden: no</code> and save.</li>
-        <li>Refresh the month page, click the newly active link</li>
-        <li>Create a <span class="orange">folder</span> via footer link or admin interface.</li>
-        <li>Populate the <code>description</code> and <code>body</code> fields.</li>
-      </ol>
-    </li>
-  </div>
-  <div class="two columns"><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day1edit.png"><br><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/day2.png"><br><br>
-  <img style="height:2rem;" src="./log/2016/03/06/lr-notebook/add-folder.png">
-  </div>
+Download the Lektor app.
+
+<div class="right">
+  http://getlektor.com/
 </div>
 
-<hr style="margin-top:1rem;">
+Run the Lektor app, use the <i class="fa fa-folder-open-o"></i> button to open the file `nb.lektorproject` in your lr-notebook folder, then the <i class="fa fa-eye"></i> button to view it running in your browser. That's it!
 
-<div class="row">
-  <div class="four columns">
-    <aside><h4 class="blue">Share</h4></aside>
-  </div>
-  <div class="one columns"></div>
-  <div class="five columns gray">
-    If hosting your lr-notebook on github, use Travis-CI to build a static site every commit and deploy it to a gh-pages branch for free public hosting. <span class="red">This is not password protected.</span><br><br>
-        <ol>
-          <li>Read these <a target="_blank" href="https://www.getlektor.com/docs/deployment/travisci/">instructions</a>, and watch the YouTube tutorial.</li>
-          <li>Update <a target="_blank" href="https://github.com/sdouglas/lr-notebook/blob/master/nb.lektorproject">nb.lektorproject</a> with ghpages target</li>
-          <li>Set <a target="_blank" href="https://github.com/sdouglas/lr-notebook/blob/master/.travis.yml">.travis.yml</a> to install dev version of Lektor</li>
-          <li>Configure <a href="https://travis-ci.org/sdouglas/lr-notebook">travis-ci</a> with <code>LEKTOR_DEPLOY_USERNAME</code> and <code>LEKTOR_DEPLOY_PASSWORD</code>, per the <a target="_blank" href=""https://youtu.be/3pj_EyZIL5A?t=1m41s> tutorial @ 1:41</a></li>
-          <li>Optional: set up a <a href="https://slack.com/apps/A0F81FP4N-travis-ci">Slack integration</a> to notify a channel each build.</li>
-        </ol>
-      </li>
-  </div>
+<div class="right">
+  <img class="littlethumb" src="./projects/lr-notebook/2016-03-06/lektor.png">
+</div>
+
+## Create a project
+
+<div class="right">
+  <img class="littlethumb" src="./projects/lr-notebook/2016-04-23/new-project-1.png">
+  <img class="littlethumb" src="./projects/lr-notebook/2016-04-23/new-project-2.png">
+</div>
+
+1. Browse to the <span class="orange">Projects</span> page.
+2. Type the desired project name into the box, and click <span class="orange">+</span>. The page should reload with project listed.
+
+The <img src="./projects/lr-notebook/2016-04-23/link.png"> is a link to open the project folder.
+
+## Create a project entry
+
+<div class="right">
+  <img src="./projects/lr-notebook/2016-04-23/new-entry-1.png">
+  <img src="./projects/lr-notebook/2016-04-23/new-entry-2.png">
+</div>
+
+1. Browse to project page.
+2. Select a date in the date picker.
+3. Click <span class="linkblue">+</span> to create an entry for the selected date.
+
+## Share
+
+If hosting your <i class="fa fa-sticky-note-o"></i> lr-notebook on github, use Travis-CI to build a static site every commit and deploy it to a gh-pages branch for free public hosting.
+
+<div class="right">
+  Travis-CI + Lektor [instructions](https://www.getlektor.com/docs/deployment/travisci/)
 </div>

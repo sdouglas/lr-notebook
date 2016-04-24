@@ -1,0 +1,39 @@
+_model: entry
+---
+date: 2016-02-27
+---
+body:
+
+
+# Recursively display subfolders on index pages
+
+Working on this to-do item today.
+
+First, adding recursion was a simple change to the render_day_index macro in macros/log.html. per [jinja for loop docs](http://jinja.pocoo.org/docs/dev/templates/#for)
+
+`{% for child in entry.children %}` becomes:
+`{% for child in entry.children recursive %}`
+
+and then just before the end of the loop, we add `{{ loop(child.children) }}`
+
+Once subfolders were displayed, the layout was confusing so I added the &boxur; and some indentation.
+
+<a href="folders1.png"><img class="thumb" src="folders1.png"></a>
+<a href="folders2.png"><img class="thumb" src="folders2.png"></a>
+
+
+## HTML character reference
+
+https://dev.w3.org/html5/html-author/charref
+
+&boxur; `&boxur;`  &boxuR; `&boxuR;` &boxUr; `&boxUr;` &boxUR; `&boxUR;`
+
+<a href="001.png"><img class="thumb" src="001.png"></a>
+
+## Color Blending
+
+http://meyerweb.com/eric/tools/color-blend/#FF7F00:FBDCBF:2:hex
+
+<a href="colorblender.png"><img class="thumb" src="colorblender.png"></a>
+---
+description: Continued feature development & porting

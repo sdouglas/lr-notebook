@@ -1,0 +1,22 @@
+_model: entry
+---
+date: 2016-03-01
+---
+body:
+
+Worked on folder list formatting. The best way to implement a folder index would probably be to write a plugin that builds virtual paths based on the database contents for specific record paths. Instead, I built a poor man's folder index by copying the [lektor categories example](https://www.getlektor.com/docs/guides/categories/). We thus explicitly define "blessed" folder names as children of the `folders` model, make it easy to create new names, or delete unused names.
+
+<div class="right"><img src="folders.png"></div>
+
+## Deleting Unused Folders
+
+Unused folders are listed at the bottom:
+
+<div class="right"><img src="unused.png"></div>
+
+They link to the admin page:<br>
+
+<div class="right"><img src="deleteunused.png"></div>
+
+---
+description: add folder-based indexing

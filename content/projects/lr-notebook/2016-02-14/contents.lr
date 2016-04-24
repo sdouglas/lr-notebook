@@ -1,0 +1,152 @@
+_model: entry
+---
+date: 2016-02-14
+---
+description: Individual notebooks for each lab member
+---
+body:
+
+## Background
+
+Continuing to work on new lektor-based notebook system for the lab!!!!
+
+I've used the following for notebooks:
+
+- **per-group mediawiki instance, per-user accounts**
+  - pros: everyone's work in one place
+  - cons: hard to enforce organization, lacks portability, scales poorly over time
+- **per-user mediawiki instance**
+  - pros: more similar to individual paper notebooks, more portable
+  - cons: poor group-wide indexing, search. collaboration is hard.
+- **per-project git repo, with per-user branches**
+  - pros: benefits of git version control: diffs, lots of git(hub) integrations available
+  - cons: any group-wide indexing requires constent, burdensome merging
+
+Next stage in notebook evolution is:
+
+- **per-user git repo using lektor (static+cms+framework), plus group-wide indexing**
+  - pros: combined benefits of per-user notebooks with automatic per-project indexing, and git-based version control
+  - cons: tbd; requires some work to set up
+
+
+I'm currently favoring the following folder layout and repo naming convention
+
+```
+notebooks/
+  all/
+  nb-docs/
+  nb-han/
+  nb-pablo/
+  nb-parsa/
+  nb-mia/
+  nb-shawn/
+  nb-suraj/
+  nb-tural/
+```
+
+- `nb-*` is an individual git repo containing a lektor notebook
+- `all` is a customized lektor notebook (perhaps with some scripts or symlinks) that builds a master index of sibling notebooks.
+- `nb-docs` will store general lab information (currently on the wiki)
+
+
+
+## Clean up prototype lektor notebook
+
+I originally structured the root of this notebook to be a sub-folder of a git repo. But we want the notebook to move up to the top-level folder of its repo.
+
+Some of the html templates are hard-coded with my name, project name etc. Needed to go into the lektor source code to figure out what the `lektor.environment.Config object` contained. After taking a look at `environment.py`, it turns out we can access the project name variable in a template using `{{config.PROJECT.name}}` so I added that to the layout.html template.
+
+
+## Ongoing CSS Tweaks
+
+Still not happy with all the spacing and formatting of skeleton.css. First I wanted to get header sizes to look more reasonable for log-entry pages. Here are current skeleton.css values:
+
+```css
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Anonymous Pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 2.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 1.8rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 1.5rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 1.2rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.1rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.0rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+```
+
+Here are some updated values.
+
+```css
+h1 { font-size: 2.8rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 2.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 2.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 1.6rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.2rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.0rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 4.0rem; }
+  h2 { font-size: 3.6rem; }
+  h3 { font-size: 3.3rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.5rem; }
+  h6 { font-size: 1.5rem; }
+}
+```
+
+I also updated `code` with the following:
+
+```
+color: #cc3366;
+display: inline-block;
+```
+
+inline-block means that the width of the fenced code blocks does not extend all the way to the edge of the div.
+
+
+## Sublime Markdown Syntax Highlighting
+
+These look promising:
+- https://github.com/jonschlinkert/sublime-markdown-extended
+- https://packagecontrol.io/packages/Monokai%20Extended
+
+I'm still happy with Monokai-Midnight for default editing
+`"color_scheme": "Packages/Colorsublime - Themes/Monokai-Midnight.tmTheme",`
+
+For markdown I've been using Hammer:
+
+```json
+{
+  "color_scheme": "Packages/Colorsublime - Themes/Hammer.tmTheme",
+  "dictionary": "Packages/Language - English/en_US.dic",
+  "extensions":
+  [
+    "markdown",
+    "md",
+    "lr",
+    "markdown"
+  ],
+  "font_size": 20,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "spell_check": true,
+  "trim_trailing_white_space_on_save": true
+}
+```
+
+I would like to eventually get code-fence highlighting to work with sublime-markdown-extended, but with something like Hammer instead of Monokai for outside code blocks.
+

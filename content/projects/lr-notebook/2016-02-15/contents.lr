@@ -1,0 +1,45 @@
+_model: entry
+---
+date: 2016-02-15
+---
+description: migration files to nb-jason notebook
+---
+body:
+
+## File migration
+
+Want to take existing files and copy them into new notebooks with as little manual intervention as possible.
+
+Wrote on `import_files.py` to copy source files into directory tree based on creation time. Ran the script on Google Drive `models` folder that contains most of the source files for lab assets. Inconsistencies between ctime and mtime meant that a fair amount of manual moving was necessary.
+
+Ran into a few issues with Lektor. It didn't like the `+` symbol in the filenames.
+
+Repo sizes have become big enough that git is no longer going to be viable.
+Moving entirely over to cloud storage acct, with unlimited storage.
+
+
+## Server Commands
+
+Use these commands from the notebooks directory to run 2 lektor servers at once.
+
+```sh
+lektor --project ./nb-shawn/ -p 5000
+lektor --project ./nb-jason/ server -p 5001
+```
+
+## Attachment views of Jason's modeling screen captures
+
+<div class="right">
+<img class="littlethumb" src="jason-months/jason2015aug1.png">
+<img class="littlethumb" src="jason-months/jason2015aug2.png">
+<img class="littlethumb" src="jason-months/jason2015july1.png">
+<img class="littlethumb" src="jason-months/jason2015july2.png">
+<img class="littlethumb" src="jason-months/jason2015nov1.png">
+<img class="littlethumb" src="jason-months/jason2015sep0.png">
+<img class="littlethumb" src="jason-months/jason2015sep1.png">
+<img class="littlethumb" src="jason-months/jason2015sep2.png">
+<img class="littlethumb" src="jason-months/jason2015sep3.png">
+<img class="littlethumb" src="jason-months/jason2016feb1.png">
+<img class="littlethumb" src="jason-months/jason2016feb2.png">
+<img class="littlethumb" src="jason-months/jason2016jan1.png">
+</div>

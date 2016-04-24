@@ -1,0 +1,24 @@
+_model: entry
+---
+date: 2016-04-23
+---
+description: update sdouglas.github.io/lr-notebook
+---
+body:
+
+
+## Update sdouglas.github.io/lr-notebook
+
+Updated the instructions to reflect the new lr-notebook interface.
+
+<div class="right">
+  <a href="sdouglas-github-io.png"><img class="thumb" src="sdouglas-github-io.png"></a><br>
+  sdouglas-github-io
+</div>
+
+
+Finished porting old lr-notebook entries to work with latest CSS formatting
+
+
+Completed [Thoughts on Lektor](../2016-02-08/) entry from Feb 8th.
+

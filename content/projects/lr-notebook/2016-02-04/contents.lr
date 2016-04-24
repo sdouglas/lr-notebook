@@ -1,0 +1,11 @@
+_model: entry
+---
+date: 2016-02-04
+---
+body:
+
+Latest dev version of lektor, site.query stopped returning undiscoverable records.
+
+Fix was to include a filter to include those files. Updated the month.html template to `site.query(this.path).include_undiscoverable(true)`
+---
+description: Troubleshooting lektor access to _hidden records

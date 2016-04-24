@@ -1,6 +1,25 @@
 {% extends "layout.html" %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 <h2>{{ this.title }}</h2>
-{{ this.body }}
+
+{% if this.body %}
+<div id="entry">
+    {{this.body}}
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+{% endif %}
+
 {% endblock %}

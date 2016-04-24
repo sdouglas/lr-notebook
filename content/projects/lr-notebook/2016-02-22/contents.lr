@@ -1,0 +1,14 @@
+_model: entry
+---
+date: 2016-02-22
+---
+description: lr-notebook refinements
+---
+body:
+
+## To-do
+
+- [ ] make headers match for day entry and subfolder
+- [ ] move more notebook entries into subfolders
+- [ ] remove categories from day pages, templates, model
+- [ ] tags

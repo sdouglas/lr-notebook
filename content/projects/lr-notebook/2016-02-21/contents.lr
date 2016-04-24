@@ -1,0 +1,41 @@
+_model: entry
+---
+date: 2016-02-21
+---
+description: refactoring & new features
+---
+body:
+
+## To-do
+
+- [ ] clean up project-entry pages
+- [x] clean up day pages
+- [x] clean up month pages
+- [x] move current notebook entries into subfolders
+- [ ] tags
+- [ ] remove categories from day pages, templates, model
+
+## jinja2 string formatting
+
+Updated some jinja2 string formatting, via stack exchange question [Python: How do I format a date in Jinja2?](http://stackoverflow.com/questions/4830535/python-how-do-i-format-a-date-in-jinja2)
+
+`<h2>Notebook entry for {{this.pub_date.strftime('%b %d,%Y')}}</h2>`
+
+
+Here's a [useful page](http://man7.org/linux/man-pages/man3/strftime.3.html) for time date string formatting character sequences. Highlights:
+
+#### Day
+
+- **Wednesday** `%A` (The full name of the day of the week according to the current locale.)
+- **05**  `%d` (The day of the month as a decimal number (range 01 to 31).)
+- **5** `%e` (Like %d, the day of the month as a decimal number, but a leading zero is replaced by a space.)
+
+#### Month
+
+- **Feb** `%b` (The abbreviated month name according to the current locale.)
+- **February** `%B` (The full month name according to the current locale.)
+
+#### Year
+
+- **16** `%y` (The year as a decimal number without a century - range 00 to 99.)
+- **2016** `%Y` (The year as a decimal number including the century.)

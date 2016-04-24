@@ -1,0 +1,15 @@
+_model: entry
+---
+date: 2016-02-19
+---
+description: Notebook updates and porting
+---
+body:
+
+- Writing scripts to crawl our git repos and copy files into appropriate places.
+
+Ideas for notebook improvements
+- Text-only lists of files attachment, e.g. show all `.py` files, etc.
+- Experiment with [metadata](https://www.getlektor.com/docs/content/attachments/#metadata)
+- Do something interesting with PDFs. Would like to be able to drop a paper that I read into the day's folder, tag it with some category, and have it show up in a rich paper index for the relevant project.
+- Button to create templated files in current folder. e.g. create `untitled.py` with some templated content

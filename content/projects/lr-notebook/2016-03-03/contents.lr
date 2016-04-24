@@ -1,0 +1,48 @@
+_model: entry
+---
+date: 2016-03-03
+---
+description: lr-notebook philosophy & features
+---
+body:
+
+## Background
+
+I've used the following as research notebooks:
+
+1. traditional pen & paper notebook (July 2005–Aug 2005)
+  - **pros**: nice to sketch things on real paper.
+  - **cons**: writing sufficient detail is slow & tedious, resulting in daisy-chained entries "did same as yesterday (see pg 23), except changed x". single irreplaceable copy is hard to share, impossible to search.
+2. group-wide mediawiki instance: 1 user account per lab member (Aug 2005)
+  - **pros**: everyone's work in one place
+  - **cons**: hard to enforce organization, lacks portability, scales poorly over time
+3. institute-wide [wikifarm](http://www.shawndouglas.com/wikifarm.html): unlimited mediawiki instances per lab member (Mar 2006–Jul 2012)
+  - **pros**: more similar to individual paper notebooks, more portable.
+  - **cons**: poor group-wide indexing, search. collaboration is still hard.
+4. per-project git repo of flat files + markdown templates, with per-user branches (Sept 2012–Jan 2015)
+  - **pros**: benefits of git version control: diffs, lots of git(hub) integrations available.
+  - **cons**: basically a step backwards in terms of default readability. similar cons to 2 & 3. any group-wide indexing requires constant burdensome merging.
+
+## Next iteration: lr-notebook
+
+<ol start="5">
+<li>per-user Lektor project, synced to cloud storage.</li>
+  <ul>
+  <li><strong>pros</strong>: Combined benefits of per-user notebooks with automatic per-project indexing, and cloud-based storage & version control. Editing can be done via native apps, or via browser using Lektor's cms-like admin interface. Lektor server provides API access to filesystem (!) so we can now build html views of all our content, and have in-page buttons that create/edit/delete files, etc.</li>
+  <li><strong>cons</strong>: TBD</li>
+  </ul>
+</ol>
+
+## So far the following is working:
+
+|<a href="001.png"><img class="thumb" src="001.png"></a>|<a href="002.png"><img class="thumb" src="002.png"></a>|<a href="003.png"><img class="thumb" src="003.png"></a>|
+|:-:|:-:|:-:|
+|Automatic indexing of daily subfolders|Monthly 2-column text & thumbnail view|Per-subfolder indexing of days|
+
+## Not working yet:
+
+- stable clean design of html/css
+- documentation- lots of random development artifacts lying around, like thumbnails of every image at the bottom of every page
+- tags
+- compact and expanded views of various indexes
+- relative img links in project subfolders are broken when rendered by a parent day.

@@ -1,0 +1,9 @@
+_model: script
+---
+language: python
+---
+description: Copy git repo files into lektor notebook
+---
+author: sdouglas
+---
+tags: scripts, python

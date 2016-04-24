@@ -1,0 +1,30 @@
+_model: entry
+---
+date: 2016-02-06
+---
+body:
+
+### External file link
+
+Tested various href img designs for external lr-notebook file link.
+
+
+### Marmoset viewer
+
+Eventually we want to build a gallery of all 3D models of lab assets. For today just wanted to demonstrate for Jason that it's possible to drop the following snippet into a `contents.lr` file to display the marmoset viewer:
+
+```html
+<script> marmoset.embed( 'microwave_BOX_Open.mview',
+	{ width: 400, height: 300, autoStart: false, fullFrame: false, pagePreset: false } );
+</script>
+```
+
+Unfortunately this approach doesn't render correctly in the browser. The marmoset embed function apparently creates a new div which doesn't work with our default lektor templates.
+
+Thus, I think the short-term preferred way will be to make a thumbnail and then link to the viewer:
+
+<a href="marmoset/microwave_BOX_Open.html"><img class="thumb" src="marmoset/microwave_BOX_Open.png"></a>
+
+Later we can try to build something more sophisticated like http://www.marmoset.co/viewer/gallery
+---
+description: External file link icon, embed marmoset viewer

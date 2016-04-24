@@ -1,0 +1,11 @@
+_model: entry
+---
+date: 2016-03-08
+---
+description: To-do items
+---
+body:
+
+- [ ] Would be nice if `Add folder` button put description before body.
+- [ ] Pagination for Folder and day entries.
+- [ ] Two-column layout for folder page

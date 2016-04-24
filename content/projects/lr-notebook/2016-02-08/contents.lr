@@ -1,0 +1,100 @@
+_model: entry
+---
+date: 2016-02-08
+---
+description: Thoughts on Lektor
+---
+body:
+
+## Background
+
+In the early days of the web, setting up and maintaining a website required a lot of technical skills. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, so it was easy to accidentally overwrite work.
+
+## Content Management System (CMS) era
+
+<div class="right">
+  <img class="thumb" src="wordpress.png"><br>
+  wordpress.com
+</div>
+
+
+By the early 2000s, various new tools were developed to facilitate various steps of the process. Content management systems (“CMS”) like Drupal and Wordpress were created. CMSs are similar to a wiki, in that they attempt to make it possible for non-programmers to create, edit, or delete content through a web-based admin interface. However, the complexity didn't disappear—it was simply shifted over to the system administrator, who now had to maintain a web server, plus server-side CMS software, and a database.
+
+The dedicated server software needed be running at all times. You needed to pay for hosting, and you need a sysadmin somewhere in the loop who knows what they are doing. Servers typically need to be constantly patched with security updates, etc. Behind the scenes, the server runs its own database, and every time someone visits the website, the server has to query the database, get the necessary information, and convert it into html, and send it back to the visitors web browser. That works fine if there is little traffic on the site, but if there is ever a huge spike in traffic the server may have to respond to thousands of requests per second  which can bring down the entire site (This used to be called slashdotting, and nowadays happens via the front page of reddit). It is possible to do "caching”, but it is typically complicated and hard to get right.
+
+## Static Site Generators
+
+<div class="right">
+  <img class="thumb" src="jekyll.png"><br>
+  jekyllrb.com
+</div>
+
+
+In the mid- to late-2000s, the tools evolved a bit further. Another type of tool was called a `static site generator`. Instead of dynamically building every page in response to a visitor on the site, a set of scripts pre-complies everything into html once. This meant the files could be hosted on a dedicated web server. Because there is no dedicated server + database, it becomes pretty simple to host on an http server, and many companies began offering this kind of hosting service for free (e.g. github pages).
+
+With static site generators, again the complexity is not eliminated. It shifted from the server back to the content creator. You can’t just log into an admin interface via the website, but instead need to learn how to update the content and sync it with the hosting platform. It is generally not much more complicated than Drupal or Wordpress, but it can be easier to break things by accident.
+
+## Markdown
+
+A parallel mid-2000s development was a language called [markdown](https://daringfireball.net/projects/markdown/) which is a simplified form of html that is more human readable. Here are two examples content formatted with html and markdown that will ultimately display identically browser (since markdown just gets compiled into to html anyway).
+
+<div class="right">
+  |<a href="html.png"><img class="littlethumb" src="html.png"></a>|<a href="markdown.png"><img class="littlethumb" src="markdown.png"></a>|<a href="renderedhtml.png"><img class="littlethumb" src="renderedhtml.png"></a>|
+  |:-:|:-:|:-:|
+  |html|markdown|output|
+</div>
+
+Markdown was probably popularized in part due to Jekyll + Github Pages... at least I think that's how I first encountered it. (Similar "lightweight" markup languages like reStructuredText and AsciiDoc predated markdown by several months but didn't take off.)
+
+
+## Next up: Hybrid CMS/Static site generators
+
+
+<div class="right">[What is Lektor?](https://www.getlektor.com/docs/what/) (Lektor docs)</div>
+
+It seems the third stage in the evolution of the web publishing ecosystem are tools that seem to avoid the trade-off between client-side and server-side complexity by handling everything. The most exciting tool in this regard is called [Lektor](http://getlektor.com/), created by Armin Ronacher. It seems there are somewhat similar tools such as [grav](https://learn.getgrav.org/basics/what-is-grav).
+
+### The App
+
+There are several things that are exciting about Lektor. First, it's an app. Now anyone who can run an app can also run a web server. It works locally with flat files, so nothing needs to be synchronized with a remote server (though it can build a static site and deploy it if you want).
+
+<div class="right">
+  |<img class="littlethumb" src="lektor.png">|<img class="littlethumb" src="lektor-page.png">
+  |:-:|:-:|
+  |The Lektor app|Example Page|
+</div>
+
+### The CMS
+
+The Lektor server includes a CMS-like admin interface that is easily accessed through the browser (the admin button is in the top right of every page). This makes it very easy to make simple changes to pages as you're browsing. In the future if a WYSIWYG markdown editor is included it might be even easier for users who don't wish to use Markdown.
+
+<div class="right">
+  |<img class="littlethumb" src="lektor-admin.png">|
+  |:-:|
+  |The admin UI|
+</div>
+
+I was very curious about how this is achieved, and after digging around the source and it turns out Lektor leverages another tool previously developed by Ronacher called [click](http://click.pocoo.org/).
+
+<div class="right">Check out [click.launch](https://github.com/pallets/click/blob/master/click/termui.py#L462)</div>
+
+### A personalized view of the filesystem
+
+One of the most frustrating things about modern GUI-based operating systems is the constant overhead of finding and navigating to files. Getting work done requires leveraging diverse resources that are somehow always entropically scattered across virtual time and space.
+
+Thus, the thing that made me most excited when I first started playing with Lektor was the possibility of embedding JavaScript in html templates that would talk to the server API to perform file system operations (e.g. revealing, creating or editing files).
+
+<div class="right">
+  <a href="new-entry-1.png"><img class="littlethumb" src="new-entry-1.png"></a>
+</div>
+
+Now thanks to Lektor I can "easily" write my own filesystem views in html+css! For example I can build a page that shows me thumbnails of every single image in a project since day 1.
+
+<div class="right">
+  <a href="project-view.png"><img src="project-view-2.png"></a><br>
+</div>
+
+
+A final bonus is that html template "framework" [jinja](http://jinja.pocoo.org/) is Python-based, which is very nice to work with.
+
+Overall a very exciting advance in web development, thanks to amazing work by Ronacher.
