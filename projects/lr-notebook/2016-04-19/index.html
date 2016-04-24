@@ -1,0 +1,262 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/skeleton.css?h=eef777a0">
+<link rel="stylesheet" href="../../../static/style.css?h=9b0ede05">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=6f794d3b">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<script src="../../../static/js/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/js/lr-notebook.js?h=1ff40b5a"></script>
+<script src="../../../static/js/marked.js?h=acaa528b"></script>
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h1 style="display: inline;"><a class="orange" href="../../../projects/lr-notebook/">lr-notebook/</a></h1>
+<br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/lr-notebook/2016-04-19">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">Responsive 2-column entry</h2> <span class="midgray">2016-04-19</span> 
+
+
+<div id="entry">
+    <h1>Overview</h1>
+<p>Today I am working on the CSS for the lr-notebook <strong>entry</strong> template. Entries are the actual pages where we compose the text, images, and data into lab notebook entries. This page, for example is an entry.</p>
+<div class="right">[lr-notebook: templates/entry.html](https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html) <i class="fa fa-github-alt"></i></div><p>My goal is to create a 2-column layout that makes it very easy to display &amp; align content (images, tables, markdown, etc.) in the right column.</p>
+<h2>Results</h2>
+<p>Notebook entries are now formatted in a simple 2-column layout.</p>
+<h3>How to use the right column</h3>
+<p>By default, almost everything is displayed in the left column. To move something to the right column, some html must be used. A div (<a target="_new" href="http://www.w3schools.com/tags/tag_div.asp">?</a>) tag defined with class="right" must go before the content, and then a closing div tag must go after the content. <em>Make sure to include the closing div tag, otherwise the entire page may not display correctly.</em></p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;</span>
+content goes here: images, urls, etc.
+plain text, html, or markdown should work
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<h3>Sections</h3>
+<p>Headings are used to delineate sections, just as in normal markdown. <code>#</code> initiates a full section, and the stylized heading spans both left and right columns. <code>##</code> is used for sub-sections, and the stylized heading spans only the left column. <code>###</code> is useful for paragraph titles within a sub-section. Lesser headings (<code>####</code>, etc.) are similar to h3 but smaller font-size.</p>
+<div class="right">
+```html
+# Section
+## Subsection
+### Pararaph title
+
+Lorem ipsum dolor sit amet...
+```
+</div><p>Here's a screenshot of how the above markdown content should render.</p>
+<div class="right"><a href="section.png"><img class="littlethumb" src="section.png"></a></div><h2>Notes</h2>
+<h3>Images</h3>
+<p>Currently I support three ways to display an image</p>
+<div class="right">
+  <a href="image.jpg"><img src="image.jpg"></a><br>
+</div><div class="right">
+  <a href="image.jpg"><img class="thumb" src="image.jpg"></a>
+  <a href="image.jpg"><img class="thumb" src="image.jpg"></a>
+</div><div class="right">
+  <a href="image.jpg"><img class="littlethumb" src="image.jpg"></a>
+  <a href="image.jpg"><img class="littlethumb" src="image.jpg"></a>
+  <a href="image.jpg"><img class="littlethumb" src="image.jpg"></a>
+</div><p>For images I use this snippet, mapped to <code>;img</code></p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;%clipboard&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;thumb&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;%clipboard&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>%clipboard
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<h3>Fenced code blocks float right automatically</h3>
+<div class="right"><code>```</code> ← 3 backticks</div><p>Fenced code blocks (content between groups of 3 backticks) are positioned in the right column automatically, and do not need to be wrapped in a "right" class div. This is done to preserve markdown syntax highlighting.</p>
+<h3>TextExpander</h3>
+<p>Finally, I use this TextExpander snippet mapped to quickly move content to the right. Working in the editor, I will select and cut the text (&#8984;+x) to place it on the clipboard, and then type the snippet shortcut to restore the same text wrapped inside the div. I map to the shortcut <code>;rt</code>.</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;</span>%clipboard<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<p><br><br></p>
+<h1>Methods</h1>
+<p>Starting work on this layout quickly exposed the limitations of my CSS knowledge. Below are some notes and resources that I used.</p>
+<h2>Inspiration</h2>
+<div class="right">
+<a target="_new" href="http://worrydream.com/dbx"><img class="thumb" src="bv-dbx.png"></a>
+<a target="_new" href="http://worrydream.com/ClimateChange/"><img class="thumb" src="bv-cc.png"></a>
+</div><p>I really like the 2-column layouts of various essays on <a href="http://worrydream.com/">worrydream.com</a>. They are very cleanly organized and as a reader I appreciate how referenced content is always immediately adjacent to the referring text.</p>
+<p>In particular I referenced the talk notes from "Future of Programming" dbx talk.</p>
+<p>The ClimateChange essay is very nicely designed, but its content and layout seemed a little too dense for my template. But I did like the formatting styles and in particular the section headers were a good starting point for <code>h1</code> and <code>h2</code> styles this page.</p>
+<h2>CSS selectors</h2>
+<h3>Specificity</h3>
+<p>I found it useful to first learn about CSS selectors. I read an article called <strong>Specifics on CSS Specificity</strong> [<a href="https://css-tricks.com/specifics-on-css-specificity/">1</a>]. I liked the sections "Calculating CSS Specificity Value" and "Sample calculations". In particular it was helpful to understand that CSS selector types have actual numeric weight values associated with them.</p>
+<div class="right">
+[1] https://css-tricks.com/specifics-on-css-specificity/
+<img width="50%" src="specificity-calculationbase.png">
+</div><p>Next I came across <strong>CSS Specificity Wars</strong> [<a href="https://stuffandnonsense.co.uk/archives/css_specificity_wars.html">2</a>] - a nice visual representation of the relative strengths of CSS selectors:Storm Trooper (element) vs Vader (class) vs Emperor (id).</p>
+<div class="right">
+  [2] https://stuffandnonsense.co.uk/archives/css_specificity_wars.html<br>
+  <img src="specificitywars-01.jpg">
+  <img src="specificitywars-02.jpg">
+  <img src="specificitywars-03.jpg">
+</div><p>Finally Smashing Magazine has an article that's maybe worth a look [<a href="https://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/">3</a>]. It covers Attribute selectors, Child selector, Sibling combinators, and Pseudo-classes.</p>
+<div class="right">
+[3] https://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/
+</div><h3>Adding a template-specific id: #entry</h3>
+<p>Because I wanted to format the content of entry pages, but not interfere with the rest of the site, I chose to create the <code>#entry</code> id that could be included in the entry template [<a href="https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html#L15">4</a>].</p>
+<div class="right">
+[4] https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html#L15
+</div><h3>Additional notes</h3>
+<p>Parent selectors don't exist [<a href="https://css-tricks.com/parent-selectors-in-css/">5</a>]</p>
+<div class="right">
+[5] https://css-tricks.com/parent-selectors-in-css/
+</div><h2>Two-column responsive layout</h2>
+<h3>Existing options</h3>
+<div class="right">[6] http://blog.mattbierner.com/responsive-two-column-documentation-layout-with-markdown-and-css/</div><p>The first thing I found was [<a href="http://blog.mattbierner.com/responsive-two-column-documentation-layout-with-markdown-and-css/">6</a>]. I didn't end up using this directly, but it's not that different in concept from what I ended up doing, in particular how CSS properties <code>width</code>, <code>float</code>, and <code>clear</code>  are used to achieve 2 columns. Bierner's solution is  specific to fenced code blocks that are output with a <code>.highlight</code> class, which is standard for code syntax highlighters [<a href="http://pygments.org/docs/quickstart/#example">7</a>].</p>
+<div class="right">[7] http://pygments.org/docs/quickstart/#example</div><p>I tried for a while to adapt it for different elements (e.g. code, or imgs), but realized what I actually wanted is to be able to wrap an arbitrary block of <em>markdown or html</em> in a custom div to put it in the right column. This raises another issue, which I ended up addressing with the javascript library "marked".</p>
+<h3>How the layout works</h3>
+<p>Basically everything that should be displayed in the left column is made slightly less than 50% width, floated left, and cleared to the left. Importantly, clearing to the left means that adjacent elements to not stack up next to each other and start to overlap with the right column. (I found the <code>clear</code> behavior non-intuitive when figuring this out).</p>
+<div class="highlight"><pre><span></span>  <span class="nn">#entry</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="nb">width</span><span class="o">:</span> <span class="m">46%</span><span class="p">;</span>
+    <span class="nb">float</span><span class="o">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nb">clear</span><span class="o">:</span> <span class="nb">left</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+<p>Next we define a ".right" class in the stylesheet, make it 50% width, and float and clear it to the left.</p>
+<div class="highlight"><pre><span></span>  <span class="nc">.right</span> <span class="p">{</span>
+    <span class="nb">width</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="nb">float</span><span class="o">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nb">clear</span><span class="o">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nb">display</span><span class="o">:</span> <span class="nb">inline</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+<h3>Fine tuning</h3>
+<p>I also stylize specific elements inside the right class, to make sure they are not too close to the edges, e.g.</p>
+<div class="highlight"><pre><span></span>  <span class="nn">#entry</span> <span class="nc">.right</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="nb">width</span><span class="o">:</span> <span class="m">96%</span><span class="p">;</span>
+    <span class="nb">line-height</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">3</span><span class="p">;</span>
+    <span class="nb">margin-left</span><span class="o">:</span> <span class="m">2</span><span class="n">rem</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+<h2>Rendering markdown inside "right" div</h2>
+<p>Markdown rendering does not apply to any content that is inside html tags. Thus, we cannot by default use markdown inside the "right" divs. I decided it's worth trying to restore this feature because it's nice to use markdown consistently in the document, e.g. for links.</p>
+<div class="right">[8] https://github.com/chjj/marked</div><p>I relied on marked [<a href="https://github.com/chjj/marked">8</a>], a markdown parser and compiler written in javascript. It works by including a javascript function that applies "marked" rendering to the innerHTML content of any div elements with class="right"</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kd">function</span> <span class="nx">renderRightAsMarkdown</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">right</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">src</span> <span class="o">=</span> <span class="nx">right</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">innerHTML</span>
+      <span class="nx">right</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">marked</span><span class="p">(</span><span class="nx">src</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">renderRightAsMarkdown</span><span class="p">();</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+<p>It's not an ideal solution to have markdown in each column compiled separately (left column by Lektor when the page is built, and right column by marked in the browser). In particular, it means that url references are not aware of each other, which is annoying for citations.</p>
+
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+<hr>
+<h5 style="float:left; margin-top:3rem;">Attachments:</h5>
+  
+
+<div class="row">
+  <div class="one column"></div>
+  <div class="two columns"><!-- Attachments: --></div>
+<div class="nine columns">
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/1.png"><img src="../../../projects/lr-notebook/2016-04-19/1@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/2.png"><img src="../../../projects/lr-notebook/2016-04-19/2@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/3.png"><img src="../../../projects/lr-notebook/2016-04-19/3@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/bv-cc.png"><img src="../../../projects/lr-notebook/2016-04-19/bv-cc@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/bv-dbx.png"><img src="../../../projects/lr-notebook/2016-04-19/bv-dbx@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/image.jpg"><img src="../../../projects/lr-notebook/2016-04-19/image@50.jpg"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/section.png"><img src="../../../projects/lr-notebook/2016-04-19/section@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/specificity-calculationbase.png"><img src="../../../projects/lr-notebook/2016-04-19/specificity-calculationbase@50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/specificitywars-01.jpg"><img src="../../../projects/lr-notebook/2016-04-19/specificitywars-01@50.jpg"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/specificitywars-02.jpg"><img src="../../../projects/lr-notebook/2016-04-19/specificitywars-02@50.jpg"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-19/specificitywars-03.jpg"><img src="../../../projects/lr-notebook/2016-04-19/specificitywars-03@50.jpg"></a>
+      
+    
+    <br/>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-hand-lizard-o"></i></a> in SF.
+
+  </footer>
+</body>

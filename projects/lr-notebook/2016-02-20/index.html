@@ -1,0 +1,162 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/skeleton.css?h=eef777a0">
+<link rel="stylesheet" href="../../../static/style.css?h=9b0ede05">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=6f794d3b">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<script src="../../../static/js/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/js/lr-notebook.js?h=1ff40b5a"></script>
+<script src="../../../static/js/marked.js?h=acaa528b"></script>
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h1 style="display: inline;"><a class="orange" href="../../../projects/lr-notebook/">lr-notebook/</a></h1>
+<br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/lr-notebook/2016-02-20">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">Adding per-category project entries as subfolders</h2> <span class="midgray">2016-02-20</span> 
+
+
+<div id="entry">
+    <h1>Add month abbr to templates</h1>
+<p>Updated <code>make_lektor_templates.py</code> to name month directories with an abbreviation, i.e. MM-Mon, to make finder navigation easier. Needed to add <code>_slug = MM</code> to the contents file to maintain original html url structure.</p>
+<p>Run using this command:</p>
+<p><code>$ python make_lektor_templates.py -u sdouglas -y 2016</code></p>
+<h1>Philosophy</h1>
+<p>The <code>lr-notebook</code> system starts with some assumptions:</p>
+<ol>
+<li><p>Users already have some information management workflow in place, probably involving files and folders synced via cloud storage.</p>
+</li>
+<li><p>Users should not be asked to abandon their preferred tools or move into any completely new system.</p>
+</li>
+<li><p>While we can tolerate migration and extension, no core dependency should ever be at risk of disappearing because of a business decision.</p>
+</li>
+</ol>
+
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+<hr>
+<h5 style="float:left; margin-top:3rem;">Attachments:</h5>
+  
+
+<div class="row">
+  <div class="one column"></div>
+  <div class="two columns"><!-- Attachments: --></div>
+<div class="nine columns">
+    
+      
+        <a href="../../../projects/lr-notebook/2016-02-20/months_abbr.png"><img src="../../../projects/lr-notebook/2016-02-20/months_abbr@50.png"></a>
+      
+    
+    <br/>
+    
+        <a class="green" href="../../../projects/lr-notebook/2016-02-20/README.md">README.md</a>
+        
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+,
+    
+        <a class="green" href="../../../projects/lr-notebook/2016-02-20/make_lektor_templates.py">make_lektor_templates.py</a>
+        
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   <i aria-hidden="true" class="icon ion-social-python"></i>
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+
+  </footer>
+</body>
