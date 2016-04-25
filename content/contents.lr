@@ -26,7 +26,7 @@ Get the lr-notebook zip. Put it in cloud storage if you wish.
 <div class="right">
   <i class="fa fa-file-archive-o"></i>
   <a href="https://github.com/douglaslab/lr-notebook/archive/master.zip">zip</a>
-  (developers: <i class="fa fa-github-alt"></i> <a href="https://github.com/douglaslab/lr-notebook">repo</a>)
+  (developers: <i class="fa fa-github-alt" aria-hidden="true"></i> <a href="https://github.com/douglaslab/lr-notebook">repo</a>)
 </div>
 
 Download the Lektor app.
