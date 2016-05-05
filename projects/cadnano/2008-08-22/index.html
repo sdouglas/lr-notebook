@@ -1,0 +1,135 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/skeleton.css?h=eef777a0">
+<link rel="stylesheet" href="../../../static/style.css?h=9b0ede05">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=6f794d3b">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<script src="../../../static/js/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/js/lr-notebook.js?h=1ff40b5a"></script>
+<script src="../../../static/js/marked.js?h=acaa528b"></script>
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h1 style="display: inline;"><a class="orange" href="../../../projects/cadnano/">cadnano/</a></h1>
+<br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/cadnano/2008-08-22">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">initial thoughts on manuscript</h2> <span class="midgray">2008-08-22</span> 
+
+
+<div id="entry">
+    <h1>General outline</h1>
+<ul>
+<li><p>Author list</p>
+<ul>
+<li>SD, AM, ST, AV, GC, WS</li>
+</ul>
+</li>
+<li><p>Objectives</p>
+<ul>
+<li>develop software quickly implement three-dimensional DNA origami using honeycomb framework, and demonstrate some proof-of-concept structures illustrating the use of the software.</li>
+</ul>
+</li>
+<li><p>Justification</p>
+<ul>
+<li>DNA origami is an extremely powerful and versatile technique, but the size and complexity of structures can be daunting.  Restricting design space to a simplified conceptual framework creates continuity across designs and allows for implementation of software to facilitate tedious or repetitive tasks.  Additional visual queues can be used to further simplify the design process.</li>
+</ul>
+</li>
+<li><p>Background</p>
+<ul>
+<li>This software continues in the line of previous work which has focused primarily on pure oligo-based DNA nanostructures (GIDEON, etc), or variations on flat (2D) origami similar to Rothemund's original designs.</li>
+</ul>
+</li>
+<li><p>Summary/conclusion</p>
+<ul>
+<li>We have found that caDNAno significantly reduces the amount of time and effort required to design a new DNA origami structures, and hope that the community will adopt and expand upon our efforts.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Rapid prototyping to explore design space</strong></p>
+<ul>
+<li>Figure 1: show how software simplifies the pipeline from idea to oligos and allows many architectures to be screend<ul>
+<li>A. rough concept(s)</li>
+<li>B. honeycomb approximations</li>
+<li>C. cadnano icon</li>
+<li>D. oligo lists</li>
+</ul>
+</li>
+</ul>
+<p><strong>How caDNAno works</strong></p>
+<ul>
+<li>Figure 2:<ul>
+<li>A. caDNAno screenshot</li>
+<li><ul>
+<li>Interface is 3 panels: an end-view of the helices, an unrolled side view of the scaffold/staple paths, and a reduced representation 3D cylinder model view</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example Application</strong></p>
+<ul>
+<li>Figure 3: apply rapid prototyping to determine well-behaved 3D scaffold arrangement. Show panel of multi-ply sheets (y3ps, y4ps, y5ps, y8ps). Arrangement can somewhat mirror honeycomb paper: 3D model, gel, EM<ul>
+<li>A. 3D models</li>
+<li>B. Gel results</li>
+<li>C. EM data</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+
+
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+
+  </footer>
+</body>
