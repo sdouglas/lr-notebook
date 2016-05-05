@@ -1,0 +1,84 @@
+_model: entry
+---
+date: 2016-05-04
+---
+description: bulk file migration from the terminal
+---
+body:
+
+# Terminal file migration
+
+Recently while developing <i class="fa fa-sticky-note-o" aria-hidden="true"></i> lr-notebook, I've been moving, renaming, and editing lots of files and folders.
+
+I use a combination of Sublime Text [multiple selection <i class="fa fa-youtube"></i>](https://youtu.be/czQipWJA8EU?t=58s) and shell comands (grep, mv, touch, and echo).
+
+I'm saving some notes this time so maybe I won't have to figure out the syntax for the sixth time in the future.
+
+## Migrating old lr-notebook project entries.
+
+The old version of lr-notebook used top-level folders named by date. Some date folders contain a project subfolder (e.g. `cadnano`) that contains a contents.lr file, as well as various other files. The new version of lr-notebook inverts this arrangement: a single project folder contains folders named by date, each which contain a modified contents.lr which must explicitly specify its _model and date.
+
+To migrate old entries, I need to move and rename folders, and then add some additional key:value pairs to the contents.lr files.
+
+## Getting a list of files that I want to work with
+
+cd into the source directory.
+
+```
+cd sdouglas-lr-notebook/content/log
+```
+
+Get a list of paths that contain the project folders I want.
+
+```
+find . | grep cadnano\/contents.lr
+```
+
+Result looks like this.
+
+```sh
+./2007/05-May/07/cadnano/contents.lr
+./2007/05-May/10/cadnano/contents.lr
+./2007/06-Jun/04/cadnano/contents.lr
+./2007/07-Jul/17/cadnano/contents.lr
+./2007/07-Jul/30/cadnano/contents.lr
+...30 more lines
+```
+
+<br>
+
+## Editing many lines in parallel
+
+I copy everything into Sublime Text, and use multi-column selection to copy the per-line date information, and then paste and edit them.
+
+I'm going to copy everything into a temporary directory called foo.
+
+```
+cp -a ./2007/05-May/07/cadnano/ foo/2007-05-07
+cp -a ./2007/05-May/10/cadnano/ foo/2007-05-10
+cp -a ./2007/06-Jun/04/cadnano/ foo/2007-06-04
+cp -a ./2007/07-Jul/17/cadnano/ foo/2007-07-17
+cp -a ./2007/07-Jul/30/cadnano/ foo/2007-07-30
+etc...
+```
+
+Append key:value pairs for `_model` and `date` to each contents.lr file using `echo -e`
+
+```
+echo -e "\n---\n_model: entry\n---\ndate: 2007-05-07\n" >> 2007-05-07/contents.lr`
+echo -e "\n---\n_model: entry\n---\ndate: 2007-05-10\n" >> 2007-05-10/contents.lr`
+echo -e "\n---\n_model: entry\n---\ndate: 2007-06-04\n" >> 2007-06-04/contents.lr`
+echo -e "\n---\n_model: entry\n---\ndate: 2007-07-17\n" >> 2007-07-17/contents.lr`
+echo -e "\n---\n_model: entry\n---\ndate: 2007-07-30\n" >> 2007-07-30/contents.lr`
+```
+
+If you don't have experience with a terminal shell, the only non-obvious things here might be the -e flag on echo, and the `>>` symbol.
+
+`echo -e` enables interpretation of backslash-escaped characters including \n for new line.
+
+<div class="right">
+  <a href="echo-e.png"><img class="thumb" src="echo-e.png"></a><br>
+</div>
+
+
+`>>` appends to an existing file if it exists, whereas `>` would overwrite the file.

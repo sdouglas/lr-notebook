@@ -1,0 +1,100 @@
+cp -a ./2007/05-May/07/cadnano/ foo/2007-05-07
+cp -a ./2007/05-May/10/cadnano/ foo/2007-05-10
+cp -a ./2007/06-Jun/04/cadnano/ foo/2007-06-04
+cp -a ./2007/07-Jul/17/cadnano/ foo/2007-07-17
+cp -a ./2007/07-Jul/30/cadnano/ foo/2007-07-30
+cp -a ./2007/08-Aug/03/cadnano/ foo/2007-08-03
+cp -a ./2007/08-Aug/06/cadnano/ foo/2007-08-06
+cp -a ./2007/08-Aug/08/cadnano/ foo/2007-08-08
+cp -a ./2007/08-Aug/13/cadnano/ foo/2007-08-13
+cp -a ./2007/08-Aug/14/cadnano/ foo/2007-08-14
+cp -a ./2007/11-Nov/13/cadnano/ foo/2007-11-13
+cp -a ./2007/11-Nov/14/cadnano/ foo/2007-11-14
+cp -a ./2007/11-Nov/15/cadnano/ foo/2007-11-15
+cp -a ./2007/11-Nov/17/cadnano/ foo/2007-11-17
+cp -a ./2007/11-Nov/18/cadnano/ foo/2007-11-18
+cp -a ./2007/11-Nov/19/cadnano/ foo/2007-11-19
+cp -a ./2007/11-Nov/20/cadnano/ foo/2007-11-20
+cp -a ./2007/12-Dec/03/cadnano/ foo/2007-12-03
+cp -a ./2007/12-Dec/23/cadnano/ foo/2007-12-23
+cp -a ./2008/01-Jan/02/cadnano/ foo/2008-01-02
+cp -a ./2008/04-Apr/03/cadnano/ foo/2008-04-03
+cp -a ./2008/04-Apr/04/cadnano/ foo/2008-04-04
+cp -a ./2008/05-May/19/cadnano/ foo/2008-05-19
+cp -a ./2008/05-May/20/cadnano/ foo/2008-05-20
+cp -a ./2008/06-Jun/03/cadnano/ foo/2008-06-03
+cp -a ./2008/06-Jun/04/cadnano/ foo/2008-06-04
+cp -a ./2008/06-Jun/15/cadnano/ foo/2008-06-15
+cp -a ./2008/06-Jun/20/cadnano/ foo/2008-06-20
+cp -a ./2008/08-Aug/22/cadnano/ foo/2008-08-22
+cp -a ./2008/08-Aug/25/cadnano/ foo/2008-08-25
+cp -a ./2008/09-Sep/30/cadnano/ foo/2008-09-30
+cp -a ./2008/10-Oct/09/cadnano/ foo/2008-10-09
+cp -a ./2008/10-Oct/13/cadnano/ foo/2008-10-13
+cp -a ./2008/10-Oct/28/cadnano/ foo/2008-10-28
+cp -a ./2008/11-Nov/04/cadnano/ foo/2008-11-04
+cp -a ./2008/11-Nov/08/cadnano/ foo/2008-11-08
+cp -a ./2008/11-Nov/09/cadnano/ foo/2008-11-09
+cp -a ./2008/11-Nov/10/cadnano/ foo/2008-11-10
+cp -a ./2008/11-Nov/16/cadnano/ foo/2008-11-16
+cp -a ./2008/11-Nov/17/cadnano/ foo/2008-11-17
+cp -a ./2008/11-Nov/18/cadnano/ foo/2008-11-18
+cp -a ./2008/11-Nov/19/cadnano/ foo/2008-11-19
+cp -a ./2008/11-Nov/21/cadnano/ foo/2008-11-21
+cp -a ./2008/11-Nov/25/cadnano/ foo/2008-11-25
+cp -a ./2008/12-Dec/01/cadnano/ foo/2008-12-01
+cp -a ./2008/12-Dec/02/cadnano/ foo/2008-12-02
+cp -a ./2008/12-Dec/03/cadnano/ foo/2008-12-03
+cp -a ./2008/12-Dec/04/cadnano/ foo/2008-12-04
+echo -e "\n---\n_model: entry\n---\ndate: 2007-05-07\n" >> 2007-05-07/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-05-10\n" >> 2007-05-10/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-06-04\n" >> 2007-06-04/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-07-17\n" >> 2007-07-17/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-07-30\n" >> 2007-07-30/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-08-03\n" >> 2007-08-03/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-08-06\n" >> 2007-08-06/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-08-08\n" >> 2007-08-08/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-08-13\n" >> 2007-08-13/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-08-14\n" >> 2007-08-14/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-13\n" >> 2007-11-13/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-14\n" >> 2007-11-14/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-15\n" >> 2007-11-15/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-17\n" >> 2007-11-17/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-18\n" >> 2007-11-18/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-19\n" >> 2007-11-19/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-11-20\n" >> 2007-11-20/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-12-03\n" >> 2007-12-03/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2007-12-23\n" >> 2007-12-23/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-01-02\n" >> 2008-01-02/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-04-03\n" >> 2008-04-03/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-04-04\n" >> 2008-04-04/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-05-19\n" >> 2008-05-19/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-05-20\n" >> 2008-05-20/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-06-03\n" >> 2008-06-03/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-06-04\n" >> 2008-06-04/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-06-15\n" >> 2008-06-15/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-06-20\n" >> 2008-06-20/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-08-22\n" >> 2008-08-22/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-08-25\n" >> 2008-08-25/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-09-30\n" >> 2008-09-30/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-10-09\n" >> 2008-10-09/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-10-13\n" >> 2008-10-13/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-10-28\n" >> 2008-10-28/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-04\n" >> 2008-11-04/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-08\n" >> 2008-11-08/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-09\n" >> 2008-11-09/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-10\n" >> 2008-11-10/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-16\n" >> 2008-11-16/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-17\n" >> 2008-11-17/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-18\n" >> 2008-11-18/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-19\n" >> 2008-11-19/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-21\n" >> 2008-11-21/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-11-25\n" >> 2008-11-25/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-12-01\n" >> 2008-12-01/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-12-02\n" >> 2008-12-02/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-12-03\n" >> 2008-12-03/contents.lr` 
+echo -e "\n---\n_model: entry\n---\ndate: 2008-12-04\n" >> 2008-12-04/contents.lr` 
+
+
+
+
