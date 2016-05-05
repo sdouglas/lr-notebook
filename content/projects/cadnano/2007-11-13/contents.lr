@@ -1,0 +1,20 @@
+description: cadnano alpha
+---
+body:
+
+The path drawing is *EXTREMELY* buggy.  You have to zoom in on the path before it draws the crossovers (not sure why the initial refresh isn't working).  The coordinates of where the scaffold crossovers are drawn are totally messed up (I didn't plan carefully and was trying to accommodate re-scaling from the start... probably need to re-think things). Also, if you try to add more than two helices, it basically crashes.
+
+However, the exciting thing is that I have the basic data structures in place and just need to work out the kinks, and then we can start adding real functionality.  Each "path" holds the virtual strand helix information (both scaffold and staple), and each segment within a virtual strand is its own data structure (PathSegment), which holds the actual crossover positions, caps, loops, etc.. So the complete structure (pathList) is a doubly-linked list of paths, and each path is itself a doubly-linked list of PathSegments.
+
+The highest priority should probably be getting this slice/path interface to the point where we can design with it (and output XML for downstream applications).
+
+I feel like the 3D stuff won't be that difficult.  In a way it's just a slight rearrangement of the coordinates that you get when you create the slice and path interfaces.  That probably means that it shouldn't be written until we have the 2D stuff finished.
+
+The issue I'm currently working on is designing a path drawing algorithm so it's not completely buggy and actually draws things with the proper coordinates.  So far I have been trying to draw some P0 crossovers (vertical lines).  Part of the problem is that I made things too complicated by trying to incorporate some parameter-based scaling.  I'm going to re-write things to use a fixed coordinate system and and then adjust scaleX and scaleY to get zooming.
+
+
+---
+_model: entry
+---
+date: 2007-11-13
+

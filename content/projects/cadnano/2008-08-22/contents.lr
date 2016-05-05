@@ -1,0 +1,44 @@
+description: initial thoughts on manuscript
+---
+body:
+
+# General outline
+
+- Author list
+ - SD, AM, ST, AV, GC, WS
+
+- Objectives
+ - develop software quickly implement three-dimensional DNA origami using honeycomb framework, and demonstrate some proof-of-concept structures illustrating the use of the software.
+
+- Justification
+ - DNA origami is an extremely powerful and versatile technique, but the size and complexity of structures can be daunting.  Restricting design space to a simplified conceptual framework creates continuity across designs and allows for implementation of software to facilitate tedious or repetitive tasks.  Additional visual queues can be used to further simplify the design process.
+
+- Background
+ - This software continues in the line of previous work which has focused primarily on pure oligo-based DNA nanostructures (GIDEON, etc), or variations on flat (2D) origami similar to Rothemund's original designs.
+
+- Summary/conclusion
+ - We have found that caDNAno significantly reduces the amount of time and effort required to design a new DNA origami structures, and hope that the community will adopt and expand upon our efforts.
+
+**Rapid prototyping to explore design space**
+- Figure 1: show how software simplifies the pipeline from idea to oligos and allows many architectures to be screend
+ - A. rough concept(s)
+ - B. honeycomb approximations
+ - C. cadnano icon
+ - D. oligo lists
+
+**How caDNAno works**
+- Figure 2:
+ - A. caDNAno screenshot
+ - - Interface is 3 panels: an end-view of the helices, an unrolled side view of the scaffold/staple paths, and a reduced representation 3D cylinder model view
+
+**Example Application**
+- Figure 3: apply rapid prototyping to determine well-behaved 3D scaffold arrangement. Show panel of multi-ply sheets (y3ps, y4ps, y5ps, y8ps). Arrangement can somewhat mirror honeycomb paper: 3D model, gel, EM
+ - A. 3D models
+ - B. Gel results
+ - C. EM data
+
+---
+_model: entry
+---
+date: 2008-08-22
+

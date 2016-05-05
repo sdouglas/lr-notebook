@@ -1,0 +1,23 @@
+body:
+
+- Focus on ASCII input today
+- Honeycomb node array slices
+ - Optional module for converting XXX into actual numbers for virtual strands
+ - Possibly encode scaffold crossover information here
+ - User should, at minimum, specify the starting helix number, perhaps a few other numbers
+- ASCII scaffold path
+ - 21 bp and 32 bp zones possible
+ - Encode binary position of scaffold crossovers using ...L or ...R where ... is the virtual strand partner
+   - 12 character space to accommodate up to three scaffold crossovers per zone
+ - Program spits out generic scaffold path if none is specified by user
+   - Can be programmed to introduce default scaffold crossovers if desired
+- Be open to many module rewrites, trying out different data structures
+
+---
+description: Meeting with WS: nanocad objectives
+
+---
+_model: entry
+---
+date: 2007-05-07
+

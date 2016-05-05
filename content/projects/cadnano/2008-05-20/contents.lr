@@ -1,0 +1,26 @@
+description: current priorities
+---
+body:
+
+Here is the list of tasks that I'm looking to complete this week.
+
+1. Finish loop tool (90% done, should be easy... just need to implement LoopHandle).
+2. Add a "skip" tool which will flag scaffold positions for not including a base during sequence assignment
+3. Sequence Assignment tool. (Still planning, but I think this will just require you to click on a 5' end of a scaffold.  It will give you a list of scaffold names, and when you pick one it will use hard-coded sequence to populate vstrands with sequence, taking into account presence of LoopHandles and
+SkipHandles )
+4. Staple Assignment & Output tool. (Once scaffold sequence is in place, should just be a matter of looping through every staple and assigning sequence.
+5. File I/O. This one I am setting aside this for Adam to work on today and Thursday onwards.  As soon as the other things are working I will focus on this as well. I have thought a little more about this, and I actually think it would be much more useful to the project if Adam were to start working on an AIR branch first.  There are some big advantages and the nice thing is that you can still do all the SQL development which we can later
+easily port to the online version.
+
+Here is my rationale:
+A. The network communication with a server-side database is a convoluted way to achieve what AIR already supports.  Flash10 is supposedly going to let you work with local files, which is what we really want to do anyway.  We need to implement it one way or another, and if we do it sooner then it will be super easy when Flash10 is out.
+B. It's actually much more convenient to work with local files.  Using the server, each time you recompile the swf, it also has to be uploaded.  Then, when testing it you need to wait for network communication which can also delay things.
+C. AIR supports drag-and-drop functionality.  I think it's really cool to be able to just drag your design file into the application.
+D. AIR actually supports local SQL databases.  This means that as soon as local file i/o is complete, you can conveniently implement all the core database functionality with a local database.  Once everything works locally, we can migrate it to work on nano-dev (and eventually nano).
+E. Once you install the AIR update for CS3, compiling AIR files is virtually identical to working with Flash swfs.  It just generates a few extra files which you can ignore for now.
+
+---
+_model: entry
+---
+date: 2008-05-20
+

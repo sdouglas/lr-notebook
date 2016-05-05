@@ -1,0 +1,13 @@
+description: DNA 3D
+---
+body:
+
+Open the swf file in the bin directory using the flashplayer.
+
+Working with Au using cubes as a stand-in until we get a hexagonal interface working.  Things light up when they are next to each other, indicating a junction, for example..
+
+---
+_model: entry
+---
+date: 2007-11-18
+

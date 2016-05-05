@@ -1,0 +1,13 @@
+description: worked on optimization
+---
+body:
+
+- Figured out how to use Flex Builder memory profiler with Flash-compiled AIR files
+ - In profiler window, use pick "Profile External Application" from the drop-down menu
+ - Choose the second option of "Launch the application manually outside Flex Builder"
+ - Within the specified timeout, run bin/adl from inside the AIR SDK directory.
+---
+_model: entry
+---
+date: 2008-06-20
+

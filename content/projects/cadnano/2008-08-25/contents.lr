@@ -1,0 +1,18 @@
+description: resize canvas
+---
+body:
+
+
+The issue is that there is no simple way to remove 1) unused helices and 2) unused sections of the grid. It should be pretty easy to whip up a python script which reads in the json file, and then compacts the structure and then outputs an updated json.  Here are some more details for how I would implement it:
+
+1. To avoid gaps in our numbering system, I would stipulate that only the highest number helices which are unused will get removed.  You would basically sort the vstrands by number and loop through them in descending order.  If the helix is completely blank (i.e. null pointers in every position), then it gets removed.  As soon as you see the first null pointer, you break out of the loop.  The user needs to re-sort things if they have internal numbers which need to be removed.
+
+2. To compress unused grid spaces, we need to loop through every helix and find out how many blank 21-base segments pad the structure on either side.  I would use two separate phases: first determine the lowest (leftmost) and highest (rightmost) non-null pointer across all helices.  Remember we always deal in 21-base segments in a specific arrangement, so you always have to remove some number of tokens (and corresponding loops/skips, etc) that is divisible by 21.
+
+I've attached an actual structure (I'm porting the square nut into cadnano).  It only has extra grid, no extra helices.  There was some bug with the alert manager where it was not popping up, but somehow responding to the spacebar even though it was hidden, so every time I pressed space it added another five 21-base segments and unfortunately I hadn't saved yet. If you can send me back a compacted version along with your python script, that would be fantastic.
+
+---
+_model: entry
+---
+date: 2008-08-25
+

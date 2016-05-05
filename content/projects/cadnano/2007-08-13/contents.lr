@@ -1,0 +1,103 @@
+body:
+
+I copied the Desktop/cadnano directory from your imac and started
+working on xtps_v3.
+
+It seems the script in its current form is unable to read the default
+SVG that is generated.  On run 1, I input Y, then N to get a fresh
+SVG, and then immediately run again and input Y, then Y, and it gives
+this error:
+
+ValueError: invalid literal for float(): M 32 7 L 34.7777777778 7 Q
+34.7577777778
+
+A zip of the whole directory is attached; here is the full output.
+
+Thanks,
+Shawn
+
+
+----
+
+
+
+Run 1:
+```
+----------c a D N A n o----------
+---config
+Design: xtps_v3, interface 0
+
+FOUND SAVED PICKLE DATA: DO YOU WANT TO RE-USE SAVED PICKLE DATA? (y/n)
+
+[Input: Y]
+
+FOUND SAVED SVG DIAGRAM: DO YOU WANT TO RE-USE SAVED SVG DIAGRAM? (y/n)
+
+[Input: N]
+
+Cleared saved svg file.
+---lattice
+---domain
+---path
+---scaffold
+---staples
+Writing oligo output..
+62 base staple starts at 37[18]
+     core: 204
+    total: 204
+...done: designs/xtps_v3/xtps_v3i0_oligos.txt
+---svg
+Writing SVG output..
+...done: designs/xtps_v3/xtps_v3i0_svg_output.svg
+----------------------------------
+```
+
+Run 2:
+
+```
+PyMate r6780 running Python 2.5.1 (/usr/bin/env python)
+>>> run.py
+
+----------c a D N A n o----------
+---config
+Design: xtps_v3, interface 0
+oligo_file unmodified.... clearing oligo_file
+
+FOUND SAVED PICKLE DATA: DO YOU WANT TO RE-USE SAVED PICKLE DATA? (y/n)
+
+[Input: Y]
+
+FOUND SAVED SVG DIAGRAM: DO YOU WANT TO RE-USE SAVED SVG DIAGRAM? (y/n)
+
+[Input: Y]
+
+---lattice
+---domain
+---path
+---scaffold
+---staples
+Updating breakpoints from svg.
+Updating staple crossovers from svg.
+ValueError: invalid literal for float(): M 32 7 L 34.7777777778 7 Q
+34.7577777778
+
+module body       in run.py at line 51
+function main     in run.py at line 43
+function __init__         in untitled at line 231
+function update_params_from_svg   in untitled at line 296
+function read_staple_xovers       in svg.py at line 910
+function parse    in expatreader.py at line 107
+function parse    in xmlreader.py at line 123
+function feed     in expatreader.py at line 207
+function start_element    in expatreader.py at line 301
+function startElement     in svg.py at line 1282
+Program exited.
+```
+---
+description: error reading svg
+
+---
+_model: entry
+---
+date: 2007-08-13
+
