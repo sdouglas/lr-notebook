@@ -44,7 +44,6 @@ Run the Lektor app, use the <i class="fa fa-folder-open-o"></i> button to open t
 ## Create a project
 
 <div class="right">
-  <img class="littlethumb" src="./projects/lr-notebook/2016-04-23/new-project-1.png">
   <img class="littlethumb" src="./projects/lr-notebook/2016-04-23/new-project-2.png">
 </div>
 
@@ -56,8 +55,7 @@ The <img src="./projects/lr-notebook/2016-04-23/link.png"> is a link to open the
 ## Create a project entry
 
 <div class="right">
-  <img src="./projects/lr-notebook/2016-04-23/new-entry-1.png">
-  <img src="./projects/lr-notebook/2016-04-23/new-entry-2.png">
+  <img class="thumb" src="./projects/lr-notebook/2016-04-23/new-entry-1.png">
 </div>
 
 1. Browse to project page.
