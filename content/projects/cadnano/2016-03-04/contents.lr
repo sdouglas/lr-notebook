@@ -1,0 +1,15 @@
+_model: entry
+---
+date: 2016-03-04
+---
+body:
+
+Exported downloaded old drupal site
+
+`wget -m -k -K -E http://cadnano.org`
+
+Created gh-pages repo: https://github.com/cadnano/cadnano.org
+
+Spent a lot of time fixing import paths, but seems ok now.
+---
+description: migrated cadnano.org website

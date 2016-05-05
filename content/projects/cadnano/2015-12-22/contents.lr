@@ -1,0 +1,59 @@
+_model: entry
+---
+date: 2015-12-22
+---
+description: Recreating schematic of octahedron
+---
+body:
+
+## Background
+
+<div class="right"><img src="040212cover.jpg"></div>
+
+In 2004 William Shih published a paper titled [A 1.7-kilobase single-stranded DNA that folds into a nanoscale octahedron](http://www.nature.com/nature/journal/v427/n6975/full/nature02307.html) Nature *427*, 618-621. This design serves a nice testbed for cadnano development, as it includes several struts based on paranemic (px) crossovers.
+
+## Questions
+
+1. What is the exact base-level design of the octahedron?
+2. Can we port the octahedron design into cadnano and then export an 'abstract' sequence that matches the original base-pairing relationships, if not exact sequence?
+
+## Setup
+
+1. For The base-level design, we will import with the original schematic from Figure 1 into Illustrator, re-arrange it for easier editing, annotate the sequence lengths for every domain of the structure, and create a corresponding Schlegel diagram to keep track of overall arrangement and connectivity of the wireframe struts.
+2. Next we can use the schematic as a reference for recreating the same design in cadnano.
+3. Cadnano only exports abstract sequences at the moment, which encode the base-pairing relationships but not actual sequences. Downstream the base pairs must still be assigned a specific nucleotides prior to synthesis. We can easily write a python script to determine if a nucleotide sequence is an instance of an abstract sequence.
+
+
+<div class="right"><a href="shih-px-octa.png"><img src="shih-px-octa.png"></a>
+
+Schematics made as shih-px-octa.ai, exported as a png:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</div>
+
+some other text
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+## Results
+
+- Schematics made as shih-px-octa.ai, exported as a png:
+
+<div class="right"><img src="shih-px-octa.png"></div>
+
+- Cadnano design created with the schematic as reference. We lose the color information in the cadnano diagram due to the way that strands are currently colored (i.e. joining a source and target strand causes the target strand to inherit the source strand's color. I recorded a mov of connecting all the struts.
+- Exported various stages of the cadnano design (.c25 files... I just picked 'c25' as a temporary extension for the current dev version of cadnano).
+
+## Comments / Next steps
+
+1. Didn't quite finish the sequence / abstract sequence comparison.

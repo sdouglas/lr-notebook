@@ -1,0 +1,45 @@
+_model: entry
+---
+date: 2015-11-21
+---
+description: dsDNA pdb models
+---
+body:
+
+# Thinking about new slice view
+
+Playing with PDB reference to think about new cadnano slice view design. Ideally an updated view will provide some information about relative angles positions of neighboring phosphates for both fwd and rev strands.
+
+## Starting Reference
+
+From this view it is difficult to distinguish forward strand from the reverse strand.
+
+<div class="right">
+<a href="phosphates.png"><img class="thumb" src="phosphates.png"></a>
+<br>
+Just the phosphates
+</div>
+
+
+
+
+## Distinguishing fwd and rev
+
+Pymol has a few color schemes that can be applied to chains.
+
+<div class="right">http://www.pymolwiki.org/index.php/Spectrum</div>
+
+rainbow
+
+<div class="right">
+<a href="color-rainbow.png"><img class="littlethumb" src="color-rainbow.png"></a>
+rainbow
+</div>
+
+
+rainbow2 is less yellow in the middle
+
+<div class="right">
+<a href="color-rainbow2.png"><img class="littlethumb" src="color-rainbow2.png"></a>
+rainbow2
+</div>
