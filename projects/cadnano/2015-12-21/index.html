@@ -1,0 +1,503 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/skeleton.css?h=eef777a0">
+<link rel="stylesheet" href="../../../static/style.css?h=9b0ede05">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=6f794d3b">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<script src="../../../static/js/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/js/lr-notebook.js?h=1ff40b5a"></script>
+<script src="../../../static/js/marked.js?h=acaa528b"></script>
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h1 style="display: inline;"><a class="orange" href="../../../projects/cadnano/">cadnano/</a></h1>
+<br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/cadnano/2015-12-21">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">Porting octahedron to cadnano 2.5</h2> <span class="midgray">2015-12-21</span> 
+
+
+<div id="entry">
+    <h2>Background</h2>
+<p>In 2004 William Shih published a paper titled
+<a href="http://www.nature.com/nature/journal/v427/n6975/full/nature02307.html">A 1.7-kilobase single-stranded DNA that folds into a nanoscale octahedron</a> Nature <em>427</em>, 618-621. This design serves a nice testbed for cadnano development, as it includes several struts based on paranemic (px) crossovers.</p>
+<h2>Questions</h2>
+<ol>
+<li>What is the exact base-level design of the octahedron?</li>
+<li>Can we port the octahedron design into cadnano and then export an 'abstract' sequence that matches the original base-pairing relationships, if not exact sequence?</li>
+</ol>
+<h2>Setup</h2>
+<ol>
+<li>For The base-level design, we will import with the original schematic from Figure 1 into Illustrator, re-arrange it for easier editing, annotate the sequence lengths for every domain of the structure, and create a corresponding Schlegel diagram to keep track of overall arrangement and connectivity of the wireframe struts.</li>
+<li>Next we can use the schematic as a reference for recreating the same design in cadnano.</li>
+<li>Cadnano only exports abstract sequences at the moment, which encode the base-pairing relationships but not actual sequences. Downstream the base pairs must still be assigned a specific nucleotides prior to synthesis. We can easily write a python script to  determine if a nucleotide sequence is an instance of an abstract sequence.</li>
+</ol>
+<h2>Results</h2>
+<ol>
+<li>Schematics made as shih-px-octa.ai, exported as a png:</li>
+</ol>
+<div class="right"><img src="shih-px-octa.png"></div><ol>
+<li>Cadnano design created with the schematic as reference. We lose the color information in the cadnano diagram due to the way that strands are currently colored (i.e. joining a source and target strand causes the target strand to inherit the source strand's color. I recorded a mov of connecting all the struts.</li>
+<li>Exported various stages of the cadnano design (.c25 files... I just picked 'c25' as a temporary extension for the current dev version of cadnano).</li>
+</ol>
+<h2>Comments / Next steps</h2>
+<ol>
+<li>Didn't quite finish the sequence / abstract sequence comparison.</li>
+</ol>
+
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+<hr>
+<h5 style="float:left; margin-top:3rem;">Attachments:</h5>
+  
+
+<div class="row">
+  <div class="one column"></div>
+  <div class="two columns"><!-- Attachments: --></div>
+<div class="nine columns">
+    
+      
+        <a class="green" href="../../../projects/cadnano/2015-12-21/octa.8.svg">octa.8.svg</a>
+        
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  <i aria-hidden="true" class="fa fa-object-ungroup"></i>
+  
+  
+ 
+ 
+  
+  
+  
+
+      
+    
+      
+        <a class="green" href="../../../projects/cadnano/2015-12-21/octa.9.svg">octa.9.svg</a>
+        
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  <i aria-hidden="true" class="fa fa-object-ungroup"></i>
+  
+  
+ 
+ 
+  
+  
+  
+
+      
+    
+      
+        <a href="../../../projects/cadnano/2015-12-21/shih-px-octa.png"><img src="../../../projects/cadnano/2015-12-21/shih-px-octa@50x50.png"></a>
+      
+    
+    <br/>
+    
+        <a class="green" href="../../../projects/cadnano/2015-12-21/octa.ai">octa.ai</a>
+        
+   <i aria-hidden="true" class="fa fa-object-ungroup"></i>
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+,
+    
+        <a class="green" href="../../../projects/cadnano/2015-12-21/px.ai">px.ai</a>
+        
+   <i aria-hidden="true" class="fa fa-object-ungroup"></i>
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+,
+    
+        <a class="green" href="../../../projects/cadnano/2015-12-21/shih.fasta">shih.fasta</a>
+        
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+
+    
+  </div>
+</div>
+
+
+
+
+
+  <h5 style="float:left; margin-top:3rem;">Subfolders:</h5>
+  
+  
+    
+    
+    <div class="row">
+      <div class="four columns">
+        <small>
+        <a style="margin-left:2rem" href="../../../projects/cadnano/2015-12-21/cadnano-files/">&boxur; <span class="orange2">cadnano-files/</span></a></small><br/>
+      </div>
+      <div class="one column">
+        <form style="display:inline;" target="frame" action="/admin/api/browsefs" method="post">
+        <input type="hidden" name="path" value="/projects/cadnano/2015-12-21/cadnano-files">
+        <input type="image" src=../../../static/images/sublink.png>
+        </form>
+      </div>
+        <div class="four columns"> <!-- attachments -->
+      
+          
+          &nbsp;
+        </div>
+        <div class="three columns">&nbsp;
+        
+  
+  
+    
+  
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+
+  
+   
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+<span class="green">.aseq</span><span class="lightgray">(3)</span>
+  
+   
+   
+  
+ 
+  
+  
+ 
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+ 
+ 
+  
+  
+  
+<span class="green">.c25</span><span class="lightgray">(23)</span>
+  
+
+      
+      </div>
+    </div>
+    
+    
+    
+    
+    <div class="row">
+      <div class="four columns">
+        <small>
+        <a style="margin-left:2rem" href="../../../projects/cadnano/2015-12-21/screencaps/">&boxur; <span class="orange2">screencaps/</span></a></small><br/>
+      </div>
+      <div class="one column">
+        <form style="display:inline;" target="frame" action="/admin/api/browsefs" method="post">
+        <input type="hidden" name="path" value="/projects/cadnano/2015-12-21/screencaps">
+        <input type="image" src=../../../static/images/sublink.png>
+        </form>
+      </div>
+        <div class="four columns"> <!-- attachments -->
+      
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/001.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/001@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/003.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/003@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/004.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/004@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/005.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/005@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/006.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/006@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/007.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/007@50x50.jpg"></a>
+            
+          
+            
+              <a href="../../../projects/cadnano/2015-12-21/screencaps/008.jpg"><img src="../../../projects/cadnano/2015-12-21/screencaps/008@50x50.jpg"></a>
+            
+          
+          
+        </div>
+        <div class="three columns">&nbsp;
+        
+  
+  
+    
+  
+  
+
+  
+
+      
+      </div>
+    </div>
+    
+    
+
+
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gears"></i></a> in SF.
+
+  </footer>
+</body>
