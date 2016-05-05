@@ -1,9 +1,0 @@
-description: To-do items
----
-body:
-
-
-- [ ] Need an easy way to toggle day to `_hidden:no` from inside browser.
-- [ ] Would be nice if `Add folder` button put description before body.
-- [ ] Pagination for Folder and day entries.
-- [ ] Two-column layout for folder page
