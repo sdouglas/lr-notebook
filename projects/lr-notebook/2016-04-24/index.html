@@ -1,0 +1,123 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/skeleton.css?h=eef777a0">
+<link rel="stylesheet" href="../../../static/style.css?h=de44b4fa">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=6f794d3b">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<script src="../../../static/js/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/js/lr-notebook.js?h=1ff40b5a"></script>
+<script src="../../../static/js/marked.js?h=acaa528b"></script>
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../files/">Files</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h1 style="display: inline;"><a class="orange" href="../../../projects/lr-notebook/">lr-notebook/</a></h1>
+<br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/lr-notebook/2016-04-24">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">Starred items</h2> <span class="midgray">2016-04-24</span> <span class="small lightgray"><i class="fa fa-star" aria-hidden="true"></i></span>
+
+
+<div id="entry">
+    <h1>Starred Projects and Entries</h1>
+<p>Now that I'm adding more content, some of the top-level <i class="fa fa-sticky-note-o" aria-hidden="true"></i> lr-notebook pages are getting kind of dense. I thought it would be useful to add the option to "star" a project or project entry, and then display with visual hints for quickly identifying them.</p>
+<p>To start I'm just adding the option in the admin interface to choose a star color.</p>
+<h2>Result</h2>
+<p>Here's the commit with initial implementation.</p>
+<div class="right">
+[8913f90](https://github.com/douglaslab/lr-notebook/commit/8913f9019b4674885dab20320bfb55b0ed41013c) <i class="fa fa-github-alt" aria-hidden="true"></i>
+</div><p>To add a star, select a color from the dropbown menu in the Lektor admin "edit" page for a project or entry, and save changes.</p>
+<div class="right">
+  <a href="add-star.png"><img class="littlethumb" src="add-star.png"></a>
+</div><div class="right">
+  <a href="starred-project.png"><img class="thumb" src="starred-project.png"></a>
+  <a href="starred-entry.png"><img class="thumb" src="starred-entry.png"></a>
+</div><p>Here's what it looks like on the Projects page for a starred project and a starred entry.</p>
+<h3>Future</h3>
+<p>In the future I may add a button and JavaScript function to easily toggle the "star" status within a page.</p>
+
+</div>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+<hr>
+<h5 style="float:left; margin-top:3rem;">Attachments:</h5>
+  
+
+<div class="row">
+  <div class="one column"></div>
+  <div class="two columns"><!-- Attachments: --></div>
+<div class="nine columns">
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-24/add-star.png"><img src="../../../projects/lr-notebook/2016-04-24/add-star@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-24/starred-entry.png"><img src="../../../projects/lr-notebook/2016-04-24/starred-entry@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/lr-notebook/2016-04-24/starred-project.png"><img src="../../../projects/lr-notebook/2016-04-24/starred-project@50x50.png"></a>
+      
+    
+    <br/>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+
+  </footer>
+</body>
