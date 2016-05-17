@@ -1,0 +1,58 @@
+_model: entry
+---
+date: 2016-05-12
+---
+description: File indexes
+---
+star: red
+---
+body:
+
+# Files and FileTypes
+
+## Background
+
+I'd like to lr-notebook to index attachments by type, and display them on a pages like [/files/json](/files/json) or [/files/pdf](/files/pdf). Rather than just indexing by file extension, I'd like to create my own custom groups of file extensions (e.g. images = .jpg, .png, gif; documents = .doc, .pages, .pdf).
+
+<div class="right">This is somewhat like what Lektor does with attachment types: https://www.getlektor.com/docs/content/attachments/</div>
+
+
+## Approach
+
+### files.ini
+
+The first thing we need is a files.ini model. This will correspond to a content subfolder `files` which can just contain an empty contents.lr.
+
+```ini
+[model]
+name = Files
+label = Files
+hidden = yes
+protected = yes
+
+[children]
+model = filetype
+```
+
+### filetype.ini
+
+Next we need a filetype model.
+
+
+```ini
+[model]
+name = Filetype
+label = {{this.name}}
+hidden = yes
+
+[fields.name]
+label = Name
+type = string
+
+[fields.extensions]
+label = Extensions
+type = strings
+
+[children]
+replaced_with = site.query('/projects')
+```

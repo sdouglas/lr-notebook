@@ -1,0 +1,41 @@
+_model: entry
+---
+date: 2016-05-15
+---
+description: Fix datepicker local time
+---
+body:
+
+## Problem
+
+lr-notebook uses the JavaScript `Date()` function to pre-populate "today" on various date pickers. It displays the current date for GMT, but we want the current date for local time.
+
+<div class="right">
+  <a href="001.png"><img class="littlethumb" src="001.png"></a><br>
+  Displays 5/16 late on 5/15.
+</div>
+
+
+## Solution
+
+This is a common problem, just need to update our function with an existing solution found online.
+
+<div class="right">http://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset</div>
+
+### Old
+```
+(function () {
+    var date = new Date().toISOString().substring(0, 10),
+        field = document.querySelector('#date');
+    field.value = date;
+})()
+```
+
+### New
+```
+(function () {
+    var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+    var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0,-1).substring(0, 10);
+    document.querySelector('#date').value = localISOTime;
+})()
+```

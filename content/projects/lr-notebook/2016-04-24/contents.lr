@@ -1,0 +1,41 @@
+_model: entry
+---
+date: 2016-04-24
+---
+description: Starred items
+---
+body:
+
+# Starred Projects and Entries
+
+Now that I'm adding more content, some of the top-level <i class="fa fa-sticky-note-o" aria-hidden="true"></i> lr-notebook pages are getting kind of dense. I thought it would be useful to add the option to "star" a project or project entry, and then display with visual hints for quickly identifying them.
+
+To start I'm just adding the option in the admin interface to choose a star color.
+
+## Result
+
+Here's the commit with initial implementation.
+
+<div class="right">
+[8913f90](https://github.com/douglaslab/lr-notebook/commit/8913f9019b4674885dab20320bfb55b0ed41013c) <i class="fa fa-github-alt" aria-hidden="true"></i>
+</div>
+
+To add a star, select a color from the dropbown menu in the Lektor admin "edit" page for a project or entry, and save changes.
+
+<div class="right">
+  <a href="add-star.png"><img class="littlethumb" src="add-star.png"></a>
+</div>
+
+<div class="right">
+  <a href="starred-project.png"><img class="thumb" src="starred-project.png"></a>
+  <a href="starred-entry.png"><img class="thumb" src="starred-entry.png"></a>
+</div>
+
+Here's what it looks like on the Projects page for a starred project and a starred entry.
+
+
+### Future
+
+In the future I may add a button and JavaScript function to easily toggle the "star" status within a page.
+---
+star: lightgray

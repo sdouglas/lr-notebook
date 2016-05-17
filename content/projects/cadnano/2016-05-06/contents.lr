@@ -1,0 +1,28 @@
+_model: entry
+---
+date: 2016-05-06
+---
+description: testing 2.5
+---
+body:
+
+## Issues
+
+pre-xover hinting should have z-index on top of existing strands.
+
+<div class="right">
+  <a href="002.jpg"><img class="littlethumb" src="002.jpg"></a><br>
+</div>
+
+<br>
+
+Some artifacts when selecting helices
+
+<div class="right">
+  <a href="001.gif"><img class="thumb" src="001.gif"></a>
+  <a href="003.jpg"><img class="littlethumb" src="003.jpg"></a>
+  <a href="004.jpg"><img class="littlethumb" src="004.jpg"></a>
+</div>
+
+
+
