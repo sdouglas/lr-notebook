@@ -56,13 +56,13 @@
   <span style="display:inline-block; position:relative; top:-4rem; width:60%;">Every protocol in this book has been unsuccessfully attempted many times.</span>
 </div><p>Lately there's been a lot of <a href="http://www.nature.com/news/reproducibility-1.17552">concern</a> about scientific reproducibility. However, it's hard to find nuanced discussion* of the root causes of "failed" experiments, let alone any practical solutions that might improve the situation for the people who do the actual work (i.e. students and postdocs).</p>
 <div class="right"><br> *&nbsp;one exception: [On Reproducibility and Clocks](http://www.ascb.org/on-reproducibility-and-clocks/) by Peter Walter
-</div><p>There's always a trade-off between doing something new and teaching others what you recently learned. The biggest advances are often totally unexpected. Thus, positive results are often reported as a form of <em>post hoc</em> storytelling. Thanks to the "<a href="https://en.wikipedia.org/wiki/Curse_of_knowledge">curse of knowledge</a>", it's easy to omit details that long ago became muscle memory for the authors, and even their highly specialized peer reviewers.</p>
+</div><p>There's always a trade-off between doing something new and teaching others what you recently learned. The biggest advances are often totally unexpected. Thus, positive results are often reported as a form of <em>post hoc</em> storytelling. Thanks to the "<a href="https://en.wikipedia.org/wiki/Curse_of_knowledge">curse of knowledge</a>", it's common to omit details that long ago became muscle memory for the authors, and even their highly specialized peer reviewers.</p>
 <div class="right">This cannot be overstated: it's **HARD** to do something new. </div><h3>Policies + Tools</h3>
 <p>Policy incentives that encourage better reporting probably won't hurt, but they also won't magically make anything easier. If we truly want to improve scientific reproducibility, I suspect we need to complement the retroactive storytelling with <strong>new tools</strong> that lower the barrier to keeping track of detailed information <em>as it is generated</em>. A lot of information that might be useful for reproducing experiments is not easily captured as part of the normal research process, but if we can make collecting and sharing data easier, then perhaps we can start to imagine funding &amp; publishing policies that go much further in making our research more accessible (and thus more reproducible).</p>
 <h3>Lektor</h3>
 <div class="right">https://www.getlektor.com/</div><p>I believe a new web publishing system called Lektor has tremendous potential to upgrade the way researchers manage and share data. To understand why, I'll try to explain how I understand it in the  context of amateur online publishing.</p>
 <h2>Web publishing has never been easy</h2>
-<p>Since the early days of the web, setting up and maintaining a website required a lot of technical expertise. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, so it was easy to accidentally overwrite work. Thus, you needed at least one technical person <em>somewhere</em> in the loop, and if you couldn't hire one, you had to become one yourself.</p>
+<p>Since the early days of the web, setting up and maintaining a website required a lot of technical expertise. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, and mistakes could be costly. Thus, you needed at least one technical person <em>somewhere</em> in the loop, and if you couldn't hire one, you had to become one yourself.</p>
 <h2>Content Management System (CMS) era</h2>
 <div class="right">
   <img class="thumb" src="wordpress.png"><br>
@@ -73,15 +73,15 @@
 <div class="right">
   <img class="thumb" src="jekyll.png"><br>
   jekyllrb.com
-</div><p>In the mid- to late-2000s, the tools evolved a bit further. Another type of tool was called a <code>static site generator</code>. Instead of dynamically building every page in response to a visitor on the site, a set of scripts pre-complies everything into html once. This meant the files could be hosted on a dedicated web server. Because there is no dedicated server + database, it becomes pretty simple to host on an http server, and many companies began offering this kind of hosting service for free (e.g. github pages).</p>
-<p>With static site generators, again the complexity is not eliminated. It shifted from the server back to the content creator. You can’t just log into an admin interface via the website, but instead need to learn how to update the content and sync it with the hosting platform. It is generally not much more complicated than Drupal or Wordpress, but it can be easier to break things by accident.</p>
-<h2>Markdown</h2>
-<p>A parallel mid-2000s development was a language called <a href="https://daringfireball.net/projects/markdown/">markdown</a> which is a simplified form of html that is more human readable. Here are two examples content formatted with html and markdown that will ultimately display identically browser (since markdown just gets compiled into to html anyway).</p>
+</div><p>In the mid- to late-2000s, the tools evolved a bit further. Another type of tool was called a <code>static site generator</code>. Instead of dynamically building every page in response to a visitor on the site, a set of scripts pre-complies everything into html once. This meant that files alone could again be hosted on a dedicated web server, just like before. Because there is no database, it was pretty simple to host on an http server, and many companies began offering this kind of hosting service for free (e.g. github pages).</p>
+<p>Still, the complexity is not eliminated. Unfortunately, it shifted from the sysadmin back to the content creators. You can’t just log into an admin interface via the website anymore, but instead need to learn how to update the content and sync it with the hosting platform, probably using some kind of version control which is quite fragile. Definitely a downgrade from Drupal or Wordpress from the user perspective.</p>
+<h3>Quick aside: Markdown</h3>
+<p>The language also evolved. In the mid-2000s <a href="https://daringfireball.net/projects/markdown/">markdown</a> was created as a simplified form of html that is more human readable. Here are two examples content formatted with html and markdown that will ultimately display identically browser (since markdown just gets compiled into to html anyway).</p>
 <div class="right">
   |<a href="html.png"><img class="littlethumb" src="html.png"></a>|<a href="markdown.png"><img class="littlethumb" src="markdown.png"></a>|<a href="renderedhtml.png"><img class="littlethumb" src="renderedhtml.png"></a>|
   |:-:|:-:|:-:|
   |html|markdown|output|
-</div><p>Markdown was probably popularized in part due to Jekyll + Github Pages... at least I think that's how I first encountered it. (Similar "lightweight" markup languages like reStructuredText and AsciiDoc predated markdown by several months but didn't take off.)</p>
+</div><p>Markdown was popularized in part due to Jekyll + Github Pages... at least I think that's how I first encountered it. (Similar "lightweight" markup languages like reStructuredText and AsciiDoc predated markdown by several months but didn't take off.) It's now widely supported by modern web publishing tools.</p>
 <h2>Next up: Hybrid CMS/Static site generators</h2>
 <div class="right">[What is Lektor?](https://www.getlektor.com/docs/what/) (Lektor docs)</div><p>It seems the third stage in the evolution of the web publishing ecosystem are tools that seem to avoid the trade-off between client-side and server-side complexity by handling everything. The most exciting tool in this regard is called <a href="http://getlektor.com/">Lektor</a>, created by Armin Ronacher. It seems there are somewhat similar tools such as <a href="https://learn.getgrav.org/basics/what-is-grav">grav</a>.</p>
 <h3>The App</h3>
@@ -112,7 +112,8 @@
 <p>I've been working the last few months to build a new lab notebook using Lektor. If you're reading this at <a href="http://sdouglas.github.io/lr-notebook/">sdouglas.github.io/lr-notebook/</a>, then you're looking at the deployed static version of that work.</p>
 <div class="right">
   <a href="new-entry-1.png"><img class="littlethumb" src="new-entry-1.png"></a>
-</div><p>I'll be the first to admit that the layout of the notebook entries is highly personalized to my own tastes, and still unfinished. But I think the potential is there. If we circle back to the original motivation of making it easier to capture and organize detailed information about our research, then having direct access to the filesystem through the browser, and being able to quickly switch between the two should make it easy to develop templates and habits that make it much easier to practice high-quality record keeping. Ideally we just will work in files and folders like we're used to, and good Lektor models and templates can be used to keep everything organized and accessible. And since the whole thing is already a website, when it comes time to publish, every digital artifact can be shared simply by copying a folder and synchronizing with a free web host (e.g. <a href="http://pages.gitlab.io/">gitlab pages</a>).</p>
+</div><p>I'll be the first to admit that the current layout of the notebook entries is highly personalized to my own tastes, and still unfinished. But I think the potential is there. Lektor provides a solid foundation for developing tools that facilitate better record keeping and sharing. Of course, new tools we create are only likely to be adopted if they let us continue to work with files and folders like we're used to. Dropbox was like this, which made it such a seamless upgrade.</p>
+<p>It may seem obvious when you say it aloud, but I think it's very useful to start thinking about everything we do as researchers in terms of ultimately publishing to the web, rather than to journals. Then we might also begin to realize that we needn't always constrain ourselves to generating simulated pieces of paper, and begin to <a href="http://worrydream.com/MediaForThinkingTheUnthinkable/">explore the possibilities</a> that dynamic media can offer.</p>
 
 </div>
 
@@ -209,7 +210,7 @@
   </div>
 
   <footer>
-    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-sliders"></i></a> in SF.
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-flask"></i></a> in SF.
 
   </footer>
 </body>
