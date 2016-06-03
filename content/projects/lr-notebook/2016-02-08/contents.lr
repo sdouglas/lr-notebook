@@ -2,13 +2,41 @@ _model: entry
 ---
 date: 2016-02-08
 ---
-description: Thoughts on Lektor
+description: Thoughts on Lektor as a Research Tool
 ---
 body:
 
-## Background
+## Better science will require better tools
 
-In the early days of the web, setting up and maintaining a website required a lot of technical skills. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, so it was easy to accidentally overwrite work.
+Science moves forward when talented, highly skilled people do things that have never been done before. This is easier said than done. Anyone who's worked in a lab knows that even decades-old protocols don't usually work on the first few attempts.
+
+<div class="right">
+  <img style="display:inline-block;" class="littlethumb" src="maniatis.png">
+  <span style="display:inline-block; position:relative; top:-4rem; width:60%;">Every protocol in this book has been unsuccessfully attempted many times.</span>
+</div>
+
+Lately there's been a lot of [concern](http://www.nature.com/news/reproducibility-1.17552) about scientific reproducibility. However, it's hard to find nuanced discussion* of the root causes of "failed" experiments, let alone any practical solutions that might improve the situation for the people who do the actual work (i.e. students and postdocs).
+
+<div class="right"><br> *&nbsp;one exception: [On Reproducibility and Clocks](http://www.ascb.org/on-reproducibility-and-clocks/) by Peter Walter
+</div>
+
+There's always a trade-off between doing something new and teaching others what you recently learned. The biggest advances are often totally unexpected. Thus, positive results are often reported as a form of *post hoc* storytelling. Thanks to the "[curse of knowledge](https://en.wikipedia.org/wiki/Curse_of_knowledge)", it's easy to omit details that long ago became muscle memory for the authors, and even their highly specialized peer reviewers.
+
+<div class="right">This cannot be overstated: it's **HARD** to do something new. </div>
+
+### Policies + Tools
+
+Policy incentives that encourage better reporting probably won't hurt, but they also won't magically make anything easier. If we truly want to improve scientific reproducibility, I suspect we need to complement the retroactive storytelling with **new tools** that lower the barrier to keeping track of detailed information *as it is generated*. A lot of information that might be useful for reproducing experiments is not easily captured as part of the normal research process, but if we can make collecting and sharing data easier, then perhaps we can start to imagine funding & publishing policies that go much further in making our research more accessible (and thus more reproducible).
+
+### Lektor
+
+<div class="right">https://www.getlektor.com/</div>
+
+I believe a new web publishing system called Lektor has tremendous potential to upgrade the way researchers manage and share data. To understand why, I'll try to explain how I understand it in the  context of amateur online publishing.
+
+## Web publishing has never been easy
+
+Since the early days of the web, setting up and maintaining a website required a lot of technical expertise. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, so it was easy to accidentally overwrite work. Thus, you needed at least one technical person *somewhere* in the loop, and if you couldn't hire one, you had to become one yourself.
 
 ## Content Management System (CMS) era
 
@@ -18,9 +46,9 @@ In the early days of the web, setting up and maintaining a website required a lo
 </div>
 
 
-By the early 2000s, various new tools were developed to facilitate various steps of the process. Content management systems (“CMS”) like Drupal and Wordpress were created. CMSs are similar to a wiki, in that they attempt to make it possible for non-programmers to create, edit, or delete content through a web-based admin interface. However, the complexity didn't disappear—it was simply shifted over to the system administrator, who now had to maintain a web server, plus server-side CMS software, and a database.
+By the early 2000s, various new tools were developed to facilitate various steps of the publishing process. Content management systems (“CMS”) like Drupal and Wordpress were created. CMSs are similar to a wiki, in that they attempt to make it possible for non-programmers to create, edit, or delete content through a web-based admin interface. However, the complexity didn't disappear—it was simply shifted over to the system administrator, who now had to maintain a web server, plus server-side CMS software, and a database.
 
-The dedicated server software needed be running at all times. You needed to pay for hosting, and you need a sysadmin somewhere in the loop who knows what they are doing. Servers typically need to be constantly patched with security updates, etc. Behind the scenes, the server runs its own database, and every time someone visits the website, the server has to query the database, get the necessary information, and convert it into html, and send it back to the visitors web browser. That works fine if there is little traffic on the site, but if there is ever a huge spike in traffic the server may have to respond to thousands of requests per second  which can bring down the entire site (This used to be called slashdotting, and nowadays happens via the front page of reddit). It is possible to do "caching”, but it is typically complicated and hard to get right.
+The dedicated server software needed be running at all times. You needed to pay for hosting, and you need a sysadmin somewhere in the loop who knows what they are doing. Servers typically need to be constantly patched with security updates, etc. Behind the scenes, the server runs its own database, and every time someone visits the website, the server has to query the database, get the necessary information, and convert it into html, and send it back to the visitors web browser. That works fine if there is little traffic on the site, but if there is ever a huge spike in traffic the server may have to respond to thousands of requests per second  which can bring down the entire site (This used to be called slashdotting). It is possible to do "caching”, but it is typically complicated and hard to get right.
 
 ## Static Site Generators
 
@@ -56,7 +84,7 @@ It seems the third stage in the evolution of the web publishing ecosystem are to
 
 ### The App
 
-There are several things that are exciting about Lektor. First, it's an app. Now anyone who can run an app can also run a web server. It works locally with flat files, so nothing needs to be synchronized with a remote server (though it can build a static site and deploy it if you want).
+There are several things that are exciting about Lektor. First, it's an app. Now anyone who can run an OSX app can also run a web server. It works locally with flat files, so nothing needs to be synchronized with a remote server (though it can be configured to build & remotely deploy a static site).
 
 <div class="right">
   |<img class="littlethumb" src="lektor.png">|<img class="littlethumb" src="lektor-page.png">
@@ -66,7 +94,7 @@ There are several things that are exciting about Lektor. First, it's an app. Now
 
 ### The CMS
 
-The Lektor server includes a CMS-like admin interface that is easily accessed through the browser (the admin button is in the top right of every page). This makes it very easy to make simple changes to pages as you're browsing. In the future if a WYSIWYG markdown editor is included it might be even easier for users who don't wish to use Markdown.
+The Lektor server includes a CMS (or wiki)-like admin interface that is easily accessed through the browser (the admin button is in the top right of every page). This makes it very easy to make simple changes to pages as you're browsing. In the future if a WYSIWYG markdown editor is included, it might be even for users who don't wish to use Markdown to format and style their content.
 
 <div class="right">
   |<img class="littlethumb" src="lektor-admin.png">|
@@ -74,27 +102,38 @@ The Lektor server includes a CMS-like admin interface that is easily accessed th
   |The admin UI|
 </div>
 
-I was very curious about how this is achieved, and after digging around the source and it turns out Lektor leverages another tool previously developed by Ronacher called [click](http://click.pocoo.org/).
+I was very curious about how this is achieved, and after digging around the source and it turns out Lektor leverages another tool previously developed by Ronacher called [click](http://click.pocoo.org/). Another bonus is that html template "framework" [jinja](http://jinja.pocoo.org/) is Python-based, which is very nice to work with.
+
 
 <div class="right">Check out [click.launch](https://github.com/pallets/click/blob/master/click/termui.py#L462)</div>
 
-### A personalized view of the filesystem
-
-One of the most frustrating things about modern GUI-based operating systems is the constant overhead of finding and navigating to files. Getting work done requires leveraging diverse resources that are somehow always entropically scattered across virtual time and space.
-
-Thus, the thing that made me most excited when I first started playing with Lektor was the possibility of embedding JavaScript in html templates that would talk to the server API to perform file system operations (e.g. revealing, creating or editing files).
+### A personalized, interactive view of the filesystem (!)
 
 <div class="right">
-  <a href="new-entry-1.png"><img class="littlethumb" src="new-entry-1.png"></a>
+  <a href="maniatis.gif">
+    <img class="bigthumb" src="maniatis.gif">
+  </a><br>
 </div>
 
-Now thanks to Lektor I can "easily" write my own filesystem views in html+css! For example I can build a page that shows me thumbnails of every single image in a project since day 1.
+One of the most frustrating things about modern GUI-based operating systems is the constant overhead of finding and navigating to files. Getting work done requires leveraging diverse resources that are somehow always entropically scattered across virtual time and space. Thus, the thing that made me most excited when I first started playing with Lektor was the possibility of embedding JavaScript in html templates that would talk to the server API to perform file system operations (e.g. revealing, creating or editing files).
+
+Since I can open files from the browser, I can now quickly edit it using a *native tool* (such as Photoshop), and then save it. Lektor will simply work in the background to rebuild all affected pages.
 
 <div class="right">
   <a href="project-view.png"><img src="project-view-2.png"></a><br>
 </div>
 
+Additionally, thanks to Lektor it's now worthwhile to write my own filesystem views in html+css! For example I can build a page that shows me thumbnails of every single image in a project since day 1. Some example project pages on the right - dozens or hundreds of thumbnail images can be quickly scanned when trying to find something.
 
-A final bonus is that html template "framework" [jinja](http://jinja.pocoo.org/) is Python-based, which is very nice to work with.
+Overall Lektor is a very exciting advance in web development, thanks to amazing work by Ronacher.
 
-Overall a very exciting advance in web development, thanks to amazing work by Ronacher.
+### Outlook
+
+I've been working the last few months to build a new lab notebook using Lektor. If you're reading this at [sdouglas.github.io/lr-notebook/](http://sdouglas.github.io/lr-notebook/), then you're looking at the deployed static version of that work.
+
+<div class="right">
+  <a href="new-entry-1.png"><img class="littlethumb" src="new-entry-1.png"></a>
+</div>
+
+I'll be the first to admit that the layout of the notebook entries is highly personalized to my own tastes, and still unfinished. But I think the potential is there. If we circle back to the original motivation of making it easier to capture and organize detailed information about our research, then having direct access to the filesystem through the browser, and being able to quickly switch between the two should make it easy to develop templates and habits that make it much easier to practice high-quality record keeping. Ideally we just will work in files and folders like we're used to, and good Lektor models and templates can be used to keep everything organized and accessible. And since the whole thing is already a website, when it comes time to publish, every digital artifact can be shared simply by copying a folder and synchronizing with a free web host (e.g. [gitlab pages](http://pages.gitlab.io/)).
+
