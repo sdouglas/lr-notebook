@@ -1,0 +1,95 @@
+_model: entry
+---
+date: 2016-08-26
+---
+description: add clipboard.js to code blocks
+---
+body:
+
+# Copy and Paste
+
+Adding a button for single-click copy to clipboard has been on the lr-notebook
+project to-do list for a while.
+
+
+## Example
+
+Here is an example code block. Click on the <i class="fa fa-files-o" aria-hidden="true"></i> button to its right, and the contents are sent to the clipboard. It selects the text as well, but note that you don't need to do an extra ctrl+c copy, it is already on the clipboard too.
+
+<div class="right">
+  <a href="001.gif"><img class="thumb" src="001.gif"></a><br>
+</div>
+
+
+```
+Lorem ipsum dolor sit amet,
+consectetur adipisicing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.
+```
+
+## How to add this to lr-notebook
+
+This is done using [clipboardjs](https://clipboardjs.com/).
+
+
+First, copy the file clipboardjs.min.js into the `assets/static/js` folder and import the library on all pages by adding this line to `templates/layout.html`
+
+<div class="right">
+  [clipboard.min.js](clipboard.min.js) ← for convenience
+</div>
+
+
+```
+<script src="{{ '/static/js/clipboard.min.js'|asseturl }}"></script>
+```
+
+Next, add this code to the bottom of `templates/entry.html` to create the buttons.
+
+```
+<script>
+var pre = document.getElementsByTagName('pre');
+for (var i = 0; i < pre.length; i++) {
+  var button = document.createElement('button');
+  button.className = 'btn fa fa-copy';
+  pre[i].appendChild(button);
+}
+
+var clipboard = new Clipboard('.btn', {
+  target: function(trigger) {return trigger.previousElementSibling;}
+});
+
+function showSuccess(elem){elem.setAttribute('class','btn fa fa-check');}
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+clipboard.on('success',function(e){
+  showSuccess(e.trigger);
+  sleep(350).then(() => {e.clearSelection();
+    e.trigger.setAttribute('class','btn fa fa-copy');})
+});
+</script>
+```
+
+This works by appending the button inside the end of every `pre` block. Nested inside the pre will be a `code` block where the actual content lives. The content becomes the Clipboard target as described in the "Advanced Usage" section of the [project page](https://clipboardjs.com/). The second half of the code (showSuccess onward) has to do with giving visual feedback about what text was successfully copied.
+
+Finally, add the following to `assets/static/style.css` so the button is positioned and styled correctly. I added it around line 39.
+
+```
+.btn {
+  opacity:0.25;
+  position:absolute;
+  padding: 2px 2px;
+  transition:opacity 0.3s ease-in-out;
+  -webkit-transition:opacity 0.3s ease-in-out;-o-transition:opacity 0.3s ease-in-out;
+}
+.btn:hover{opacity:1;}
+```
+
+That's it! If you want the nifty tooltips that show up on the clipboardjs examples, those are done with [primer-css tooltips](http://primercss.io/tooltips/). I tried for a bit to add them here, but they break in conjunction with my css and I didn't want to spend the time needed to debug.
+
+In the final version, I included the call to clipboard.on('success'...), which clears the selection and temporarily swaps out the copy icon. It required the mouseleave listener to be added to all btn buttons to reset the original class.
+
+<div class="right">
+  <a href="002.gif"><img src="002.gif"></a><br>
+</div>

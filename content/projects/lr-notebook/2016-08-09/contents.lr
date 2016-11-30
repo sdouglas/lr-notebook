@@ -1,0 +1,19 @@
+_model: entry
+---
+date: 2016-08-09
+---
+body:
+
+In order to keep track of To-Do lists on a per-project basis, I've added a body section to the project.ini model and project.html template. It'd displayed as red text at the top of each project page. 
+
+<div class="right">
+  <a href="1.png">
+    <img class="thumb" src="1.png">
+  </a><br>1.png
+</div>
+
+Future improvements:
+- update the main index page to display all project to-do lists
+- add the `+` button next to a task (i.e. anything in a `ul` to auto-populate a project entry.
+---
+description: add body section to project page

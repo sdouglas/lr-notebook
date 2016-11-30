@@ -1,0 +1,38 @@
+_model: entry
+---
+date: 2016-11-29
+---
+description: chrome video bug
+---
+body:
+
+## Issue
+
+<div class="right">
+  <a href="loading.gif"><img width="140" src="loading.gif"></a><br>
+</div>
+
+Chrome has an issue with html5 video that causes the page to load indefinitely.
+
+Many have experienced this issue.
+
+<div class="right">
+refs: [1](https://bugs.chromium.org/p/chromium/issues/detail?id=234779),
+[2](http://stackoverflow.com/questions/29515093/html-videos-status-becomes-pending-after-some-times),
+[3](http://stackoverflow.com/questions/16137381/html5-video-element-request-stay-pending-forever-on-chrome),
+[4](https://github.com/videojs/video.js/issues/455)
+</div>
+
+## Workaround
+
+<div class="right">
+  |<video width="140" autoplay loop poster="loading.png"><source src="loading.webm"></video>|
+  |:-:|
+  | loading.webm with poster |
+</div>
+
+
+The easiest workaround in lr-notebook was to add a poster screen. Preloading may also be necessary.
+
+`<video controls preload="none" poster="loading.png">`
+

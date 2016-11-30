@@ -1,0 +1,45 @@
+_model: entry
+---
+date: 2016-08-25
+---
+description: upgrade to Lektor 2.3
+---
+body:
+
+Make sure to upgrade using pip2, not pip3 (which was my default)
+
+`pip2 install lektor --upgrade`
+
+
+## Error
+
+```sh
+
+Updating packages in /Users/shawn/Library/Caches/Lektor/packages/bfb65f8eb2370fc030d55007ed233188 for project
+Collecting lektor-markdown-highlighter==0.1
+  Using cached lektor_markdown_highlighter-0.1-py2-none-any.whl
+Collecting Pygments (from lektor-markdown-highlighter==0.1)
+  Using cached Pygments-2.1.3-py2.py3-none-any.whl
+Installing collected packages: Pygments, lektor-markdown-highlighter
+Exception:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/usr/local/lib/python2.7/site-packages/pip/commands/install.py", line 317, in run
+    prefix=options.prefix_path,
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_set.py", line 742, in install
+    **kwargs
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 831, in install
+    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
+  File "/usr/local/lib/python2.7/site-packages/pip/req/req_install.py", line 1032, in move_wheel_files
+    isolated=self.isolated,
+  File "/usr/local/lib/python2.7/site-packages/pip/wheel.py", line 247, in move_wheel_files
+    prefix=prefix,
+  File "/usr/local/lib/python2.7/site-packages/pip/locations.py", line 153, in distutils_scheme
+    i.finalize_options()
+  File "/usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/lib/python2.7/distutils/command/install.py", line 264, in finalize_options
+    "must supply either home or prefix/exec-prefix -- not both"
+DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both
+```
+
+Solution: [http://stackoverflow.com/questions/24257803/](http://stackoverflow.com/questions/24257803/distutilsoptionerror-must-supply-either-home-or-prefix-exec-prefix-not-both)
