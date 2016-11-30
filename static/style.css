@@ -37,6 +37,16 @@ footer {
 }
 
 
+/* clipboard.js button */
+.btn {
+  opacity:0.3;
+  position:absolute;
+  padding: 2px 2px;
+  transition:opacity 0.3s ease-in-out;
+  -webkit-transition:opacity 0.3s ease-in-out;-o-transition:opacity 0.3s ease-in-out;
+}
+.btn:hover{opacity:1;}
+
 /* Colors */
 .red {color: #cc0000;}
 .lightred {color: #ff4d4d;}
@@ -189,10 +199,15 @@ input[type="text"].newfolder {
     list-style: none;
     counter-reset: count;
 }
+
 #entry ol li:before {
     content: counter(count, decimal) ".";
     counter-increment: count;
-    font-weight: bold;
+    margin-right: 1.0rem;
+}
+
+#entry ul li:before {
+    content: none;
     margin-right: 1.0rem;
 }
 
@@ -267,9 +282,9 @@ input[type="text"].newfolder {
     margin-right: -1.5rem;
     margin-bottom: 1.0rem;
     margin-left: -1.5rem;
-    padding-top: 0.6rem;
+    padding-top: 1.0rem;
     padding-right: 1.5rem;
-    padding-bottom: 0.4rem;
+    padding-bottom: 1.0rem;
     padding-left: 1.5rem;
     color:#fff;
     background: #377eb8;
@@ -285,9 +300,10 @@ input[type="text"].newfolder {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     margin-top: 1.5rem;
-    margin-left: 1.5rem;
+    /*margin-left: 1.5rem;*/
     width: 47%;
     clear: both;
+    border-bottom: 1px solid #ccc;
   }
 
   #entry img {
@@ -302,7 +318,7 @@ input[type="text"].newfolder {
     width: 46%;
     float: left;
     clear: left;
-    margin-left: 1.5rem;
+    /*margin-left: 1.5rem;*/
     margin-bottom: 2.5rem;
   }
   
@@ -312,6 +328,11 @@ input[type="text"].newfolder {
     width: 46%;
     margin-left: 1.5rem;
     margin-bottom: 1rem;
+  }
+
+  #entry li li {
+    margin-left: 0rem;
+    width: 100%;
   }
 
   #entry li > p {
@@ -326,7 +347,7 @@ input[type="text"].newfolder {
 
   #entry pre > code {
     margin-left: 2rem;
-    background: #eee;
+    background: #e9e9e9;
     border: 1px solid #E1E1E1;
   }
 
@@ -349,6 +370,10 @@ input[type="text"].newfolder {
     width: 96%;
   }
 
+  #entry table {
+    clear: both;
+  }
+
   #entry .right table {
     border: none;
   }
@@ -358,11 +383,12 @@ input[type="text"].newfolder {
   #entry .highlight {
     width: 45%;
     font-size: 90%;
-    float: right;
-    display: inline;
-    margin-right: 1rem;
+    /*float: right;*/
+    /*display: inline;*/
+    /*margin-right: 1rem;*/
     background: #eee;
     border: 1px solid #E1E1E1;
     padding: 0rem 1rem 0rem 1rem;
+    margin-left: 2rem;
   }
 } /* end Two column (desktop) */
