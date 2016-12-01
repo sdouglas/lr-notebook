@@ -39,7 +39,7 @@ Sorry there is no audio for this first clip.
   <iframe width="560" height="315" src="https://www.youtube.com/embed/v8DiTxbKET4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Here we set up a surface shaders and ambient occlusion shader on separate render layers.
+Here we set up some surface shaders to give our models the desired color.
 
 ## Part 3: Toon Outline
 
@@ -56,9 +56,16 @@ This step is optional, but it's a nice effect that helps define the edges and se
   <iframe width="560" height="315" src="https://www.youtube.com/embed/5Du0nr1Vy20" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Now we have defined two render layers, one with solid color surface shaders + toon outlines, and another with ambient occlusion.
-We set up the scene in such a way that it will be saved to a P
+Here we set up an ambient occlusion shader on its own render layer.  We then configure the render settings so the separate render layers will each be saved to its own layer in a layered Photoshop PSD file. We can then easily composite the two layers (by multiplying the ao layer on top of the ss layer) for the final desired appearance.
 
+## Render settings
+
+Here are screenshots of the render settings windows in case they are hard to see in the videos.
+
+<div class="right">
+  <a href="render-settings-ss.png"><img class="thumb" src="render-settings-ss.png"></a>
+  <a href="render-settings-ao.png"><img class="thumb" src="render-settings-ao.png"></a>
+</div>
 
 ## Conclusion
 
