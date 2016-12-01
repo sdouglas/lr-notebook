@@ -49,20 +49,23 @@
 
 
 <div id="entry">
-    <p><small>
-A quick note: this is definitely not up to my normal quality standards, as it was meant to just be a record of a private demonstration in the lab. We didn't even realize we should record audio until the 2nd video. However, it's still good enough to give a basic idea of the workflow.
-</small></p>
-<h2>Goal</h2>
-<p>Here we want to create some publication-quality 3D renders of DNA origami models built in cadnano. We use Maya 2012 and Photoshop.</p>
+    <h2>Goal</h2>
+<p>Here we want to create some publication-quality 3D renderings of DNA origami models built in cadnano. We use Maya 2012 with the cadnano2 plugin and Photoshop. This should also work with Maya 2015 and cadnano2.2. Some representative composited renders are shown to the right. The toon outline was omitted from the orange domain for comparison.</p>
 <div class="right">
   <a href="composite1.png"><img class="thumb" src="composite1.png"></a>
   <a href="composite2.png"><img class="thumb" src="composite2.png"></a>
-</div><p>Due to the specific effects we are using, the rendering must be done in two separate passes, and then composited into a single image at the end of the process. Final results shown to the right.</p>
-<h2>Part 1: Create the geometry</h2>
+</div><h2>Basic Concepts</h2>
+<p>This assumes basic familiarity with cadnano and the Maya interface.</p>
+<p>To achieve the desired appearance, the rendering must be done as two separate passes, and then composited into a single image at the end of the process. Fortunately, it's possible to automate this for export into PSD layers which makes compositing very easy.</p>
+<div class="right">
+  |<a href="ss_toon_layer.png"><img class="thumb" src="ss_toon_layer.png"></a>|<a href="amb_occ_layer.png"><img class="thumb" src="amb_occ_layer.png"></a>|
+  |:-:|:-:|
+  |surface + toon outline|ambient occlusion|
+</div><h2>Part 1: Create the geometry</h2>
 <div class="right">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Dl0YCOpgInA" frameborder="0" allowfullscreen></iframe>
 </div><p>We're not creating anything fancy here, just a few separate origami shapes that we'll manipulate and arrange independently. The important step here is grouping and duplicating the objects created by cadnano so we can easily manipulate the geometry and shading without fighting with the code that's hooked up behind the scenes.</p>
-<p>Sorry there is no audio for this first clip.</p>
+<p>Sorry there is no audio for this first clip. It was meant to just be a record of a private demonstration in the lab. We didn't even realize we should record audio until the 2nd video. However, it's still good enough to give a basic idea of the workflow.</p>
 <h2>Part 2: Set up shaders</h2>
 <div class="right">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/v8DiTxbKET4" frameborder="0" allowfullscreen></iframe>
@@ -85,6 +88,10 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
 <p><a href="final-invert.png"><img class="bigthumb" src="final-invert.png"></a><br></p>
 <div class="right">
   <a href="final-textured.png"><img class="bigthumb" src="final-textured.png"></a>
+</div><h2>References</h2>
+<p>If you are interested in learning about 3D rendering, I highly recommend Jeremy Birn's <a href="https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989">Digital Lighting and Rendering</a>. It is relatively platform agnostic and really focuses at a conceptual level.</p>
+<div class="right">
+  <a target="_new" href="https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989"><img class="littlethumb" src="birn-dlr.png"></a><br>
 </div>
 </div>
 
@@ -112,6 +119,10 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
 <div class="nine columns">
     
       
+        <a href="../../../projects/tutorials/2016-11-29/amb_occ_layer.png"><img src="../../../projects/tutorials/2016-11-29/amb_occ_layer@50x50.png"></a>
+      
+    
+      
         <a href="../../../projects/tutorials/2016-11-29/composite1.png"><img src="../../../projects/tutorials/2016-11-29/composite1@50x50.png"></a>
       
     
@@ -137,6 +148,10 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
     
       
         <a href="../../../projects/tutorials/2016-11-29/render-settings-ss.png"><img src="../../../projects/tutorials/2016-11-29/render-settings-ss@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/tutorials/2016-11-29/ss_toon_layer.png"><img src="../../../projects/tutorials/2016-11-29/ss_toon_layer@50x50.png"></a>
       
     
     <br/>
@@ -252,7 +267,7 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
   </div>
 
   <footer>
-    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-cubes"></i></a> in SF.
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-flask"></i></a> in SF.
 
   </footer>
 </body>
