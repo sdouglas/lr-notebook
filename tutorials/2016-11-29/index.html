@@ -66,7 +66,7 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
 <h2>Part 2: Set up shaders</h2>
 <div class="right">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/v8DiTxbKET4" frameborder="0" allowfullscreen></iframe>
-</div><p>Here we set up a surface shaders and ambient occlusion shader on separate render layers.</p>
+</div><p>Here we set up some surface shaders to give our models the desired color.</p>
 <h2>Part 3: Toon Outline</h2>
 <div class="right">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/EIFBUEICpvo" frameborder="0" allowfullscreen></iframe>
@@ -74,9 +74,13 @@ A quick note: this is definitely not up to my normal quality standards, as it wa
 <h2>Part 4: Render to PSD layers and composite</h2>
 <div class="right">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/5Du0nr1Vy20" frameborder="0" allowfullscreen></iframe>
-</div><p>Now we have defined two render layers, one with solid color surface shaders + toon outlines, and another with ambient occlusion.
-We set up the scene in such a way that it will be saved to a P</p>
-<h2>Conclusion</h2>
+</div><p>Here we set up an ambient occlusion shader on its own render layer.  We then configure the render settings so the separate render layers will each be saved to its own layer in a layered Photoshop PSD file. We can then easily composite the two layers (by multiplying the ao layer on top of the ss layer) for the final desired appearance.</p>
+<h2>Render settings</h2>
+<p>Here are screenshots of the render settings windows in case they are hard to see in the videos.</p>
+<div class="right">
+  <a href="render-settings-ss.png"><img class="thumb" src="render-settings-ss.png"></a>
+  <a href="render-settings-ao.png"><img class="thumb" src="render-settings-ao.png"></a>
+</div><h2>Conclusion</h2>
 <p>Many additional effects can be achieved in Photoshop by applying filters or adjustments to the layers.</p>
 <p><a href="final-invert.png"><img class="bigthumb" src="final-invert.png"></a><br></p>
 <div class="right">
@@ -248,7 +252,7 @@ We set up the scene in such a way that it will be saved to a P</p>
   </div>
 
   <footer>
-    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-cubes"></i></a> in SF.
 
   </footer>
 </body>
