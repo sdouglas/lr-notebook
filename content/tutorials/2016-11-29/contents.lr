@@ -1,0 +1,71 @@
+_model: entry
+---
+date: 2016-11-29
+---
+description: Rendering a cadnano model in Maya
+---
+body:
+
+<small>
+A quick note: this is definitely not up to my normal quality standards, as it was meant to just be a record of a private demonstration in the lab. We didn't even realize we should record audio until the 2nd video. However, it's still good enough to give a basic idea of the workflow.
+</small>
+
+## Goal
+
+Here we want to create some publication-quality 3D renders of DNA origami models built in cadnano. We use Maya 2012 and Photoshop.
+
+<div class="right">
+  <a href="composite1.png"><img class="thumb" src="composite1.png"></a>
+  <a href="composite2.png"><img class="thumb" src="composite2.png"></a>
+</div>
+
+Due to the specific effects we are using, the rendering must be done in two separate passes, and then composited into a single image at the end of the process. Final results shown to the right.
+
+
+## Part 1: Create the geometry
+
+<div class="right">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Dl0YCOpgInA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+We're not creating anything fancy here, just a few separate origami shapes that we'll manipulate and arrange independently. The important step here is grouping and duplicating the objects created by cadnano so we can easily manipulate the geometry and shading without fighting with the code that's hooked up behind the scenes.
+
+Sorry there is no audio for this first clip.
+
+
+## Part 2: Set up shaders
+
+<div class="right">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/v8DiTxbKET4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Here we set up a surface shaders and ambient occlusion shader on separate render layers.
+
+## Part 3: Toon Outline
+
+
+<div class="right">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/EIFBUEICpvo" frameborder="0" allowfullscreen></iframe>
+</div>
+
+This step is optional, but it's a nice effect that helps define the edges and seams of the object, and its  easy to add.
+
+## Part 4: Render to PSD layers and composite
+
+<div class="right">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/5Du0nr1Vy20" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Now we have defined two render layers, one with solid color surface shaders + toon outlines, and another with ambient occlusion.
+We set up the scene in such a way that it will be saved to a P
+
+
+## Conclusion
+
+Many additional effects can be achieved in Photoshop by applying filters or adjustments to the layers.
+
+<a href="final-invert.png"><img class="bigthumb" src="final-invert.png"></a><br>
+
+<div class="right">
+  <a href="final-textured.png"><img class="bigthumb" src="final-textured.png"></a>
+</div>
