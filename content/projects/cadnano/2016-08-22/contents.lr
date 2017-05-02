@@ -1,0 +1,52 @@
+_model: entry
+---
+date: 2016-08-22
+---
+description: Log of remaining issues
+---
+body:
+
+
+## Quitting by closing the window:
+
+```
+Traceback (most recent call last):
+  File "./cadnano/gui/controllers/documentcontroller.py", line 721, in windowCloseEventHandler
+    self.actionCloseSlot()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 329, in actionCloseSlot
+    self.destroyDC()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 83, in destroyDC
+    self.disconnectSignalsToSelf()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 91, in disconnectSignalsToSelf
+    o = win.outliner_widget
+AttributeError: 'NoneType' object has no attribute 'outliner_widget'
+Abort trap: 6
+```
+
+## LOD isn't working - resetGL doesn't seem to be called?
+
+## Change visibility of part with some path item (e.g. endpoints, strand, etc) selected.
+
+## Change visibility of oligo with paintTool selected.
+
+I.e. maybe we need an abstract tool with default methods
+
+## Xovers don't line up when importing cadnano2 honeycomb design
+
+## Need to be able to click away from active helix somehow to deselect and make nothing active (maybe click inside part but not on VH?)
+
+## Select several vh and try to edit length
+
+```
+Traceback (most recent call last):
+  File "./cadnano/gui/views/propertyview/propertyeditorwidget.py", line 272, in createEditor
+    editor = treewidgetitem.configureEditor(parent_QWidget, option, model_index)
+  File "./cadnano/gui/views/propertyview/virtualhelixitem.py", line 132, in configureEditor
+    'length'])
+TypeError: getProperty() takes 2 positional arguments but 3 were given
+Abort trap: 6
+```
+
+## Display pencil tool "forced xover hint" for any hover event on prexover.
+
+## Some way to clear / hide abstract sequences?

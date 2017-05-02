@@ -1,0 +1,36 @@
+_model: entry
+---
+date: 2017-04-25
+---
+description: API Scripting
+---
+body:
+
+
+```
+# break-staples.py
+# Shawn M Douglas, April 2017
+# BSD-3 open-source license.
+
+from datetime import datetime
+import cadnano
+from cadnano.document import Document
+
+
+src_file = 'a.json'
+timestamp = "{:%y%m%d-%H%M%S}".format(datetime.now())
+out_file = '.'.join(src_file.split('.')[:-1] + [timestamp, 'json'])
+
+# basic init
+app = cadnano.app()
+doc = app.document = Document()
+
+# read input design
+doc.readFile(src_file)
+
+# break every staple at midpoint
+
+# print staples
+
+# save modified file
+```

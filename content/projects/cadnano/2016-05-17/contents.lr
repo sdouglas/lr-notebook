@@ -1,0 +1,16 @@
+_model: entry
+---
+date: 2016-05-17
+---
+description: restore move button
+---
+body:
+
+Recreated slice-move.png and updated mainwindow.ui and icons.qrc (and corresponding pyqt versions).
+
+<div class="right">
+  <a href="slice-move.png"><img class="thumb" src="slice-move.png"></a><br>
+</div>
+
+See [f2f96a](https://github.com/cadnano/cadnano2.5/commit/f2f96a37be35f2c948b01ec2c55ea6d93827316f) <i class="fa fa-github-alt"></i> and subsequent commits.
+

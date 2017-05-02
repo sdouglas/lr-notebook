@@ -1,0 +1,45 @@
+_model: entry
+---
+date: 2017-04-27
+---
+description: Stylistic updates, Locking, Bugfixes
+---
+body:
+
+## Set Endpoint Pen cosmetic
+
+Cadnano 2.5 appearance has always been a bit off. I realized one reason why is that the endpoint QPen should be set as cosmetic, so the outlines get drawn with a thicker stroke when zoomed out.
+
+<div class="right">
+  <a href="014.png"><img class="thumb" src="014.png"></a><br>
+</div>
+
+I made other tweaks and changes such as line widths, default colors, etc.
+
+## Xover line appearance
+
+Another issue is the exit points of the crossover lines. They just look better centered.
+
+<div class="right">
+  <a href="009.png"><img class="thumb" src="009.png"></a><br>
+</div>
+
+This is also an example of a legacy import [bug](https://github.com/cadnano/cadnano2.5/issues/105).
+
+
+## Configured outliner LOCKED column
+
+Fwd and Rev filters don't make sense anymore, we need oligo-level locking.
+
+<div class="right">
+  <a href="018.png"><img class="thumb" src="018.png"></a><br>
+</div>
+
+
+## Looked into using FontAwesome text
+
+Ported http://stackoverflow.com/questions/35129052/ to PyQt5.
+
+<div class="right">
+  <a href="fa-button.png"><img class="thumb" src="fa-button.png"></a><br>
+</div>

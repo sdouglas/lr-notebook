@@ -1,0 +1,30 @@
+_model: entry
+---
+date: 2017-04-29
+---
+description: Building docs
+---
+body:
+
+
+## How to build cadnano docs
+
+
+```
+cd cadnano2.5/docs
+make clean
+make buildapi
+make html
+```
+
+## Dependencies
+
+Had to reinstall / upgrade sphinx, rtd theme, recommonmark, etc
+
+## Autodoc
+
+Many imports were failing due to autodoc attempting to import with python2. Used an approach from [SO](http://stackoverflow.com/questions/8015225/)
+
+Commit [741722](https://github.com/cadnano/cadnano2.5/commit/74172210843a1ae3f5b858a32880c5e9e831fa20)
+
+Update 4/30: Looked more carefully at the script, it seems the `-M` flag can just be included in the build options if necessary.

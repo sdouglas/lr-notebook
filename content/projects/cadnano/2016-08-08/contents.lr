@@ -1,0 +1,26 @@
+_model: entry
+---
+date: 2016-08-08
+---
+description: plans pre-2.5 release
+---
+body:
+
+- PropertyView: edit all selected items
+- I/O: fix abstract sequence export
+- PathView: Hide PXIs when XO present
+- PathView: Mouse click to install
+- SliceView: hover item to show where helix will be created
+- SliceView: pencil tool create row of helices
+- Tests: get functional test running
+
+## PaintTool bug
+
+```
+Traceback (most recent call last):
+  File "./cadnano/gui/views/pathview/strand/stranditem.py", line 745, in itemChange
+    self.paintToolMousePress(None, None)
+  File "./cadnano/gui/views/pathview/strand/stranditem.py", line 591, in paintToolMousePress
+    if event.modifiers() & Qt.ShiftModifier:
+AttributeError: 'NoneType' object has no attribute 'modifiers'
+```

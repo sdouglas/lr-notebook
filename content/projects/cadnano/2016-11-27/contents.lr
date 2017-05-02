@@ -1,0 +1,22 @@
+_model: entry
+---
+date: 2016-11-27
+---
+description: Solid PartItem and VirtualHelixItem
+---
+body:
+
+
+<div class="right">
+  <a href="000.png"><img class="littlethumb" src="000.png"></a>
+  <a href="001.png"><img class="littlethumb" src="001.png"></a>
+  <a href="002.png"><img class="littlethumb" src="002.png"></a>
+</div>
+
+1. Empty Part only. 2. Drawing the first cylinder. Needs to rotate and scale. Also, typo in setting color defaulted to black. 3. Next, hook up to actual vh creation.
+
+
+<div class="right">
+  <a href="004.png"><img class="thumb" src="004.png"></a><br>
+</div>
+
