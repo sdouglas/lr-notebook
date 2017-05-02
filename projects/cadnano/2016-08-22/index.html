@@ -1,0 +1,233 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../../../static/favicon.ico?h=e38ef9dd">
+<link rel="stylesheet" href="../../../static/lib/normalize.css?h=ece571f3">
+<link rel="stylesheet" href="../../../static/lib/skeleton.css?h=1fd77917">
+<link rel="stylesheet" href="../../../static/style.css?h=5db9e889">
+<link rel="stylesheet" href="../../../static/lib/medium-editor/medium-editor.min.css?h=17e98ac9">
+<link rel="stylesheet" href="../../../static/fonts/anonymous-pro/anonymous-pro.css?h=7b3d4039">
+<link rel="stylesheet" href="../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+<link rel="stylesheet" href="../../../static/fonts/ionicons/css/ionicons.min.css?h=f0459300">
+<link rel="stylesheet" href="../../../static/fonts/source-sans-pro/source-sans-pro.css?h=eef2e813">
+
+<!-- <script src="../../../static/lib/clipboard.min.js?h=64efc85d"></script> -->
+<script src="../../../static/lib/jquery-2.2.1.min.js?h=7cb05e3d"></script>
+<script src="../../../static/lib/marked.js?h=acaa528b"></script>
+<script src="../../../static/lib/MooTools-Core-1.6.0.js?h=f829fe22"></script>
+<script src="../../../static/lib/sprintf.js?h=f8d59971"></script>
+<script src="../../../static/lib/medium-editor/medium-editor.min.js?h=d2c3e1bb"></script>
+<script src="../../../static/lib/me-markdown.standalone.min.js?h=f8bd91a7"></script>
+<script src="../../../static/lr-notebook.js?h=9fb07e66"></script>
+
+
+<title></title>
+<body>
+  <header>
+    <h1><i class="fa fa-sticky-note-o"></i> nb-sdouglas</h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a  href="../../../">Welcome</a></li>
+        
+          <li><a  class="active" href="../../../projects/">Projects</a></li>
+        
+          <li><a  href="../../../calendar/">Calendar</a></li>
+        
+          <li><a  href="../../../meetings/">Meetings</a></li>
+        
+          <li><a  href="../../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+    
+  </header>
+
+  <iframe width="0" height="0" border="0" name="frame" style="border-style: none;"></iframe>
+
+  <div class="page">
+    
+<h2 style="display: inline;"><a class="orange" href="../../../projects/cadnano/">cadnano/</a></h2><br>
+<form target="frame" action="/admin/api/browsefs" method="post">
+  <input type="hidden" name="path" value="/projects/cadnano/2016-08-22">
+  <input type="image" src=../../../static/images/link.png>
+</form>
+<h2 class="lightblue" style="display: inline;">Log of remaining issues</h2> <span style="float:right;" class="midgray">2016-08-22</span> 
+<hr>
+
+
+<h5 style="float:left;">Attachments:</h5>
+
+
+<div class="row">
+  <div class="one column"></div>
+  <div class="two columns"><!-- Attachments: --></div>
+<div class="nine columns">
+    
+      
+        <a href="../../../projects/cadnano/2016-08-22/005.png"><img id="005.png" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)" src="../../../projects/cadnano/2016-08-22/005@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/cadnano/2016-08-22/006.png"><img id="006.png" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)" src="../../../projects/cadnano/2016-08-22/006@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/cadnano/2016-08-22/007.png"><img id="007.png" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)" src="../../../projects/cadnano/2016-08-22/007@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/cadnano/2016-08-22/008.png"><img id="008.png" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)" src="../../../projects/cadnano/2016-08-22/008@50x50.png"></a>
+      
+    
+      
+        <a href="../../../projects/cadnano/2016-08-22/009.png"><img id="009.png" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)" src="../../../projects/cadnano/2016-08-22/009@50x50.png"></a>
+      
+    
+    <br/>
+    
+  </div>
+</div>
+
+
+<hr>
+
+
+
+
+
+
+<div id="entry">
+    <h2>Quitting by closing the window:</h2>
+<pre><code>Traceback (most recent call last):
+  File "./cadnano/gui/controllers/documentcontroller.py", line 721, in windowCloseEventHandler
+    self.actionCloseSlot()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 329, in actionCloseSlot
+    self.destroyDC()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 83, in destroyDC
+    self.disconnectSignalsToSelf()
+  File "./cadnano/gui/controllers/documentcontroller.py", line 91, in disconnectSignalsToSelf
+    o = win.outliner_widget
+AttributeError: 'NoneType' object has no attribute 'outliner_widget'
+Abort trap: 6
+</code></pre>
+<h2>LOD isn't working - resetGL doesn't seem to be called?</h2>
+<h2>Change visibility of part with some path item (e.g. endpoints, strand, etc) selected.</h2>
+<h2>Change visibility of oligo with paintTool selected.</h2>
+<p>I.e. maybe we need an abstract tool with default methods</p>
+<h2>Xovers don't line up when importing cadnano2 honeycomb design</h2>
+<h2>Need to be able to click away from active helix somehow to deselect and make nothing active (maybe click inside part but not on VH?)</h2>
+<h2>Select several vh and try to edit length</h2>
+<pre><code>Traceback (most recent call last):
+  File "./cadnano/gui/views/propertyview/propertyeditorwidget.py", line 272, in createEditor
+    editor = treewidgetitem.configureEditor(parent_QWidget, option, model_index)
+  File "./cadnano/gui/views/propertyview/virtualhelixitem.py", line 132, in configureEditor
+    'length'])
+TypeError: getProperty() takes 2 positional arguments but 3 were given
+Abort trap: 6
+</code></pre>
+<h2>Display pencil tool "forced xover hint" for any hover event on prexover.</h2>
+<h2>Some way to clear / hide abstract sequences?</h2>
+
+</div>
+
+
+
+
+
+
+<pre style="display:none;" class="markdown"></pre>
+
+<script>
+  function renderRightAsMarkdown() {
+      var right = document.getElementsByClassName("right");
+      for (var i=0; i<right.length; i++) {
+          src = right[i].innerHTML
+          right[i].innerHTML = marked(src);
+      }
+  }
+  renderRightAsMarkdown();
+</script>
+
+
+
+
+<script>
+
+// Disable clipboard stuff for now
+// var pre = document.getElementsByTagName('pre');
+// for (var i = 0; i < pre.length; i++) {
+//   var button = document.createElement('button');
+//   button.className = 'btn fa fa-copy';
+//   pre[i].appendChild(button);
+// }
+
+// var clipboard = new Clipboard('.btn', {
+//   target: function(trigger) {return trigger.previousElementSibling;}
+// });
+
+// function showSuccess(elem){elem.setAttribute('class','btn fa fa-check');}
+// function sleep (time) {return new Promise((resolve) => setTimeout(resolve, time));}
+// clipboard.on('success',function(e){
+//   showSuccess(e.trigger);
+//   sleep(350).then(() => {e.clearSelection();
+//     e.trigger.setAttribute('class','btn fa fa-copy');})
+// });
+
+// Experimental direct editing
+
+// var paragraphs = $$("#entry>p");
+// var lastEl = paragraphs.getLast();
+// var path = '/projects/cadnano/2016-08-22';
+
+// paragraphs.each(function(el) {
+//   var dropArea = new Element('div', {'class':'right droparea',
+//                                      'ondrop':'drop(event, path)',
+//                                      'ondragover':'dragover_handler(event)'
+//                                      });
+//   var next = el.getNext();
+//   if (!!next && !next.hasClass('right')) {
+//     droptext = new Element('div', {'id':'targetString',
+//                                    styles:{display: 'none'},
+//                                    'html':el.get('html')
+//                                   });
+//     droptext.inject(dropArea);
+//     dropArea.inject(el, 'after');
+//   }
+// });
+
+// var rightimgs = $$("img.thumb");
+// rightimgs.each(function(el) {
+//   var button = document.createElement('button');
+//   button.className = 'btn fa fa-window-close';
+//   el.appendChild(button);
+// });
+
+// var markDownEl = document.querySelector(".markdown");
+
+// new MediumEditor($$("#entry>p"), {
+//     extensions: {markdown: new MeMarkdown(function (md) {markDownEl.textContent = md;})},
+//     toolbar: {
+//       allowMultiParagraphSelection: false,
+//       buttons: ['bold', 'italic', 'underline']
+//     },
+//     disableReturn: true,
+//     disableDoubleReturn: true,
+//     disableExtraSpaces: true,
+//     paste: {
+//         forcePlainText: true,
+//         cleanPastedHTML: true
+//     }
+// });
+
+</script>
+
+<a href="slides" id="play-slides-link"><i class="fa fa-play" aria-hidden="true"></i></a>
+
+
+  </div>
+
+  <footer>
+    &copy; 2016. Made with <a target="_new" href="http://bionano.ucsf.edu/"><i class="fa fa-gamepad"></i></a> in SF.
+  </footer>
+
+</body>

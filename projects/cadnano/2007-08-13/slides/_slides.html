@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        I copied the Desktop/cadnano directory from your imac and started
+working on xtps_v3.
+
+It seems the script in its current form is unable to read the default
+SVG that is generated.  On run 1, I input Y, then N to get a fresh
+SVG, and then immediately run again and input Y, then Y, and it gives
+this error:
+
+ValueError: invalid literal for float(): M 32 7 L 34.7777777778 7 Q
+34.7577777778
+
+A zip of the whole directory is attached; here is the full output.
+
+Thanks,
+Shawn
+
+
+---
+
+
+
+Run 1:
+```
+----------c a D N A n o----------
+---config
+Design: xtps_v3, interface 0
+
+FOUND SAVED PICKLE DATA: DO YOU WANT TO RE-USE SAVED PICKLE DATA? (y/n)
+
+[Input: Y]
+
+FOUND SAVED SVG DIAGRAM: DO YOU WANT TO RE-USE SAVED SVG DIAGRAM? (y/n)
+
+[Input: N]
+
+Cleared saved svg file.
+---lattice
+---domain
+---path
+---scaffold
+---staples
+Writing oligo output..
+62 base staple starts at 37[18]
+     core: 204
+    total: 204
+...done: designs/xtps_v3/xtps_v3i0_oligos.txt
+---svg
+Writing SVG output..
+...done: designs/xtps_v3/xtps_v3i0_svg_output.svg
+---------------------------------
+```
+
+Run 2:
+
+```
+PyMate r6780 running Python 2.5.1 (/usr/bin/env python)
+&gt;&gt;&gt; run.py
+
+----------c a D N A n o----------
+---config
+Design: xtps_v3, interface 0
+oligo_file unmodified.... clearing oligo_file
+
+FOUND SAVED PICKLE DATA: DO YOU WANT TO RE-USE SAVED PICKLE DATA? (y/n)
+
+[Input: Y]
+
+FOUND SAVED SVG DIAGRAM: DO YOU WANT TO RE-USE SAVED SVG DIAGRAM? (y/n)
+
+[Input: Y]
+
+---lattice
+---domain
+---path
+---scaffold
+---staples
+Updating breakpoints from svg.
+Updating staple crossovers from svg.
+ValueError: invalid literal for float(): M 32 7 L 34.7777777778 7 Q
+34.7577777778
+
+module body       in run.py at line 51
+function main     in run.py at line 43
+function __init__         in untitled at line 231
+function update_params_from_svg   in untitled at line 296
+function read_staple_xovers       in svg.py at line 910
+function parse    in expatreader.py at line 107
+function parse    in xmlreader.py at line 123
+function feed     in expatreader.py at line 207
+function start_element    in expatreader.py at line 301
+function startElement     in svg.py at line 1282
+Program exited.
+```
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

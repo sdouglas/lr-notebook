@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        # Terminal file migration
+
+Recently while developing &lt;i class=&#34;fa fa-sticky-note-o&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt; lr-notebook, I&#39;ve been moving, renaming, and editing lots of files and folders.
+
+I use a combination of Sublime Text [multiple selection &lt;i class=&#34;fa fa-youtube&#34;&gt;&lt;/i&gt;](https://youtu.be/czQipWJA8EU?t=58s) and shell comands (grep, mv, touch, and echo).
+
+I&#39;m saving some notes this time so maybe I won&#39;t have to figure out the syntax for the sixth time in the future.
+
+## Migrating old lr-notebook project entries.
+
+The old version of lr-notebook used top-level folders named by date. Some date folders contain a project subfolder (e.g. `cadnano`) that contains a contents.lr file, as well as various other files. The new version of lr-notebook inverts this arrangement: a single project folder contains folders named by date, each which contain a modified contents.lr which must explicitly specify its _model and date.
+
+To migrate old entries, I need to move and rename folders, and then add some additional key:value pairs to the contents.lr files.
+
+## Getting a list of files that I want to work with
+
+cd into the source directory.
+
+```
+cd sdouglas-lr-notebook/content/log
+```
+
+Get a list of paths that contain the project folders I want.
+
+```
+find . | grep cadnano\/contents.lr
+```
+
+Result looks like this.
+
+```sh
+./2007/05-May/07/cadnano/contents.lr
+./2007/05-May/10/cadnano/contents.lr
+./2007/06-Jun/04/cadnano/contents.lr
+./2007/07-Jul/17/cadnano/contents.lr
+./2007/07-Jul/30/cadnano/contents.lr
+...30 more lines
+```
+
+&lt;br&gt;
+
+## Editing many lines in parallel
+
+I copy everything into Sublime Text, and use multi-column selection to copy the per-line date information, and then paste and edit them.
+
+I&#39;m going to copy everything into a temporary directory called foo.
+
+```
+cp -a ./2007/05-May/07/cadnano/ foo/2007-05-07
+cp -a ./2007/05-May/10/cadnano/ foo/2007-05-10
+cp -a ./2007/06-Jun/04/cadnano/ foo/2007-06-04
+cp -a ./2007/07-Jul/17/cadnano/ foo/2007-07-17
+cp -a ./2007/07-Jul/30/cadnano/ foo/2007-07-30
+etc...
+```
+
+Append key:value pairs for `_model` and `date` to each contents.lr file using `echo -e`
+
+```
+echo -e &#34;\n---\n_model: entry\n---\ndate: 2007-05-07\n&#34; &gt;&gt; 2007-05-07/contents.lr`
+echo -e &#34;\n---\n_model: entry\n---\ndate: 2007-05-10\n&#34; &gt;&gt; 2007-05-10/contents.lr`
+echo -e &#34;\n---\n_model: entry\n---\ndate: 2007-06-04\n&#34; &gt;&gt; 2007-06-04/contents.lr`
+echo -e &#34;\n---\n_model: entry\n---\ndate: 2007-07-17\n&#34; &gt;&gt; 2007-07-17/contents.lr`
+echo -e &#34;\n---\n_model: entry\n---\ndate: 2007-07-30\n&#34; &gt;&gt; 2007-07-30/contents.lr`
+```
+
+If you don&#39;t have experience with a terminal shell, the only non-obvious things here might be the -e flag on echo, and the `&gt;&gt;` symbol.
+
+`echo -e` enables interpretation of backslash-escaped characters including \n for new line.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;echo-e.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../echo-e.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+
+`&gt;&gt;` appends to an existing file if it exists, whereas `&gt;` would overwrite the file.
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

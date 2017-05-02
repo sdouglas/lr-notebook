@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        # Snap-to-Grid
+
+Before users jump into free-form editing in cadnano 2.5, it would probably be nice to start with a reference grid that looks similar to previous cadnano versions.
+
+## Grid appearance mockups
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;002.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../002.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+
+For appearance, Nick favors lines or points over circles. We should be able to offer all of the above.
+
+## Grid icons
+
+
+Started with creating three versions of the reference grid from the mockup above.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;003.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../003.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+I duplicated an existing SVG icon, copied the grid and rescaled it based on a few trials of exporting as 20x20 png. Then I displayed only the circle, line, or point grids in serial and exported each separately.
+
+&lt;div class=&#34;right&#34;&gt;
+&lt;a href=&#34;grid-circles.png&#34;&gt;&lt;img src=&#34;../grid-circles.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;grid-lines.png&#34;&gt;&lt;img src=&#34;../grid-lines.png&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;grid-points.png&#34;&gt;&lt;img src=&#34;../grid-points.png&#34;&gt;&lt;/a&gt; the icons
+&lt;/div&gt;
+
+
+## Integrating new icons into into mainwindow.ui
+
+First, before you can use new icons in the UI file, they need to be saved into the qrc file. Qt asset management is super clunky and seems to require 10 more steps than should really be necessary.
+
+The both ui and qrc files can be opened in Qt Creator. In the qrc file, I select the &#34;prefix&#34; which is just a group or pseudo-folder inside the qrc. In this case it&#39;s &#34;/slicetools&#34;.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;add-to-qrc.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../add-to-qrc.png&#34;&gt;&lt;/a&gt;
+  add icon to .qrc
+&lt;/div&gt;
+
+Now editing the mainwindow.ui, new &#34;actions&#34; are created inside the action editor.
+
+&lt;div class=&#34;right&#34;&gt;
+  |&lt;a href=&#34;qt-creator-add-action.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../qt-creator-add-action.png&#34;&gt;&lt;/a&gt;|&lt;a href=&#34;qt-creator-add-action-icon.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../qt-creator-add-action-icon.png&#34;&gt;&lt;/a&gt;|
+  |:-:|:-:|
+  |new action dialog|choose icon|
+&lt;/div&gt;
+
+### Compile for use in PyQt
+
+
+&lt;div class=&#34;right&#34;&gt;```
+mainwindow/images/grid-circles.png
+mainwindow/images/grid-points.png
+mainwindow/images/grid-lines.png
+```
+&lt;/div&gt;
+
+The last step is to update the Makefile for PyQt to build the python versions of the ui and qrc files. Append the relative paths of the new icons to the IMAGES variable in `cadnano/gui/ui/Makefile`, and then run make from inside the same directory.
+
+
+### PyQt displays .qrc PNGs, but not SVGs
+
+I tried saving the SVGs directly into the qrc file. They display fine in Qt Creator, but do not work in when launching cadnano (only the text appeared). Maybe something worth revisiting with PyQt in the future, but for now I&#39;m just exporting as PNGs like usual. Here&#39;s what it looks like in cadnano when it works. I didn&#39;t take a screenshot, but when it doens&#39;t work it looks similar but the icons are missing.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;grid-icons-in-cadnano.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../grid-icons-in-cadnano.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+
+## Future
+
+This is just to get stuff working. Ultimately, the grid visibility should just be toggled with a single button. The grid layout (honeycomb vs square, etc.) can be a part property, per Nick&#39;s suggestion. Then, the grid appearance (line vs circle vs point) can be specified. For the sake of convenience, maybe all grid parameters should just be a part properties. (Then we can see which appearances people prefer based on how they save the files?)
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

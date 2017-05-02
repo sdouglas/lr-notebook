@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        ## Goal
+
+Here we want to create some publication-quality 3D renderings of DNA origami models built in cadnano. We use Maya 2012 with the cadnano2 plugin and Photoshop. This should also work with Maya 2015 and cadnano2.2. Some representative composited renders are shown to the right. The toon outline was omitted from the orange domain for comparison.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;composite1.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../composite1.png&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;composite2.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../composite2.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+## Basic Concepts
+
+This assumes basic familiarity with cadnano and the Maya interface.
+
+To achieve the desired appearance, the rendering must be done as two separate passes, and then composited into a single image at the end of the process. Fortunately, it&#39;s possible to automate this for export into PSD layers which makes compositing very easy.
+
+&lt;div class=&#34;right&#34;&gt;
+  |&lt;a href=&#34;ss_toon_layer.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../ss_toon_layer.png&#34;&gt;&lt;/a&gt;|&lt;a href=&#34;amb_occ_layer.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../amb_occ_layer.png&#34;&gt;&lt;/a&gt;|
+  |:-:|:-:|
+  |surface + toon outline|ambient occlusion|
+&lt;/div&gt;
+
+## Part 1: Create the geometry
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;../https://www.youtube.com/embed/Dl0YCOpgInA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+We&#39;re not creating anything fancy here, just a few separate origami shapes that we&#39;ll manipulate and arrange independently. The important step here is grouping and duplicating the objects created by cadnano so we can easily manipulate the geometry and shading without fighting with the code that&#39;s hooked up behind the scenes.
+
+Sorry there is no audio for this first clip. It was meant to just be a record of a private demonstration in the lab. We didn&#39;t even realize we should record audio until the 2nd video. However, it&#39;s still good enough to give a basic idea of the workflow.
+
+
+## Part 2: Set up shaders
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;../https://www.youtube.com/embed/v8DiTxbKET4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+Here we set up some surface shaders to give our models the desired color.
+
+## Part 3: Toon Outline
+
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;../https://www.youtube.com/embed/EIFBUEICpvo&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+This step is optional, but it&#39;s a nice effect that helps define the edges and seams of the object, and its  easy to add.
+
+## Part 4: Render to PSD layers and composite
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;../https://www.youtube.com/embed/5Du0nr1Vy20&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+Here we set up an ambient occlusion shader on its own render layer.  We then configure the render settings so the separate render layers will each be saved to its own layer in a layered Photoshop PSD file. We can then easily composite the two layers (by multiplying the ao layer on top of the ss layer) for the final desired appearance.
+
+### Render settings
+
+Here are screenshots of the render settings windows in case they are hard to see in the videos.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;render-settings-ss.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../render-settings-ss.png&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;render-settings-ao.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../render-settings-ao.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+
+## Conclusion
+
+Many additional effects can be achieved in Photoshop by applying filters or adjustments to the layers.
+
+&lt;a href=&#34;final-invert.png&#34;&gt;&lt;img class=&#34;bigthumb&#34; src=&#34;../final-invert.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;final-textured.png&#34;&gt;&lt;img class=&#34;bigthumb&#34; src=&#34;../final-textured.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+## References
+
+If you are interested in learning about 3D rendering, I highly recommend Jeremy Birn&#39;s [Digital Lighting and Rendering](https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989). It is relatively platform agnostic and focuses on concepts.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a target=&#34;_new&#34; href=&#34;https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../birn-dlr.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

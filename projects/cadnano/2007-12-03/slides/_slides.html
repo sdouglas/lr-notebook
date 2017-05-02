@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        No 1. Buttons (High Priority. I am currently working on this. Goal: finish in the next week)
+
+Short version: get the flash version of cadnano to look like the jpg mockup that I put together this evening.
+
+Plan to add functions that facilitate setting up buttons associated with specific panels (e.g. pass parameters such as target movieclip, icon name, image file, etc. to a Panel).  Panel-specific buttons will appear directly below the masked canvas of the panel, and will be minimized together into the dock.
+
+Gradually start implementing functions associated with each button. Some will be very straightforward (e.g. zoom), others will need to wait until we have a lot more implemented (e.g. most of the Path buttons and all of the render buttons).  Each of us can do these as necessary.
+
+No 2. Implement multiple layers of functionality in Path panel (High priority.  I will work on this as soon as 1 is complete.  It will be useful to split this up.  Goal: finish by end of January)
+
+Add &#34;layers&#34; to the Path panel and hook them up to layer buttons (visible and lock).
+
+Start expanding the Path routines to handle different layers.  This one is quite extensive.  Order will likely be: scaffold, guides, staples, breakpoints, loops.  (We will split this one up too.)
+
+**scaffold**:  We need to fill in horizontal scaffold lines, implement handles for dragging of crossovers, add/del of crossovers for neighboring helices, start doing checks to disallow certain default crossovers from being added,
+
+**staples**: draw default crossovers, implement add/del crossovers, dragging of crossovers
+
+**breakpoints**:  default breakpoints, dragging, add/del breakpoints
+
+Later on: selection tools to grab multiple handles and drag them together.
+
+No 3. 3D drawing (Low priority for now. I will work on this initially, but not before significant progress has been made on 2.  Goal: finish by end of February.)
+
+Papervision3d 2.0 should be out in December &#39;07 or January &#39;08.  It will implement some pretty sophisticated shaders, plus primitive lighting and shadowing effects.  Line3D class still seems like the way to go, but maybe they&#39;ll have better routines.  Supposedly the API is stable, but I think there&#39;s little sense in doing much on this front until we have the Path stuff working and Papervision completes its pending major release.
+
+The earliest we can start working on this is once the scaffold layer more or less complete.  Development can run parallel to the path layers after that (layer buttons can apply to both path and 3d render view).
+
+After we have a 3D viewer that we are satisfied with, next we can start implementing an external rendering system to make high-quality movies.  This should be pretty fun.
+
+No 4. File I/O (Medium priority. Anyone can start implementing this if desired.) Figure out how to output structures for saving (object serialization? custom XML format?).  This is also relevant for external 3D rendering. Once we are able to export structures, we can feed this into the 3D compositor that Au has been working on.  A lot of the 2D Path and 3D viewer code should be portable to the compositor project.
+
+No 5. Additional features &amp; enhancements
+
+**scaffold chooser** (currently being implemented by Alex).
+
+**design validator**: perform several checks to make sure a structure conforms to our rules. should have one continuous scaffold, warn on violations of our spacing conventions, etc.
+
+**oligo grouper &amp; sorter**: use selection tools on the staples layer to group oligos.  provide a list of groups in a suitable format for ordering from company, estimated cost, plus provide pipetting and annealing instructions.
+
+**stats window**:  give basic stats about the order: histogram of staple lengths, average length, total bases paired vs unpaired scaffold, number of loops,
+
+**multi-structure compositor**:  Once we have an output file that fully describes a structure, we can read it in to a compositing program which will allow 3D manipulation of structures so one can arrange them to create &#34;interfaces&#34;.  New lists of oligos will be generated that give rise to multimeric structures.  (Au has been working on this, but it probably makes sense for him to switch over to more immediate sub-projects and then return to the compositor when we have more of the necessary infrastructure in place).
+
+No 6. nano.med website (Low priority now. I&#39;ll do this once we&#39;ve made serious progress on items 1-5.)
+
+No 7. Publication. (High priority, but needs to come after 1-6. Goal: End of Summer 2008, depending on how many of us continue to work on the project until then.  We can of course start writing up the paper immediately.)
+
+&lt;a href=&#34;mockup2.jpg&#34;&gt;&lt;img class=&#34;bigthumb&#34; src=&#34;../mockup2.jpg&#34;&gt;&lt;/a&gt;
+
+```
+Title (suggestions welcome):
+caDNAno: a web-based tool for design and visualization of
+three-dimensional scaffolded DNA origami structures.
+
+Author list so far:
+Douglas SM, Marblestone A, Vazquez A, Teerapittayanon S, Church GM, Shih WM.
+
+Abstract:
+We have developed caDNAno, a versatile web-based tool for design of
+scaffolded DNA origami nanostructures.
+
+Rationale: Scaffolded DNA origami is a revolutionary technique that
+allows implementation of arbitrary nanostructures on the 100 nm scale.
+However, there is a learning curve associated with designing these
+objects, requiring an initial investment of several days or weeks
+(depending on programming experience) to become proficient at
+designing new structures. Also, as structures get increasingly
+complex, the computer scripts required to generate the structures also
+grow in complexity.  We aim to lower this barrier to entry into the
+field by providing a web-tool with an intuitive interface and
+immediate 2D and 3D visual feedback as structures are constructed.
+
+Methods:  screenshots of the tool, links to website, brief background
+on implementation.
+
+Example structures:  show novel structure that we&#39;ve designed using
+caDNAno, including screenshot of the design, and corresponding EM
+images.
+```
+
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        ## Better science will require better tools
+
+Science moves forward when talented, highly skilled people do things that have never been done before. This is easier said than done. Anyone who&#39;s worked in a lab knows that even decades-old protocols don&#39;t usually work on the first few attempts.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;img style=&#34;display:inline-block;&#34; class=&#34;littlethumb&#34; src=&#34;../maniatis.png&#34;&gt;
+  &lt;span style=&#34;display:inline-block; position:relative; top:-4rem; width:60%;&#34;&gt;Every protocol in this book has been unsuccessfully attempted many times.&lt;/span&gt;
+&lt;/div&gt;
+
+Lately there&#39;s been a lot of [concern](http://www.nature.com/news/reproducibility-1.17552) about scientific reproducibility. However, it&#39;s hard to find nuanced discussion* of the root causes of &#34;failed&#34; experiments, let alone any practical solutions that might improve the situation for the people who do the actual work (i.e. students and postdocs).
+
+&lt;div class=&#34;right&#34;&gt;&lt;br&gt; *&amp;nbsp;one exception: [On Reproducibility and Clocks](http://www.ascb.org/on-reproducibility-and-clocks/) by Peter Walter
+&lt;/div&gt;
+
+There&#39;s always a trade-off between doing something new and teaching others what you recently learned. The biggest advances are often totally unexpected. Thus, positive results are often reported as a form of *post hoc* storytelling. Thanks to the &#34;[curse of knowledge](https://en.wikipedia.org/wiki/Curse_of_knowledge)&#34;, it&#39;s common to omit details that long ago became muscle memory for the authors, and even their highly specialized peer reviewers.
+
+&lt;div class=&#34;right&#34;&gt;This cannot be overstated: it&#39;s **HARD** to do something new. &lt;/div&gt;
+
+### Policies + Tools
+
+Policy incentives that encourage better reporting probably won&#39;t hurt, but they also won&#39;t magically make anything easier. If we truly want to improve scientific reproducibility, I suspect we need to complement the retroactive storytelling with **new tools** that lower the barrier to keeping track of detailed information *as it is generated*. A lot of information that might be useful for reproducing experiments is not easily captured as part of the normal research process, but if we can make collecting and sharing data easier, then perhaps we can start to imagine funding &amp; publishing policies that go much further in making our research more accessible (and thus more reproducible).
+
+### Lektor
+
+&lt;div class=&#34;right&#34;&gt;https://www.getlektor.com/&lt;/div&gt;
+
+I believe a new web publishing system called Lektor has tremendous potential to upgrade the way researchers manage and share data. To understand why, I&#39;ll try to explain how I understand it in the  context of amateur online publishing.
+
+## Web publishing has never been easy
+
+Since the early days of the web, setting up and maintaining a website required a lot of technical expertise. Content needed to be coded in html. The html files needed to be hosted on a web server. Content changes were typically synchronized with the server via an FTP client. Many people worked without file version control, and mistakes could be costly. Thus, you needed at least one technical person *somewhere* in the loop, and if you couldn&#39;t hire one, you had to become one yourself.
+
+## Content Management System (CMS) era
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;img class=&#34;thumb&#34; src=&#34;../wordpress.png&#34;&gt;&lt;br&gt;
+  wordpress.com
+&lt;/div&gt;
+
+
+By the early 2000s, various new tools were developed to facilitate various steps of the publishing process. Content management systems (“CMS”) like Drupal and Wordpress were created. CMSs are similar to a wiki, in that they attempt to make it possible for non-programmers to create, edit, or delete content through a web-based admin interface. However, the complexity didn&#39;t disappear—it was simply shifted over to the system administrator, who now had to maintain a web server, plus server-side CMS software, and a database.
+
+The dedicated server software needed be running at all times. You needed to pay for hosting, and you need a sysadmin somewhere in the loop who knows what they are doing. Servers typically need to be constantly patched with security updates, etc. Behind the scenes, the server runs its own database, and every time someone visits the website, the server has to query the database, get the necessary information, and convert it into html, and send it back to the visitors web browser. That works fine if there is little traffic on the site, but if there is ever a huge spike in traffic the server may have to respond to thousands of requests per second  which can bring down the entire site (This used to be called slashdotting). It is possible to do &#34;caching”, but it is typically complicated and hard to get right.
+
+## Static Site Generators
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;img class=&#34;thumb&#34; src=&#34;../jekyll.png&#34;&gt;&lt;br&gt;
+  jekyllrb.com
+&lt;/div&gt;
+
+In the mid- to late-2000s, the tools evolved a bit further. Another type of tool was called a `static site generator`. Instead of dynamically building every page in response to a visitor on the site, a set of scripts pre-complies everything into html once. This meant that files alone could again be hosted on a dedicated web server, just like before. Because there is no database, it was pretty simple to host on an http server, and many companies began offering this kind of hosting service for free (e.g. github pages).
+
+Still, the complexity is not eliminated. Unfortunately, it shifted from the sysadmin back to the content creators. You can’t just log into an admin interface via the website anymore, but instead need to learn how to update the content and sync it with the hosting platform, probably using some kind of version control which is quite fragile. Definitely a downgrade from Drupal or Wordpress from the user perspective.
+
+### Quick aside: Markdown
+
+The language also evolved. In the mid-2000s [markdown](https://daringfireball.net/projects/markdown/) was created as a simplified form of html that is more human readable. Here are two examples content formatted with html and markdown that will ultimately display identically browser (since markdown just gets compiled into to html anyway).
+
+&lt;div class=&#34;right&#34;&gt;
+  |&lt;a href=&#34;html.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../html.png&#34;&gt;&lt;/a&gt;|&lt;a href=&#34;markdown.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../markdown.png&#34;&gt;&lt;/a&gt;|&lt;a href=&#34;renderedhtml.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../renderedhtml.png&#34;&gt;&lt;/a&gt;|
+  |:-:|:-:|:-:|
+  |html|markdown|output|
+&lt;/div&gt;
+
+Markdown was popularized in part due to Jekyll + Github Pages... at least I think that&#39;s how I first encountered it. (Similar &#34;lightweight&#34; markup languages like reStructuredText and AsciiDoc predated markdown by several months but didn&#39;t take off.) It&#39;s now widely supported by modern web publishing tools.
+
+
+## Next up: Hybrid CMS/Static site generators
+
+&lt;div class=&#34;right&#34;&gt;[What is Lektor?](https://www.getlektor.com/docs/what/) (Lektor docs)&lt;/div&gt;
+
+It seems the third stage in the evolution of the web publishing ecosystem are tools that seem to avoid the trade-off between client-side and server-side complexity by handling everything. The most exciting tool in this regard is called [Lektor](http://getlektor.com/), created by Armin Ronacher. It seems there are somewhat similar tools such as [grav](https://learn.getgrav.org/basics/what-is-grav).
+
+### The App
+
+There are several things that are exciting about Lektor. First, it&#39;s an app. Now anyone who can run an OSX app can also run a web server. It works locally with flat files, so nothing needs to be synchronized with a remote server (though it can be configured to build &amp; remotely deploy a static site).
+
+&lt;div class=&#34;right&#34;&gt;
+  |&lt;img class=&#34;littlethumb&#34; src=&#34;../lektor.png&#34;&gt;|&lt;img class=&#34;littlethumb&#34; src=&#34;../lektor-page.png&#34;&gt;
+  |:-:|:-:|
+  |The Lektor app|Example Page|
+&lt;/div&gt;
+
+### The CMS
+
+The Lektor server includes a CMS (or wiki)-like admin interface that is easily accessed through the browser (the admin button is in the top right of every page). This makes it very easy to make simple changes to pages as you&#39;re browsing. In the future if a WYSIWYG markdown editor is included, it might be even for users who don&#39;t wish to use Markdown to format and style their content.
+
+&lt;div class=&#34;right&#34;&gt;
+  |&lt;img class=&#34;littlethumb&#34; src=&#34;../lektor-admin.png&#34;&gt;|
+  |:-:|
+  |The admin UI|
+&lt;/div&gt;
+
+I was very curious about how this is achieved, and after digging around the source and it turns out Lektor leverages another tool previously developed by Ronacher called [click](http://click.pocoo.org/). Another bonus is that html template &#34;framework&#34; [jinja](http://jinja.pocoo.org/) is Python-based, which is very nice to work with.
+
+
+&lt;div class=&#34;right&#34;&gt;Check out [click.launch](https://github.com/pallets/click/blob/master/click/termui.py#L462)&lt;/div&gt;
+
+### A personalized, interactive view of the filesystem (!)
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;maniatis.gif&#34;&gt;
+    &lt;img class=&#34;bigthumb&#34; src=&#34;../maniatis.gif&#34;&gt;
+  &lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+One of the most frustrating things about modern GUI-based operating systems is the constant overhead of finding and navigating to files. Getting work done requires leveraging diverse resources that are somehow always entropically scattered across virtual time and space. Thus, the thing that made me most excited when I first started playing with Lektor was the possibility of embedding JavaScript in html templates that would talk to the server API to perform file system operations (e.g. revealing, creating or editing files).
+
+Since I can open files from the browser, I can now quickly edit it using a *native tool* (such as Photoshop), and then save it. Lektor will simply work in the background to rebuild all affected pages.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;project-view.png&#34;&gt;&lt;img src=&#34;../project-view-2.png&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+Additionally, thanks to Lektor it&#39;s now worthwhile to write my own filesystem views in html+css! For example I can build a page that shows me thumbnails of every single image in a project since day 1. Some example project pages on the right - dozens or hundreds of thumbnail images can be quickly scanned when trying to find something.
+
+Overall Lektor is a very exciting advance in web development, thanks to amazing work by Ronacher.
+
+### Outlook
+
+I&#39;ve been working the last few months to build a new lab notebook using Lektor. If you&#39;re reading this at [sdouglas.github.io/lr-notebook/](http://sdouglas.github.io/lr-notebook/), then you&#39;re looking at the deployed static version of that work.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;new-entry-1.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../new-entry-1.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+I&#39;ll be the first to admit that the current layout of the notebook entries is highly personalized to my own tastes, and still unfinished. But I think the potential is there. Lektor provides a solid foundation for developing tools that facilitate better record keeping and sharing. Of course, new tools we create are only likely to be adopted if they let us continue to work with files and folders like we&#39;re used to. Dropbox was like this, which made it such a seamless upgrade.
+
+It may seem obvious when you say it aloud, but I think it&#39;s very useful to start thinking about everything we do as researchers in terms of ultimately publishing to the web, rather than to journals. Then we might also begin to realize that we needn&#39;t always constrain ourselves to generating simulated pieces of paper, and begin to [explore the possibilities](http://worrydream.com/MediaForThinkingTheUnthinkable/) that dynamic media can offer.
+
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

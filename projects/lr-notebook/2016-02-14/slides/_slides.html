@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        ## Background
+
+Continuing to work on new lektor-based notebook system for the lab!!!!
+
+I&#39;ve used the following for notebooks:
+
+- **per-group mediawiki instance, per-user accounts**
+  - pros: everyone&#39;s work in one place
+  - cons: hard to enforce organization, lacks portability, scales poorly over time
+- **per-user mediawiki instance**
+  - pros: more similar to individual paper notebooks, more portable
+  - cons: poor group-wide indexing, search. collaboration is hard.
+- **per-project git repo, with per-user branches**
+  - pros: benefits of git version control: diffs, lots of git(hub) integrations available
+  - cons: any group-wide indexing requires constent, burdensome merging
+
+Next stage in notebook evolution is:
+
+- **per-user git repo using lektor (static+cms+framework), plus group-wide indexing**
+  - pros: combined benefits of per-user notebooks with automatic per-project indexing, and git-based version control
+  - cons: tbd; requires some work to set up
+
+
+I&#39;m currently favoring the following folder layout and repo naming convention
+
+```
+notebooks/
+  all/
+  nb-docs/
+  nb-han/
+  nb-pablo/
+  nb-parsa/
+  nb-mia/
+  nb-shawn/
+  nb-suraj/
+  nb-tural/
+```
+
+- `nb-*` is an individual git repo containing a lektor notebook
+- `all` is a customized lektor notebook (perhaps with some scripts or symlinks) that builds a master index of sibling notebooks.
+- `nb-docs` will store general lab information (currently on the wiki)
+
+
+
+## Clean up prototype lektor notebook
+
+I originally structured the root of this notebook to be a sub-folder of a git repo. But we want the notebook to move up to the top-level folder of its repo.
+
+Some of the html templates are hard-coded with my name, project name etc. Needed to go into the lektor source code to figure out what the `lektor.environment.Config object` contained. After taking a look at `environment.py`, it turns out we can access the project name variable in a template using `{{config.PROJECT.name}}` so I added that to the layout.html template.
+
+
+## Ongoing CSS Tweaks
+
+Still not happy with all the spacing and formatting of skeleton.css. First I wanted to get header sizes to look more reasonable for log-entry pages. Here are current skeleton.css values:
+
+```css
+h1, h2, h3, h4, h5, h6 {
+  font-family: &#34;Anonymous Pro&#34;, &#34;HelveticaNeue&#34;, &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 2.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 1.8rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 1.5rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 1.2rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.1rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.0rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+```
+
+Here are some updated values.
+
+```css
+h1 { font-size: 2.8rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 2.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 2.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 1.6rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.2rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.0rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 4.0rem; }
+  h2 { font-size: 3.6rem; }
+  h3 { font-size: 3.3rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.5rem; }
+  h6 { font-size: 1.5rem; }
+}
+```
+
+I also updated `code` with the following:
+
+```
+color: #cc3366;
+display: inline-block;
+```
+
+inline-block means that the width of the fenced code blocks does not extend all the way to the edge of the div.
+
+
+## Sublime Markdown Syntax Highlighting
+
+These look promising:
+- https://github.com/jonschlinkert/sublime-markdown-extended
+- https://packagecontrol.io/packages/Monokai%20Extended
+
+I&#39;m still happy with Monokai-Midnight for default editing
+`&#34;color_scheme&#34;: &#34;Packages/Colorsublime - Themes/Monokai-Midnight.tmTheme&#34;,`
+
+For markdown I&#39;ve been using Hammer:
+
+```json
+{
+  &#34;color_scheme&#34;: &#34;Packages/Colorsublime - Themes/Hammer.tmTheme&#34;,
+  &#34;dictionary&#34;: &#34;Packages/Language - English/en_US.dic&#34;,
+  &#34;extensions&#34;:
+  [
+    &#34;markdown&#34;,
+    &#34;md&#34;,
+    &#34;lr&#34;,
+    &#34;markdown&#34;
+  ],
+  &#34;font_size&#34;: 20,
+  &#34;ignored_packages&#34;:
+  [
+    &#34;Vintage&#34;
+  ],
+  &#34;spell_check&#34;: true,
+  &#34;trim_trailing_white_space_on_save&#34;: true
+}
+```
+
+I would like to eventually get code-fence highlighting to work with sublime-markdown-extended, but with something like Hammer instead of Monokai for outside code blocks.
+
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        # Starred Projects and Entries
+
+Now that I&#39;m adding more content, some of the top-level &lt;i class=&#34;fa fa-sticky-note-o&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt; lr-notebook pages are getting kind of dense. I thought it would be useful to add the option to &#34;star&#34; a project or project entry, and then display with visual hints for quickly identifying them.
+
+To start I&#39;m just adding the option in the admin interface to choose a star color.
+
+## Result
+
+Here&#39;s the commit with initial implementation.
+
+&lt;div class=&#34;right&#34;&gt;
+[8913f90](https://github.com/douglaslab/lr-notebook/commit/8913f9019b4674885dab20320bfb55b0ed41013c) &lt;i class=&#34;fa fa-github-alt&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+&lt;/div&gt;
+
+To add a star, select a color from the dropbown menu in the Lektor admin &#34;edit&#34; page for a project or entry, and save changes.
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;add-star.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../add-star.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;starred-project.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../starred-project.png&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;starred-entry.png&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../starred-entry.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+Here&#39;s what it looks like on the Projects page for a starred project and a starred entry.
+
+
+### Future
+
+In the future I may add a button and JavaScript function to easily toggle the &#34;star&#34; status within a page.
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

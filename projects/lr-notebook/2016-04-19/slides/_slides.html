@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        # Overview
+
+Today I am working on the CSS for the lr-notebook **entry** template. Entries are the actual pages where we compose the text, images, and data into lab notebook entries. This page, for example is an entry.
+
+&lt;div class=&#34;right&#34;&gt;[lr-notebook: templates/entry.html](https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html) &lt;i class=&#34;fa fa-github-alt&#34;&gt;&lt;/i&gt;&lt;/div&gt;
+
+My goal is to create a 2-column layout that makes it very easy to display &amp; align content (images, tables, markdown, etc.) in the right column.
+
+## Results
+
+Notebook entries are now formatted in a simple 2-column layout.
+
+### How to use the right column
+
+By default, almost everything is displayed in the left column. To move something to the right column, some html must be used. A div (&lt;a target=&#34;_new&#34; href=&#34;http://www.w3schools.com/tags/tag_div.asp&#34;&gt;?&lt;/a&gt;) tag defined with class=&#34;right&#34; must go before the content, and then a closing div tag must go after the content. *Make sure to include the closing div tag, otherwise the entire page may not display correctly.*
+
+```html
+&lt;div class=&#34;right&#34;&gt;
+content goes here: images, urls, etc.
+plain text, html, or markdown should work
+&lt;/div&gt;
+```
+
+### Sections
+
+Headings are used to delineate sections, just as in normal markdown. `#` initiates a full section, and the stylized heading spans both left and right columns. `##` is used for sub-sections, and the stylized heading spans only the left column. `###` is useful for paragraph titles within a sub-section. Lesser headings (`####`, etc.) are similar to h3 but smaller font-size.
+
+&lt;div class=&#34;right&#34;&gt;
+```html
+# Section
+## Subsection
+### Pararaph title
+
+Lorem ipsum dolor sit amet...
+```
+&lt;/div&gt;
+
+Here&#39;s a screenshot of how the above markdown content should render.
+
+&lt;div class=&#34;right&#34;&gt;&lt;a href=&#34;section.png&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../section.png&#34;&gt;&lt;/a&gt;&lt;/div&gt;
+
+## Notes
+
+### Images
+
+Currently I support three ways to display an image
+
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;
+  &lt;a href=&#34;image.jpg&#34;&gt;&lt;img class=&#34;littlethumb&#34; src=&#34;../image.jpg&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+
+For images I use this snippet, mapped to `;img`
+
+```html
+&lt;div class=&#34;right&#34;&gt;
+  &lt;a href=&#34;%clipboard&#34;&gt;
+    &lt;img class=&#34;thumb&#34; src=&#34;../%clipboard&#34;&gt;
+  &lt;/a&gt;&lt;br&gt;%clipboard
+&lt;/div&gt;
+```
+
+
+### Fenced code blocks float right automatically
+
+&lt;div class=&#34;right&#34;&gt;&lt;code&gt;```&lt;/code&gt; ← 3 backticks&lt;/div&gt;
+
+Fenced code blocks (content between groups of 3 backticks) are positioned in the right column automatically, and do not need to be wrapped in a &#34;right&#34; class div. This is done to preserve markdown syntax highlighting.
+
+
+### TextExpander
+
+Finally, I use this TextExpander snippet mapped to quickly move content to the right. Working in the editor, I will select and cut the text (&amp;#8984;+x) to place it on the clipboard, and then type the snippet shortcut to restore the same text wrapped inside the div. I map to the shortcut `;rt`.
+
+```html
+&lt;div class=&#34;right&#34;&gt;%clipboard&lt;/div&gt;
+```
+
+
+&lt;br&gt;&lt;br&gt;
+
+# Methods
+
+Starting work on this layout quickly exposed the limitations of my CSS knowledge. Below are some notes and resources that I used.
+
+## Inspiration
+
+&lt;div class=&#34;right&#34;&gt;
+&lt;a target=&#34;_new&#34; href=&#34;http://worrydream.com/dbx&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../bv-dbx.png&#34;&gt;&lt;/a&gt;
+&lt;a target=&#34;_new&#34; href=&#34;http://worrydream.com/ClimateChange/&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;../bv-cc.png&#34;&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+I really like the 2-column layouts of various essays on [worrydream.com](http://worrydream.com/). They are very cleanly organized and as a reader I appreciate how referenced content is always immediately adjacent to the referring text.
+
+In particular I referenced the talk notes from &#34;Future of Programming&#34; dbx talk.
+
+The ClimateChange essay is very nicely designed, but its content and layout seemed a little too dense for my template. But I did like the formatting styles and in particular the section headers were a good starting point for `h1` and `h2` styles this page.
+
+
+## CSS selectors
+
+### Specificity
+
+I found it useful to first learn about CSS selectors. I read an article called **Specifics on CSS Specificity** [[1](https://css-tricks.com/specifics-on-css-specificity/)]. I liked the sections &#34;Calculating CSS Specificity Value&#34; and &#34;Sample calculations&#34;. In particular it was helpful to understand that CSS selector types have actual numeric weight values associated with them.
+
+&lt;div class=&#34;right&#34;&gt;
+[1] https://css-tricks.com/specifics-on-css-specificity/
+&lt;img width=&#34;50%&#34; src=&#34;../specificity-calculationbase.png&#34;&gt;
+&lt;/div&gt;
+
+Next I came across **CSS Specificity Wars** [[2](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html)] - a nice visual representation of the relative strengths of CSS selectors:Storm Trooper (element) vs Vader (class) vs Emperor (id).
+
+&lt;div class=&#34;right&#34;&gt;
+  [2] https://stuffandnonsense.co.uk/archives/css_specificity_wars.html&lt;br&gt;
+  &lt;img src=&#34;../specificitywars-01.jpg&#34;&gt;
+  &lt;img src=&#34;../specificitywars-02.jpg&#34;&gt;
+  &lt;img src=&#34;../specificitywars-03.jpg&#34;&gt;
+&lt;/div&gt;
+
+Finally Smashing Magazine has an article that&#39;s maybe worth a look [[3](https://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/)]. It covers Attribute selectors, Child selector, Sibling combinators, and Pseudo-classes.
+
+&lt;div class=&#34;right&#34;&gt;
+[3] https://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/
+&lt;/div&gt;
+
+
+### Adding a template-specific id: #entry
+
+Because I wanted to format the content of entry pages, but not interfere with the rest of the site, I chose to create the `#entry` id that could be included in the entry template [[4](https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html#L15)].
+
+&lt;div class=&#34;right&#34;&gt;
+[4] https://github.com/douglaslab/lr-notebook/blob/master/templates/entry.html#L15
+&lt;/div&gt;
+
+
+
+### Additional notes
+
+Parent selectors don&#39;t exist [[5](https://css-tricks.com/parent-selectors-in-css/)]
+
+&lt;div class=&#34;right&#34;&gt;
+[5] https://css-tricks.com/parent-selectors-in-css/
+&lt;/div&gt;
+
+
+## Two-column responsive layout
+
+### Existing options
+&lt;div class=&#34;right&#34;&gt;[6] http://blog.mattbierner.com/responsive-two-column-documentation-layout-with-markdown-and-css/&lt;/div&gt;
+
+The first thing I found was [[6](http://blog.mattbierner.com/responsive-two-column-documentation-layout-with-markdown-and-css/)]. I didn&#39;t end up using this directly, but it&#39;s not that different in concept from what I ended up doing, in particular how CSS properties `width`, `float`, and `clear`  are used to achieve 2 columns. Bierner&#39;s solution is  specific to fenced code blocks that are output with a `.highlight` class, which is standard for code syntax highlighters [[7](http://pygments.org/docs/quickstart/#example)].
+
+&lt;div class=&#34;right&#34;&gt;[7] http://pygments.org/docs/quickstart/#example&lt;/div&gt;
+
+I tried for a while to adapt it for different elements (e.g. code, or imgs), but realized what I actually wanted is to be able to wrap an arbitrary block of *markdown or html* in a custom div to put it in the right column. This raises another issue, which I ended up addressing with the javascript library &#34;marked&#34;.
+
+### How the layout works
+
+Basically everything that should be displayed in the left column is made slightly less than 50% width, floated left, and cleared to the left. Importantly, clearing to the left means that adjacent elements to not stack up next to each other and start to overlap with the right column. (I found the `clear` behavior non-intuitive when figuring this out).
+
+```css
+  #entry p {
+    width: 46%;
+    float: left;
+    clear: left;
+  }
+```
+
+Next we define a &#34;.right&#34; class in the stylesheet, make it 50% width, and float and clear it to the left.
+
+```css
+  .right {
+    width: 50%;
+    float: right;
+    clear: right;
+    display: inline;
+  }
+```
+### Fine tuning
+
+I also stylize specific elements inside the right class, to make sure they are not too close to the edges, e.g.
+
+```css
+  #entry .right p {
+    width: 96%;
+    line-height: 1.3;
+    margin-left: 2rem;
+  }
+```
+
+## Rendering markdown inside &#34;right&#34; div
+
+Markdown rendering does not apply to any content that is inside html tags. Thus, we cannot by default use markdown inside the &#34;right&#34; divs. I decided it&#39;s worth trying to restore this feature because it&#39;s nice to use markdown consistently in the document, e.g. for links.
+
+&lt;div class=&#34;right&#34;&gt;[8] https://github.com/chjj/marked&lt;/div&gt;
+
+I relied on marked [[8](https://github.com/chjj/marked)], a markdown parser and compiler written in javascript. It works by including a javascript function that applies &#34;marked&#34; rendering to the innerHTML content of any div elements with class=&#34;right&#34;
+
+```html
+&lt;script&gt;
+  function renderRightAsMarkdown() {
+    var right = document.getElementsByClassName(&#34;right&#34;);
+    for (var i=0; i&lt;right.length; i++) {
+      src = right[i].innerHTML
+      right[i].innerHTML = marked(src);
+    }
+  }
+  renderRightAsMarkdown();
+&lt;/script&gt;
+```
+
+It&#39;s not an ideal solution to have markdown in each column compiled separately (left column by Lektor when the page is built, and right column by marked in the browser). In particular, it means that url references are not aware of each other, which is annoying for citations.
+
+
+
+
+
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>

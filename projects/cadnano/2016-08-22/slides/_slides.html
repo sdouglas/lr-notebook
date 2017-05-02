@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="../../../../static/fonts/fa/css/font-awesome.min.css?h=512c7d79">
+    <link rel="stylesheet" href="/static/lib/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/static/lib/reveal/css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="/static/slides.css">
+    <style>#lektor-edit-link {display:none;}</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+      <section data-markdown data-separator="^\n\n">
+        
+## Quitting by closing the window:
+
+```
+Traceback (most recent call last):
+  File &#34;./cadnano/gui/controllers/documentcontroller.py&#34;, line 721, in windowCloseEventHandler
+    self.actionCloseSlot()
+  File &#34;./cadnano/gui/controllers/documentcontroller.py&#34;, line 329, in actionCloseSlot
+    self.destroyDC()
+  File &#34;./cadnano/gui/controllers/documentcontroller.py&#34;, line 83, in destroyDC
+    self.disconnectSignalsToSelf()
+  File &#34;./cadnano/gui/controllers/documentcontroller.py&#34;, line 91, in disconnectSignalsToSelf
+    o = win.outliner_widget
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;outliner_widget&#39;
+Abort trap: 6
+```
+
+## LOD isn&#39;t working - resetGL doesn&#39;t seem to be called?
+
+## Change visibility of part with some path item (e.g. endpoints, strand, etc) selected.
+
+## Change visibility of oligo with paintTool selected.
+
+I.e. maybe we need an abstract tool with default methods
+
+## Xovers don&#39;t line up when importing cadnano2 honeycomb design
+
+## Need to be able to click away from active helix somehow to deselect and make nothing active (maybe click inside part but not on VH?)
+
+## Select several vh and try to edit length
+
+```
+Traceback (most recent call last):
+  File &#34;./cadnano/gui/views/propertyview/propertyeditorwidget.py&#34;, line 272, in createEditor
+    editor = treewidgetitem.configureEditor(parent_QWidget, option, model_index)
+  File &#34;./cadnano/gui/views/propertyview/virtualhelixitem.py&#34;, line 132, in configureEditor
+    &#39;length&#39;])
+TypeError: getProperty() takes 2 positional arguments but 3 were given
+Abort trap: 6
+```
+
+## Display pencil tool &#34;forced xover hint&#34; for any hover event on prexover.
+
+## Some way to clear / hide abstract sequences?
+      </section>
+      
+      </div>
+    </div>
+
+    <script src="../../../../static/lib/reveal/lib/js/head.min.js?h=8c9495c7"></script>
+    <script src="../../../../static/lib/reveal/js/reveal.js?h=19c4134c"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        center: false,
+        history: true,
+        margin: 0.2,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast', // default/fast/slow
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: true,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '/static/lib/reveal/css/theme/black.css' },
+                { name: 'White', theme: '/static/lib/reveal/css/theme/white.css' },
+                { name: 'League', theme: '/static/lib/reveal/css/theme/league.css' },
+                { name: 'Sky', theme: '/static/lib/reveal/css/theme/sky.css' },
+                { name: 'Solarized', theme: '/static/lib/reveal/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: "../../../../static/lib/reveal/plugin/markdown/marked.js" },
+          { src: "../../../../static/lib/reveal/plugin/markdown/markdown.js" },
+          { src: "../../../../static/lib/reveal/plugin/menu/menu.js"},
+          { src: "../../../../static/lib/reveal/plugin/zoom-js/zoom.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/notes/notes.js", async: true },
+          { src: "../../../../static/lib/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+    <a href=".." id="exit-slides-link"><i class="fa fa-close" aria-hidden="true"></i></a>
+  </body>
+</html>
