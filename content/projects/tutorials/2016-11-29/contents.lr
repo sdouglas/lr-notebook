@@ -63,7 +63,7 @@ This step is optional, but it's a nice effect that helps define the edges and se
 
 Here we set up an ambient occlusion shader on its own render layer.  We then configure the render settings so the separate render layers will each be saved to its own layer in a layered Photoshop PSD file. We can then easily composite the two layers (by multiplying the ao layer on top of the ss layer) for the final desired appearance.
 
-## Render settings
+### Render settings
 
 Here are screenshots of the render settings windows in case they are hard to see in the videos.
 
@@ -85,7 +85,7 @@ Many additional effects can be achieved in Photoshop by applying filters or adju
 
 ## References
 
-If you are interested in learning about 3D rendering, I highly recommend Jeremy Birn's [Digital Lighting and Rendering](https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989). It is relatively platform agnostic and really focuses at a conceptual level.
+If you are interested in learning about 3D rendering, I highly recommend Jeremy Birn's [Digital Lighting and Rendering](https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989). It is relatively platform agnostic and focuses on concepts.
 
 <div class="right">
   <a target="_new" href="https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989"><img class="littlethumb" src="birn-dlr.png"></a><br>
